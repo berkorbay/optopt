@@ -120,7 +120,7 @@ language-model agents with a thinking-time budget, CPU/GPU portfolios and cooper
 [`vault/10-design/Future research.md`](vault/10-design/Future%20research.md).
 
 ## Credits
-Author: Berk Orbay (berk.orbay@tideseed.com). The experiments were designed with and executed by **AgentRA** (Agent Research Assistant) — **AgentRA is mainly Claude Opus 5.5** — under the author's direction; every number comes from the
+Author: Berk Orbay (berk.orbay@tideseed.com). Paper and original measurements: [doi:10.5281/zenodo.22947442](https://doi.org/10.5281/zenodo.22947442). Website and tutorials: https://berkorbay.github.io/optopt/. The experiments were designed with and executed by **AgentRA** (Agent Research Assistant) — **AgentRA is mainly Claude Opus 5.5** — under the author's direction; every number comes from the
 code and job definitions here and can be re-derived with `optopt reproduce` after re-running the jobs. The study was
 reviewed, with suggestions for improvement, by Claude Fable 5.1 (Anthropic) and OpenAI GPT-6 Astra (ChatGPT); the reviews' findings and the responses are in `vault/80-reviews/`.
 

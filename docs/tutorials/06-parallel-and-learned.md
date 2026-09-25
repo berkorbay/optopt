@@ -1,3 +1,10 @@
+---
+layout: default
+title: "6 · Parallel copies and learned selectors"
+---
+
+[← optopt](../) · [Tutorials](./)
+
 # 6 · Parallel copies and learned selectors
 
 **Parallel copies.** If the best setting depends on the run, run several and keep the best — the *algorithm portfolio*

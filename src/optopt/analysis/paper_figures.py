@@ -87,11 +87,41 @@ def fig_decomposition():
     plt.close(fig)
 
 
+def fig_social_card(inst="h80x6320d", T=120):
+    """1200 x 630 link-preview image for the project site (Open Graph / X), from the Figure 1 runs."""
+    ref = solu()[inst]
+    fig = plt.figure(figsize=(12, 6.3), dpi=100)
+    fig.patch.set_facecolor("#fcfcfb")
+    fig.text(0.05, 0.80, "Optimizing the Optimizers", fontsize=33, fontweight="bold", color=INK, va="top")
+    fig.text(0.05, 0.655, "Measuring learned control of MIP solvers\non a single DGX Spark", fontsize=20, color=INK,
+             va="top", linespacing=1.3)
+    fig.text(0.05, 0.40, "HiGHS \u00b7 SCIP \u00b7 cuOpt  |  8,000+ runs  |  code, data, tutorials", fontsize=14,
+             color=INK2, va="top")
+    fig.text(0.05, 0.12, "Berk Orbay  \u00b7  berkorbay.github.io/optopt", fontsize=15, color=INK2, va="bottom")
+    ax = fig.add_axes([0.67, 0.20, 0.29, 0.52])
+    for arm, lab, color, ytext in (("C:D", "SCIP default", BLUE, 0.70), ("C:NOC", "separation off", ORANGE, 0.14)):
+        tr = json.loads((ROOT / f"traces/raw/b2_scip/{inst}__{arm}__s0.json").read_text())
+        xs, ys = gap_curve(tr, ref, T)
+        ax.step(xs, ys, where="post", color=color, linewidth=2.4)
+        ax.fill_between(xs, ys, step="post", color=color, alpha=0.15, linewidth=0)
+        ax.text(10, ytext, f"{lab}", color=INK, fontsize=11)
+    ax.set_xlim(0, T)
+    ax.set_ylim(0, 1.05)
+    ax.set_xlabel("seconds", fontsize=11)
+    ax.set_ylabel("gap to best known", fontsize=11)
+    ax.set_facecolor("#fcfcfb")
+    ax.set_title("same solver, two settings", fontsize=12, color=INK2, loc="left")
+    out = ROOT / "docs/social-card.png"
+    fig.savefig(out, dpi=100, facecolor=fig.get_facecolor(), metadata={"Software": None})
+    plt.close(fig)
+
+
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
     fig_decomposition()
     if (ROOT / "traces/raw/b2_scip").exists():
         fig_primal_integral()
+        fig_social_card()
     else:
         print("traces/raw/b2_scip not present: Figure 1 kept as committed (re-run jobs/b2_*.jsonl to regenerate)")
 

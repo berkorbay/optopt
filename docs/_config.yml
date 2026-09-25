@@ -1,0 +1,17 @@
+title: "Optimizing the Optimizers — optopt"
+description: "Measuring learned control of MIP solvers on a single DGX Spark"
+theme: jekyll-theme-primer
+plugins:
+  - jekyll-relative-links
+  - jekyll-optional-front-matter
+  - jekyll-readme-index
+relative_links:
+  enabled: true
+  collections: false
+url: "https://berkorbay.github.io"
+baseurl: "/optopt"
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /social-card.png

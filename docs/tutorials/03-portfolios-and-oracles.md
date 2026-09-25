@@ -1,3 +1,10 @@
+---
+layout: default
+title: "3 · Portfolios, oracles and headroom"
+---
+
+[← optopt](../) · [Tutorials](./)
+
 # 3 · Portfolios, oracles and headroom
 
 Give yourself a small **portfolio** of strategies (here six: HiGHS, SCIP and cuOpt, each at default and with a

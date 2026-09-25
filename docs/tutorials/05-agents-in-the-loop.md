@@ -1,10 +1,17 @@
+---
+layout: default
+title: "5 · Agents in the loop"
+---
+
+[← optopt](../) · [Tutorials](./)
+
 # 5 · Agents in the loop
 
 The end-to-end question: hand an **agent** a problem, a solver, a wall-clock budget and a fixed slice of the machine; it
 starts from the defaults and may change settings or restart at any time. Everything it does — including its own
 thinking time — counts against the budget.
 
-In this repository the agent is called from inside SCIP every few seconds (`src/optopt/agents/base.py`) with the current state
+In this repository the agent is called from inside SCIP every few seconds ([`src/optopt/agents/base.py`](https://github.com/berkorbay/optopt/blob/main/src/optopt/agents/base.py)) with the current state
 (incumbent, bound, gap, time since the last new solution, node rate, current setting) and returns nothing, a setting, or a
 restart. SCIP's time limit is wall clock, so slow agents pay for their slowness.
 

@@ -1,3 +1,10 @@
+---
+layout: default
+title: "4 · Choosing versus switching"
+---
+
+[← optopt](../) · [Tutorials](./)
+
 # 4 · Choosing versus switching
 
 If configurations matter, maybe the solver should change them **during** the run: start with aggressive heuristics, then
@@ -22,4 +29,4 @@ solver), and the predictors tried did not capture it. Other schedules or longer 
 at 25 % on three generated problems.
 
 **Try:** add your own schedule, e.g. `("HEU", "D", "stall20")` — aggressive heuristics until the search stalls for 20 % of the
-budget (settings are in `src/optopt/solvers/scip.py`, `SETTINGS`).
+budget (settings are in [`src/optopt/solvers/scip.py`](https://github.com/berkorbay/optopt/blob/main/src/optopt/solvers/scip.py), `SETTINGS`).

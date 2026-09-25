@@ -4,6 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Optimizing the Optimizers: Measuring Learned Control of MIP Solvers on a Single DGX Spark</title>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://berkorbay.github.io/optopt/">
+<meta property="og:title" content="Optimizing the Optimizers: Measuring Learned Control of MIP Solvers on a Single DGX Spark">
+<meta property="og:description" content="How much sooner HiGHS, SCIP and cuOpt find good solutions when settings are chosen per instance, and what simple, learned and language-model controllers recover. Paper, Python library, original measurements and tutorials.">
+<meta property="og:image" content="https://berkorbay.github.io/optopt/social-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Optimizing the Optimizers: primal gap over time for SCIP's default and with separation off">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Optimizing the Optimizers: Measuring Learned Control of MIP Solvers">
+<meta name="twitter:description" content="HiGHS, SCIP and cuOpt on one DGX Spark: 8,000+ runs, code, data and tutorials.">
+<meta name="twitter:image" content="https://berkorbay.github.io/optopt/social-card.png">
 <meta name="description" content="How much sooner HiGHS, SCIP and cuOpt find good solutions when settings are chosen per instance, and what simple, learned and language-model controllers recover. Paper, Python library and original measurements.">
 <style>
   :root { --ink: #0b0b0b; --ink2: #52514e; --rule: #e6e5e1; --link: #1f5fa8; --surface: #fcfcfb; }
@@ -33,7 +45,8 @@
 <body>
 <main>
 <h1>Optimizing the Optimizers: Measuring Learned Control of MIP Solvers on a Single DGX Spark</h1>
-<p class="byline">Berk Orbay &middot; technical report, 24 September 2026</p>
+<p class="byline">Berk Orbay &middot; technical report, 24 September 2026 &middot;
+<a href="https://doi.org/10.5281/zenodo.22947442">doi:10.5281/zenodo.22947442</a></p>
 
 <p>The default settings of a mixed-integer programming (MIP) solver are tuned to do well on average; a user with a
 fixed time budget cares about the instance at hand. On one NVIDIA DGX Spark we measure, for HiGHS, SCIP and NVIDIA
@@ -43,10 +56,11 @@ their decision time charged to the budget. The measure is the primal integral, t
 averaged over the budget.</p>
 
 <nav>
-  <a href="https://github.com/berkorbay/optopt/blob/main/paper/main.pdf">Paper (PDF)</a>
+  <a href="https://doi.org/10.5281/zenodo.22947442">Paper (Zenodo)</a>
+  <a href="https://github.com/berkorbay/optopt/blob/main/paper/main.pdf">PDF</a>
   <a href="https://github.com/berkorbay/optopt">Code</a>
   <a href="https://github.com/berkorbay/optopt/releases/tag/traces-v1">Original measurements</a>
-  <a href="https://github.com/berkorbay/optopt/tree/main/tutorials">Tutorials</a>
+  <a href="tutorials/">Tutorials</a>
   <a href="https://github.com/berkorbay/optopt/blob/main/AGENTS.md">AGENTS.md</a>
 </nav>
 
@@ -63,6 +77,19 @@ averaged over the budget.</p>
   defaults by 33&nbsp;%. An untrained local language-model agent makes the same first move in most runs, but the fixed
   setting applied at the same solver callback beats it on 22 of 30 instances.</li>
 </ol>
+
+<h2>Tutorials</h2>
+<p>Six short chapters that explain the ideas from zero, each with a figure from the paper's runs and an example you can
+run in about a minute:</p>
+<ol>
+  <li><a href="tutorials/01-mip-solver-in-motion.html">What a MIP solver does while it runs</a></li>
+  <li><a href="tutorials/02-primal-integral.html">Measuring "good solutions early"</a></li>
+  <li><a href="tutorials/03-portfolios-and-oracles.html">Portfolios, oracles and headroom</a></li>
+  <li><a href="tutorials/04-choosing-vs-switching.html">Choosing versus switching</a></li>
+  <li><a href="tutorials/05-agents-in-the-loop.html">Agents in the loop</a></li>
+  <li><a href="tutorials/06-parallel-and-learned.html">Parallel copies and learned selectors</a></li>
+</ol>
+<p>Further reading: <a href="tutorials/resources.html">books and papers</a>, marked open or paywalled.</p>
 
 <h2>Two solvers at once</h2>
 <table>
@@ -89,6 +116,7 @@ differ on other hardware. See the <a href="https://github.com/berkorbay/optopt#r
   author = {Orbay, Berk},
   year   = {2026},
   type   = {Technical report},
+  doi    = {10.5281/zenodo.22947442},
   url    = {https://github.com/berkorbay/optopt}
 }</code></pre>
 
