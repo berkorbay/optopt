@@ -3,7 +3,7 @@
     python tutorials/build_site.py
 
 The markdown in tutorials/ stays the single source. Links between chapters (*.md) are converted to pages by GitHub
-Pages; README.md becomes the section's index. Inline references to example scripts are linked to the repository.
+Pages; README.md is written as index.md, the section's index. Inline references to example scripts are linked to the repository.
 """
 import re
 import shutil
@@ -29,7 +29,7 @@ def main():
         md = re.sub(r"`(src/optopt/[\w./-]+\.py)`", lambda m: f"[`{m.group(1)}`]({REPO}{m.group(1)})", md)
         front = f"---\nlayout: default\ntitle: \"{title(md)}\"\n---\n\n"
         nav = "[← optopt](../) · [Tutorials](./)\n\n" if f.name != "README.md" else "[← optopt](../)\n\n"
-        (OUT / f.name).write_text(front + nav + md)
+        (OUT / ("index.md" if f.name == "README.md" else f.name)).write_text(front + nav + md)  # README = section index
     if (OUT / "figures").exists():
         shutil.rmtree(OUT / "figures")
     shutil.copytree(SRC / "figures", OUT / "figures")
