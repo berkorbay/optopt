@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Optimizing the Optimizers: Measuring Learned Control of MIP Solvers on a Single DGX Spark</title>
+<meta name="description" content="How much sooner HiGHS, SCIP and cuOpt find good solutions when settings are chosen per instance, and what simple, learned and language-model controllers recover. Paper, Python library and original measurements.">
+<style>
+  :root { --ink: #0b0b0b; --ink2: #52514e; --rule: #e6e5e1; --link: #1f5fa8; --surface: #fcfcfb; }
+  @media (prefers-color-scheme: dark) {
+    :root { --ink: #ecebe8; --ink2: #b3b1ab; --rule: #34332f; --link: #7fb2ee; --surface: #151514; }
+  }
+  body { margin: 0; background: var(--surface); color: var(--ink);
+         font: 17px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { max-width: 46rem; margin: 0 auto; padding: 3rem 1.25rem 4rem; }
+  h1 { font-size: 1.7rem; line-height: 1.25; margin: 0 0 .6rem; }
+  h2 { font-size: 1.1rem; margin: 2.2rem 0 .6rem; border-top: 1px solid var(--rule); padding-top: 1.2rem; }
+  .byline { color: var(--ink2); margin: 0 0 1.4rem; }
+  a { color: var(--link); }
+  nav { display: flex; flex-wrap: wrap; gap: .5rem .9rem; margin: 1.2rem 0 0; }
+  nav a { border: 1px solid var(--rule); border-radius: 6px; padding: .35rem .7rem; text-decoration: none; }
+  nav a:hover { border-color: var(--link); }
+  ol li { margin: .4rem 0; }
+  table { border-collapse: collapse; width: 100%; font-size: .95rem; }
+  th, td { text-align: left; padding: .35rem .5rem; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  td.n { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  pre { background: transparent; border: 1px solid var(--rule); border-radius: 6px; padding: .8rem; overflow-x: auto;
+        font-size: .85rem; line-height: 1.4; }
+  code { font-size: .92em; }
+  footer { color: var(--ink2); font-size: .9rem; margin-top: 3rem; border-top: 1px solid var(--rule); padding-top: 1rem; }
+</style>
+</head>
+<body>
+<main>
+<h1>Optimizing the Optimizers: Measuring Learned Control of MIP Solvers on a Single DGX Spark</h1>
+<p class="byline">Berk Orbay &middot; technical report, 24 September 2026</p>
+
+<p>The default settings of a mixed-integer programming (MIP) solver are tuned to do well on average; a user with a
+fixed time budget cares about the instance at hand. On one NVIDIA DGX Spark we measure, for HiGHS, SCIP and NVIDIA
+cuOpt, how much sooner a good solution could be found by choosing settings per instance, whether that gain comes from
+the initial choice or from switching settings during the solve, and what simple and learned controllers recover, with
+their decision time charged to the budget. The measure is the primal integral, the gap to the best known solution
+averaged over the budget.</p>
+
+<nav>
+  <a href="https://github.com/berkorbay/optopt/blob/main/paper/main.pdf">Paper (PDF)</a>
+  <a href="https://github.com/berkorbay/optopt">Code</a>
+  <a href="https://github.com/berkorbay/optopt/releases/tag/traces-v1">Original measurements</a>
+  <a href="https://github.com/berkorbay/optopt/tree/main/tutorials">Tutorials</a>
+  <a href="https://github.com/berkorbay/optopt/blob/main/AGENTS.md">AGENTS.md</a>
+</nav>
+
+<h2>Main findings</h2>
+<p>Over 8,000 runs on MIPLIB 2017, two ML4CO families and PGLib-UC unit commitment:</p>
+<ol>
+  <li><strong>How much there is to gain.</strong> Choosing the best of six configurations per instance would lower the
+  primal integral by 19&nbsp;% over all 336 attempted instances, 25&nbsp;% on the 313 where some configuration finds a
+  solution and 41&nbsp;% on MIPLIB (one seed).</li>
+  <li><strong>Choosing, not switching.</strong> Inside SCIP most of the gain comes from the initial choice: the right
+  static setting is worth 12&nbsp;% (45 instances) and 20&nbsp;% (the 20 with the most headroom), while the six
+  switching schedules we tried add about 2&nbsp;% at 120&nbsp;s and nothing detectable at 300&nbsp;s.</li>
+  <li><strong>A timing-matched control.</strong> On held-out ML4CO instances one fixed setting improves on SCIP's
+  defaults by 33&nbsp;%. An untrained local language-model agent makes the same first move in most runs, but the fixed
+  setting applied at the same solver callback beats it on 22 of 30 instances.</li>
+</ol>
+
+<h2>Two solvers at once</h2>
+<table>
+  <tr><th>pair (80 MIPLIB instances, 60&nbsp;s, one session)</th><th>gain over the CPU solver alone</th></tr>
+  <tr><td>HiGHS with cuOpt on the GPU</td><td class="n">+30.4&nbsp;% [17.7, 44.2]</td></tr>
+  <tr><td>SCIP with cuOpt (first 44 instances)</td><td class="n">+21.5&nbsp;% [9.3, 36.9]</td></tr>
+  <tr><td>cuOpt's solutions passed into SCIP (SCIP's own integral)</td><td class="n">+14&nbsp;%</td></tr>
+</table>
+<p>95&nbsp;% bootstrap intervals over instances in brackets.</p>
+
+<h2>Reproduce</h2>
+<pre><code>git clone https://github.com/berkorbay/optopt &amp;&amp; cd optopt
+python -m venv .venv &amp;&amp; . .venv/bin/activate &amp;&amp; pip install -e ".[dev,plots]"
+# re-analyse the published study: unpack the original measurements, then re-derive every table
+curl -LO https://github.com/berkorbay/optopt/releases/download/traces-v1/optopt-traces-v1.tar.gz
+tar -xzf optopt-traces-v1.tar.gz
+optopt reproduce</code></pre>
+<p>Re-running the experiment definitions in <code>jobs/</code> instead is a new replication; wall-clock results will
+differ on other hardware. See the <a href="https://github.com/berkorbay/optopt#reproducibility">README</a>.</p>
+
+<h2>Cite</h2>
+<pre><code>@techreport{orbay2026optimizing,
+  title  = {Optimizing the Optimizers: Measuring Learned Control of {MIP} Solvers on a Single {DGX} {Spark}},
+  author = {Orbay, Berk},
+  year   = {2026},
+  type   = {Technical report},
+  url    = {https://github.com/berkorbay/optopt}
+}</code></pre>
+
+<footer>
+  Experiments designed, run and written up with AgentRA (Agent Research Assistant; mainly Claude Opus 5.5), under the
+  author's direction; reviewed with suggestions for improvement by Claude Fable 5.1 (Anthropic) and OpenAI GPT-6
+  Astra (ChatGPT). Code, data and tutorials under the MIT License; the paper under CC BY 4.0.
+</footer>
+</main>
+</body>
+</html>
