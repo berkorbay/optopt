@@ -1,0 +1,24 @@
+\begin{table}[t]\centering\small
+\resizebox{\linewidth}{!}{\begin{tabular}{llllll}
+\toprule
+experiment & CPU lanes & core pinning & GPU & memory per run & other load \\
+\midrule
+Track A grid & 12 $\times$ 1 thread & none (fast + efficiency cores) & 2 cuOpt lanes (GPU + 3 threads) & no hard cap (SCIP limit 6\,GB) & none (LLM servers stopped) \\
+Variance subset, 300\,s screening & 12 $\times$ 1 thread & none & shared with Track A & as above & none \\
+Laya fine-tuning & -- & -- & exclusive (peak 15.4\,GB) & -- & none \\
+GPU contention & cuOpt 3 threads & none & 1 cuOpt lane + Laya & -- & none \\
+Track B B0 (30\,s) & 10 $\times$ 1 thread & none & idle & no hard cap (SCIP 6\,GB) & two LLM servers resident \\
+Track B B1 (120\,s) & 10 $\times$ 1 thread & one run per Cortex-X925 core & idle & 8\,GiB hard cap (SCIP 7\,GB) & none (LLM servers stopped) \\
+B2 (120\,s), extra seeds & 10 $\times$ 1 thread & one run per Cortex-X925 core & idle & 9\,GiB hard cap & none (LLM servers stopped) \\
+B3 (300\,s) & 9 $\times$ 1 thread & one run per Cortex-X925 core & idle & 9\,GiB hard cap & none (LLM servers stopped) \\
+Agent pilots, diagnosis & 10 $\times$ 1 thread & one run per Cortex-X925 core & idle & 9\,GiB hard cap & none (LLM servers stopped) \\
+LLM agents, timing controls & 4 $\times$ 1 thread & one run per Cortex-X925 core & local LLM server & 8\,GiB hard cap & local LLM server (the agent) \\
+Timing mechanism test & 3 $\times$ 1 thread & one run per Cortex-X925 core & idle & 4\,GiB hard cap & both LLM servers resident, idle \\
+Live pairs, night (race, exchange, evolutionary) & SCIP 1 thread & SCIP on one Cortex-X925 core & cuOpt + five Cortex-A725 cores & 9\,GiB hard cap (SCIP) & none (LLM servers stopped) \\
+Live pairs, day (heuristic exchange, HiGHS pair, same-session race) & SCIP/HiGHS 1 thread & one Cortex-X925 core & cuOpt + five Cortex-A725 cores & 9\,GiB hard cap (SCIP) & local LLM server resident, idle \\
+\bottomrule
+\end{tabular}}
+\caption{Compute allocated to each experiment on the DGX Spark (10 Cortex-X925 at 3.9\,GHz + 10 Cortex-A725 at
+2.8\,GHz, 121\,GiB unified memory). SCIP explores about twice as many nodes per second on an X925 core as on an
+A725 core, so unpinned runs had a random effective budget.}\label{tab:resources}
+\end{table}

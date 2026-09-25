@@ -1,0 +1,120 @@
+{
+ "P": {
+  "default": {
+   "cost": 0.19595426037724048,
+   "vs_default_pct": 0.0,
+   "p": 1.0
+  },
+  "best fixed (HEU)": {
+   "cost": 0.14010280410399029,
+   "vs_default_pct": 28.50229240524192,
+   "p": 4.4075772166252136e-05
+  },
+  "family majority": {
+   "cost": 0.140507650416302,
+   "vs_default_pct": 28.295689950397446,
+   "p": 0.00466480478644371
+  },
+  "LightGBM diagnosis": {
+   "cost": 0.1500573980000709,
+   "vs_default_pct": 23.422232458131525,
+   "p": 0.00041293675625687497
+  },
+  "oracle (static, per run)": {
+   "cost": 0.12772670825885443,
+   "vs_default_pct": 34.818100911426
+  },
+  "A:bandit": {
+   "cost": 0.1561138393681489,
+   "n": 60,
+   "vs_default_pct": 20.33149007956906,
+   "p": 0.002560090273618698
+  },
+  "A:bandit5": {
+   "cost": 0.14400756072427326,
+   "n": 60,
+   "vs_default_pct": 26.50960461536394,
+   "p": 0.0029870010912418365
+  },
+  "A:diagbandit": {
+   "cost": 0.13896573445830718,
+   "n": 60,
+   "vs_default_pct": 29.082565395221362,
+   "p": 0.01453801617026329
+  },
+  "_train": {
+   "n_train": 60,
+   "best_fixed": "HEU",
+   "family_majority": {
+    "item": "HEU",
+    "load": "PSC"
+   },
+   "pred_counts": {
+    "HEU": 15,
+    "NOC": 5,
+    "PSC": 4,
+    "D": 3,
+    "INF": 3
+   }
+  }
+ },
+ "PDI": {
+  "default": {
+   "cost": 0.5040642015651853,
+   "vs_default_pct": 0.0,
+   "p": 1.0
+  },
+  "best fixed (HEU)": {
+   "cost": 0.48946059535967607,
+   "vs_default_pct": 2.8971718602834926,
+   "p": 0.0008718203753232956
+  },
+  "family majority": {
+   "cost": 0.48946059535967607,
+   "vs_default_pct": 2.8971718602834926,
+   "p": 0.0008718203753232956
+  },
+  "LightGBM diagnosis": {
+   "cost": 0.4999224859826468,
+   "vs_default_pct": 0.8216642978568769,
+   "p": 0.07015661401800449
+  },
+  "oracle (static, per run)": {
+   "cost": 0.4846005490583456,
+   "vs_default_pct": 3.8613439411889385
+  },
+  "A:bandit": {
+   "cost": 0.4988698519868898,
+   "n": 60,
+   "vs_default_pct": 1.0304936478659503,
+   "p": 0.011303061619400978
+  },
+  "A:bandit5": {
+   "cost": 0.49865338759290645,
+   "n": 60,
+   "vs_default_pct": 1.0734374620291507,
+   "p": 0.06056523136794567
+  },
+  "A:diagbandit": {
+   "cost": 0.5018658424962937,
+   "n": 60,
+   "vs_default_pct": 0.43612679933733633,
+   "p": 0.17059839516878128
+  },
+  "_train": {
+   "n_train": 60,
+   "best_fixed": "HEU",
+   "family_majority": {
+    "item": "HEU",
+    "load": "HEU"
+   },
+   "pred_counts": {
+    "D": 11,
+    "HEU": 8,
+    "PSC": 5,
+    "INF": 4,
+    "NOC": 2
+   }
+  }
+ }
+}

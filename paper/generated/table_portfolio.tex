@@ -1,0 +1,25 @@
+\begin{table}[t]\centering\small
+\setlength{\tabcolsep}{4pt}
+\resizebox{\linewidth}{!}{\begin{tabular}{llrrrrrrrrrr}
+\toprule
+$T$ & family & $n$ & H0 & H1 & S0 & S1 & C0 & C1 & SBS & VBS & headroom \\
+\midrule
+10 & MIPLIB 2017 & 80 & 0.532 & 0.528 & 0.551 & 0.548 & \textbf{0.523} & 0.548 & C0 & 0.356 & 32\% \\
+10 & ML4CO item placement & 100 & 0.495 & \textbf{0.392} & 0.515 & 0.448 & 0.734 & 0.721 & H1 & 0.344 & 12\% \\
+10 & ML4CO load balancing & 100 & 0.256 & 0.247 & \textbf{0.166} & 0.250 & 0.219 & 0.241 & S0 & 0.139 & 16\% \\
+10 & PGLib-UC & 33 & 0.883 & 0.873 & 0.993 & 0.879 & \textbf{0.819} & 0.820 & C0 & 0.808 & 1\% \\
+10 & All (pooled) & 313 & 0.469 & \textbf{0.431} & 0.463 & 0.456 & 0.524 & 0.534 & H1 & 0.331 & 23\% \\
+\midrule
+30 & MIPLIB 2017 & 80 & 0.413 & \textbf{0.406} & 0.438 & 0.443 & 0.407 & 0.440 & H1 & 0.243 & 40\% \\
+30 & ML4CO item placement & 100 & 0.261 & \textbf{0.207} & 0.363 & 0.282 & 0.466 & 0.432 & H1 & 0.174 & 16\% \\
+30 & ML4CO load balancing & 100 & 0.095 & 0.092 & \textbf{0.067} & 0.095 & 0.094 & 0.119 & S0 & 0.057 & 15\% \\
+30 & PGLib-UC & 33 & 0.755 & \textbf{0.748} & 0.802 & 0.835 & 0.785 & 0.758 & H1 & 0.701 & 6\% \\
+30 & All (pooled) & 313 & 0.299 & \textbf{0.278} & 0.334 & 0.322 & 0.365 & 0.368 & H1 & 0.210 & 25\% \\
+\midrule
+60 & MIPLIB 2017 & 80 & 0.348 & \textbf{0.337} & 0.367 & 0.374 & 0.341 & 0.380 & H1 & 0.199 & 41\% \\
+60 & PGLib-UC & 33 & 0.696 & 0.685 & 0.722 & 0.763 & \textbf{0.640} & 0.697 & C0 & 0.572 & 11\% \\
+60 & All (pooled) & 113 & 0.449 & 0.439 & 0.471 & 0.487 & \textbf{0.428} & 0.473 & C0 & 0.308 & 28\% \\
+\bottomrule
+\end{tabular}}
+\caption{Mean normalised primal integral $P(T)$ (lower is better) per strategy, seed 0. Bold: single best strategy (SBS) of the family. VBS: per-instance oracle. Headroom: $(\mathrm{SBS}-\mathrm{VBS})/\mathrm{SBS}$.}\label{tab:portfolio-results}
+\end{table}

@@ -1,0 +1,16 @@
+\begin{table}[t]\centering\small
+\begin{tabular}{llrrrrr}
+\toprule
+family & aggr.\ heuristics set & $P(120)$ & 1st sol.\ (s) & zero-obj.\ (s) & heur.\ (s) & nodes \\
+\midrule
+item placement & before presolve & 0.155 & 0.01 & 0.01 & 22.5 & 22114 \\
+item placement & at first call & 0.137 & 0.02 & 0.00 & 24.4 & 23690 \\
+item placement & after 10\,s & 0.152 & 0.02 & 0.00 & 24.5 & 24498 \\
+\midrule
+load balancing & before presolve & 0.035 & 1.25 & 0.59 & 96.1 & 1 \\
+load balancing & at first call & 0.031 & 0.73 & 0.00 & 96.0 & 1 \\
+load balancing & after 10\,s & 0.032 & 0.74 & 0.00 & 95.9 & 1 \\
+\bottomrule
+\end{tabular}
+\caption{When aggressive heuristics are applied: 30 held-out ML4CO instances (validation split), one seed, 120\,s, all arms in one session, both LLM servers idle. Means per family. \emph{1st sol.}: time of the first incumbent; \emph{zero-obj.}: time in SCIP's zero-objective heuristic; \emph{heur.}: time in all primal heuristics (SCIP's statistics); \emph{after 10\,s}: at the first call after 10\,s. Nodes: branch-and-bound nodes solved.}\label{tab:timingmech}
+\end{table}

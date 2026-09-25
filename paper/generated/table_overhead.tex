@@ -1,0 +1,13 @@
+\begin{table}[t]\centering\small
+\begin{tabular}{lrrrrr}
+\toprule
+family & $n$ & features med (ms) & p90 (ms) & max (ms) & overhead (own budget) \\
+\midrule
+MIPLIB 2017 & 80 & 53 & 648 & 5192 & 1.17\% \\
+ML4CO item placement & 125 & 16 & 18 & 20 & 0.25\% \\
+ML4CO load balancing & 125 & 431 & 636 & 717 & 2.31\% \\
+PGLib-UC & 56 & 1977 & 3338 & 3813 & 5.66\% \\
+\bottomrule
+\end{tabular}
+\caption{Policy overhead: static feature extraction (HiGHS reader + NumPy, single thread) plus one Laya decision, as a share of the family's budget (30\,s ML4CO, 60\,s MIPLIB and PGLib-UC), using the p90 extraction time. Extraction time is dominated by parsing the MPS file, which the chosen solver repeats; a controller that handed its parsed model to the solver would pay only the NumPy part. Laya adds 56\,ms per decision (median of 50 decisions, one question, batch 1).}\label{tab:overhead}
+\end{table}

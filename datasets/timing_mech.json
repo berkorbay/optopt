@@ -1,0 +1,139 @@
+{
+ "n_runs": 90,
+ "by_family": {
+  "item_placement": {
+   "n": 15,
+   "means": {
+    "A:heu_10": {
+     "P": 0.1523,
+     "first_sol": 0.0162,
+     "zeroobj_time": 0.0,
+     "heur_time": 24.5354,
+     "heur_found": 379.4,
+     "heur_best": 30.8,
+     "nodes": 24498.1333
+    },
+    "A:heu_cb": {
+     "P": 0.1368,
+     "first_sol": 0.016,
+     "zeroobj_time": 0.0,
+     "heur_time": 24.3995,
+     "heur_found": 283.9333,
+     "heur_best": 38.9333,
+     "nodes": 23689.7333
+    },
+    "C:HEU": {
+     "P": 0.1546,
+     "first_sol": 0.0093,
+     "zeroobj_time": 0.0086,
+     "heur_time": 22.4586,
+     "heur_found": 277.4,
+     "heur_best": 30.5333,
+     "nodes": 22114.2667
+    }
+   },
+   "call": {
+    "A:heu_10": {
+     "call_t": 10.015,
+     "call_nodes": 1745.0
+    },
+    "A:heu_cb": {
+     "call_t": 0.016,
+     "call_nodes": 1.0
+    }
+   },
+   "presolve_s_median": 0.011663999999999999,
+   "A:heu_cb vs C:HEU": {
+    "gain_pct": 11.55529869434213,
+    "better/worse": [
+     11,
+     4
+    ],
+    "p": 0.359130859375
+   },
+   "A:heu_10 vs C:HEU": {
+    "gain_pct": 1.5477206491233897,
+    "better/worse": [
+     10,
+     5
+    ],
+    "p": 0.30279541015625
+   },
+   "A:heu_10 vs A:heu_cb": {
+    "gain_pct": -11.315067943565486,
+    "better/worse": [
+     8,
+     7
+    ],
+    "p": 0.638671875
+   }
+  },
+  "load_balancing": {
+   "n": 15,
+   "means": {
+    "A:heu_10": {
+     "P": 0.0318,
+     "first_sol": 0.7352,
+     "zeroobj_time": 0.0,
+     "heur_time": 95.9339,
+     "heur_found": 36.2,
+     "heur_best": 10.8667,
+     "nodes": 1.0
+    },
+    "A:heu_cb": {
+     "P": 0.0307,
+     "first_sol": 0.7289,
+     "zeroobj_time": 0.0,
+     "heur_time": 96.0268,
+     "heur_found": 36.2667,
+     "heur_best": 10.9333,
+     "nodes": 1.0
+    },
+    "C:HEU": {
+     "P": 0.035,
+     "first_sol": 1.2504,
+     "zeroobj_time": 0.5939,
+     "heur_time": 96.1057,
+     "heur_found": 36.3333,
+     "heur_best": 11.0,
+     "nodes": 1.0
+    }
+   },
+   "call": {
+    "A:heu_10": {
+     "call_t": 15.463,
+     "call_nodes": 1.0
+    },
+    "A:heu_cb": {
+     "call_t": 0.729,
+     "call_nodes": 1.0
+    }
+   },
+   "presolve_s_median": 0.165175,
+   "A:heu_cb vs C:HEU": {
+    "gain_pct": 12.384678166549488,
+    "better/worse": [
+     15,
+     0
+    ],
+    "p": 6.103515625e-05
+   },
+   "A:heu_10 vs C:HEU": {
+    "gain_pct": 9.24643232486452,
+    "better/worse": [
+     14,
+     1
+    ],
+    "p": 0.00836181640625
+   },
+   "A:heu_10 vs A:heu_cb": {
+    "gain_pct": -3.5818459328957477,
+    "better/worse": [
+     4,
+     11
+    ],
+    "p": 0.04791259765625
+   }
+  }
+ }
+}

@@ -1,0 +1,40 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "optopt"
+version = "0.1.0"
+description = "Measuring learned and agent control of MIP solvers (HiGHS, SCIP, cuOpt): harness, agents, metrics and traces"
+readme = "README.md"
+requires-python = ">=3.12"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Berk Orbay", email = "berk.orbay@tideseed.com" }]
+dependencies = [
+  "highspy==1.15.1",
+  "pyscipopt==6.2.1",
+  "numpy==2.4.6",
+  "scipy==1.18.1",
+  "pandas==3.0.3",
+  "pyarrow==23.0.1",
+  "scikit-learn==1.9.1",
+  "lightgbm==4.7.0",
+]
+
+[project.optional-dependencies]
+gpu = ["cuopt-cu13==26.8.*"]
+laya = ["torch==2.14.0", "transformers==5.17.0", "safetensors==0.8.0"]
+plots = ["matplotlib==3.11.2"]
+uc = ["pyomo==6.10.1"]
+dev = ["pytest==9.1.1", "hypothesis==6.168.1"]
+all = ["optopt[gpu,laya,plots,uc,dev]"]
+
+[project.scripts]
+optopt = "optopt.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/optopt"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

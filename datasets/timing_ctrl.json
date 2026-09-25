@@ -1,0 +1,333 @@
+{
+ "n": {
+  "A:default": 60,
+  "A:heu_cb": 60,
+  "A:llm": 60,
+  "A:llm_first": 60,
+  "C:HEU": 60
+ },
+ "errors": 0,
+ "P": {
+  "means": {
+   "A:default": 0.17876493539074484,
+   "C:HEU": 0.11923578374773648,
+   "A:heu_cb": 0.10618473507802301,
+   "A:llm_first": 0.12184736298661995,
+   "A:llm": 0.11747855763199176
+  },
+  "vs_default": {
+   "C:HEU": {
+    "n_instances": 30,
+    "n_runs": 60,
+    "gain_pct": 33.30023950887761,
+    "ci95": [
+     24.557583416216705,
+     41.40917143882955
+    ],
+    "p": 0.00023163668811321259,
+    "better/worse": [
+     21,
+     9
+    ]
+   },
+   "A:heu_cb": {
+    "n_instances": 30,
+    "n_runs": 60,
+    "gain_pct": 40.60091547264336,
+    "ci95": [
+     31.622643066386136,
+     48.02447630921924
+    ],
+    "p": 3.725290298461914e-09,
+    "better/worse": [
+     29,
+     1
+    ]
+   },
+   "A:llm_first": {
+    "n_instances": 30,
+    "n_runs": 60,
+    "gain_pct": 31.839338223524816,
+    "ci95": [
+     22.491177285318336,
+     41.204880297367836
+    ],
+    "p": 1.862645149230957e-08,
+    "better/worse": [
+     28,
+     2
+    ]
+   },
+   "A:llm": {
+    "n_instances": 30,
+    "n_runs": 60,
+    "gain_pct": 34.28322093748032,
+    "ci95": [
+     24.816931414022687,
+     42.17676022300536
+    ],
+    "p": 2.0489096641540527e-07,
+    "better/worse": [
+     26,
+     4
+    ]
+   }
+  },
+  "contrasts": {
+   "timing: same setting via the callback vs before presolve": {
+    "n_instances": 30,
+    "n_runs": 60,
+    "gain_pct": 10.94558047886463,
+    "ci95": [
+     -3.909551403970521,
+     22.252016371433115
+    ],
+    "p": 0.00466480478644371,
+    "better/worse": [
+     24,
+     6
+    ],
+    "median_pct": 12.658728995542745
+   },
+   "judgement: LLM vs the fixed setting applied at the same moment": {
+    "n_instances": 30,
+    "n_runs": 60,
+    "gain_pct": -10.636013308005419,
+    "ci95": [
+     -18.90100874108482,
+     -3.981520248446745
+    ],
+    "p": 0.004031794145703316,
+    "better/worse": [
+     8,
+     22
+    ],
+    "median_pct": -3.3657136084359083
+   },
+   "steering: LLM every 20 s vs its first decision only": {
+    "n_instances": 30,
+    "n_runs": 60,
+    "gain_pct": 3.5854738646316653,
+    "ci95": [
+     -10.180787642798709,
+     15.730160494487754
+    ],
+    "p": 0.6701805889606476,
+    "better/worse": [
+     14,
+     16
+    ],
+    "median_pct": -0.16506860247041621
+   },
+   "first move: LLM's first decision vs the fixed setting at the same moment": {
+    "n_instances": 30,
+    "n_runs": 60,
+    "gain_pct": -14.750357381490183,
+    "ci95": [
+     -29.223421771111063,
+     -3.5805502799141777
+    ],
+    "p": 5.718320608139038e-07,
+    "better/worse": [
+     3,
+     27
+    ],
+    "median_pct": -2.718504424106686
+   },
+   "replication of the earlier LLM vs fixed-setting comparison": {
+    "n_instances": 30,
+    "n_runs": 60,
+    "gain_pct": 1.4737405672296953,
+    "ci95": [
+     -12.785548133869705,
+     13.174956445853416
+    ],
+    "p": 0.308520769700408,
+    "better/worse": [
+     21,
+     9
+    ],
+    "median_pct": 5.638402375207452
+   }
+  }
+ },
+ "PDI": {
+  "means": {
+   "A:default": 0.5075798516314799,
+   "C:HEU": 0.49377823203646654,
+   "A:heu_cb": 0.4888528559911534,
+   "A:llm_first": 0.4923144637159144,
+   "A:llm": 0.49229752750198164
+  },
+  "vs_default": {
+   "C:HEU": {
+    "n_instances": 30,
+    "n_runs": 60,
+    "gain_pct": 2.719103122523802,
+    "ci95": [
+     0.957996857145477,
+     5.678150488860475
+    ],
+    "p": 0.0023674946278333664,
+    "better/worse": [
+     22,
+     8
+    ]
+   },
+   "A:heu_cb": {
+    "n_instances": 30,
+    "n_runs": 60,
+    "gain_pct": 3.689467889659814,
+    "ci95": [
+     1.8696917598969909,
+     6.871033177187584
+    ],
+    "p": 2.348795533180237e-06,
+    "better/worse": [
+     26,
+     4
+    ]
+   },
+   "A:llm_first": {
+    "n_instances": 30,
+    "n_runs": 60,
+    "gain_pct": 3.007485002901299,
+    "ci95": [
+     1.2423183795488322,
+     6.046281832806485
+    ],
+    "p": 0.0009517744183540344,
+    "better/worse": [
+     22,
+     8
+    ]
+   },
+   "A:llm": {
+    "n_instances": 30,
+    "n_runs": 60,
+    "gain_pct": 3.0108216629121904,
+    "ci95": [
+     1.2522323294751845,
+     6.0856027367986645
+    ],
+    "p": 7.910653948783875e-05,
+    "better/worse": [
+     25,
+     5
+    ]
+   }
+  },
+  "contrasts": {
+   "timing: same setting via the callback vs before presolve": {
+    "n_instances": 30,
+    "n_runs": 60,
+    "gain_pct": 0.9974874803613,
+    "ci95": [
+     0.47759815217309337,
+     1.6661112961395563
+    ],
+    "p": 0.0001528710126876831,
+    "better/worse": [
+     22,
+     8
+    ],
+    "median_pct": 1.6153070894574761
+   },
+   "judgement: LLM vs the fixed setting applied at the same moment": {
+    "n_instances": 30,
+    "n_runs": 60,
+    "gain_pct": -0.704643834767851,
+    "ci95": [
+     -1.1720907175912167,
+     -0.3650560478129864
+    ],
+    "p": 0.0050126127898693085,
+    "better/worse": [
+     9,
+     21
+    ],
+    "median_pct": -0.3938007037917297
+   },
+   "steering: LLM every 20 s vs its first decision only": {
+    "n_instances": 30,
+    "n_runs": 60,
+    "gain_pct": 0.0034401211382042002,
+    "ci95": [
+     -0.46174842187703113,
+     0.5266389689086085
+    ],
+    "p": 0.7921590935438871,
+    "better/worse": [
+     14,
+     16
+    ],
+    "median_pct": -0.009832080873722905
+   },
+   "first move: LLM's first decision vs the fixed setting at the same moment": {
+    "n_instances": 30,
+    "n_runs": 60,
+    "gain_pct": -0.7081083156899045,
+    "ci95": [
+     -1.2727606704478829,
+     -0.3521297142789
+    ],
+    "p": 4.421919584274292e-06,
+    "better/worse": [
+     2,
+     28
+    ],
+    "median_pct": -0.9319329919595065
+   },
+   "replication of the earlier LLM vs fixed-setting comparison": {
+    "n_instances": 30,
+    "n_runs": 60,
+    "gain_pct": 0.2998723796263961,
+    "ci95": [
+     -0.22940709515417873,
+     0.8762545360797055
+    ],
+    "p": 0.17059839516878128,
+    "better/worse": [
+     18,
+     12
+    ],
+    "median_pct": 0.19350856132709326
+   }
+  }
+ },
+ "first_moves": {
+  "A:heu_cb": {
+   "HEU": 60
+  },
+  "A:llm": {
+   "HEU": 64,
+   "keep": 180,
+   "PSC": 19,
+   "INF": 7
+  },
+  "A:llm_first": {
+   "HEU": 49,
+   "keep": 11
+  }
+ },
+ "actions": {
+  "A:heu_cb": {
+   "HEU": 60
+  },
+  "A:llm": {
+   "HEU": 64,
+   "PSC": 19,
+   "keep": 180,
+   "INF": 7
+  },
+  "A:llm_first": {
+   "HEU": 49,
+   "keep": 11
+  }
+ },
+ "decision_ms_median": {
+  "A:heu_cb": 0.0,
+  "A:llm": 345.8,
+  "A:llm_first": 468.9
+ }
+}

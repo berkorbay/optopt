@@ -1,0 +1,40 @@
+Running HiGHS 1.15.1 (git hash: 04024d7): Copyright (c) 2026 under MIT licence terms
+Includes third-party software components, see THIRD_PARTY_NOTICES.md for full details
+MIP s100 has 14733 rows; 364417 cols; 1777917 nonzeros; 364417 integer variables (364417 binary)
+Coefficient ranges:
+  Matrix  [1e+00, 3e+04]
+  Cost    [3e-03, 5e-03]
+  Bound   [1e+00, 1e+00]
+  RHS     [1e+00, 9e+04]
+Presolving model
+14059 rows, 334711 cols, 1547034 nonzeros 2s
+13965 rows, 334635 cols, 1296654 nonzeros 21s
+Presolve reductions: rows 13965(-768); columns 334635(-29782); nonzeros 1296654(-481263) 
+
+Src: B => Branching; C => Central rounding; F => Feasibility pump; H => Heuristic;
+     I => Shifting; J => Feasibility jump; L => Sub-MIP; P => Empty MIP; R => Randomized rounding;
+     S => Solve LP; T => Evaluate node; U => Unbounded; X => User solution; Y => HiGHS solution;
+     Z => ZI Round; l => Trivial lower; p => Trivial point; u => Trivial upper; z => Trivial zero
+
+        Nodes      |    B&B Tree     |            Objective Bounds              |  Dynamic Constraints |       Work      
+Src  Proc. InQueue |  Leaves   Expl. | BestBound       BestSol              Gap |   Cuts   InLp Confl. | LpIters     Time
+
+         0       0         0   0.00%   -inf            inf                  inf        0      0      0         0   293.5s
+
+Solving report
+  Model             s100
+  Status            Time limit reached
+  Primal bound      inf
+  Dual bound        -inf
+  Gap               inf
+  P-D integral      0
+  Solution status   -
+  Timing            293.53
+                    22.38 (Presolve)
+                    271.09 (Solve)
+                    0.00 (Postsolve)
+  Max sub-MIP depth 0
+  Nodes             0
+  Repair LPs        0
+  LP iterations     0
+WALL 293.7 Time limit reached

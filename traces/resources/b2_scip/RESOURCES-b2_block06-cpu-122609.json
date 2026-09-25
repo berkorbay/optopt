@@ -1,0 +1,36 @@
+{
+ "started": "2026-09-23T12:26:09+0200",
+ "jobs": "jobs/b2_block06.jsonl",
+ "only": "cpu",
+ "cpu_lanes": 10,
+ "gpu_lanes": 0,
+ "pinned_cores": [
+  5,
+  6,
+  7,
+  8,
+  9,
+  15,
+  16,
+  17,
+  18,
+  19
+ ],
+ "pinned_core_models": [
+  "Cortex-X925"
+ ],
+ "mem_cap_gb_per_run": 9.0,
+ "scip_mem_limit_mb": 8192,
+ "min_avail_gate_gb": 20.0,
+ "mem_available_gb_at_start": 111.6,
+ "threads_per_run": {
+  "highs": 1,
+  "scip": 1,
+  "cuopt_cpu": 3
+ },
+ "serving_units": {
+  "Ornith-1.5-35B-A3B (vLLM)": "inactive",
+  "Qwen3.8-27B (llama.cpp)": "inactive"
+ },
+ "gpu_processes": ""
+}

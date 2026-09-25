@@ -1,0 +1,16 @@
+\begin{table}[t]\centering\small
+\begin{tabular}{lrrrr}
+\toprule
+policy & cost $P(T)$ & closed gap [95\% CI] & TTT sgm (s) & reached 1\% \\
+\midrule
+Random (expected) & 0.458 & -0.24 [-0.66, +0.04] & 54.1 & 40\% \\
+Best default solver & 0.455 & -0.22 [-0.59, +0.03] & 48.4 & 44\% \\
+Best fixed strategy & 0.450 & -0.18 [-0.52, +0.05] & 47.2 & 46\% \\
+Hand rules & 0.413 & +0.13 [-0.38, +0.47] & 35.9 & 51\% \\
+LightGBM & 0.464 & -0.29 [-0.75, +0.06] & 41.6 & 44\% \\
+MLP & 0.420 & +0.07 [-0.31, +0.32] & 40.5 & 46\% \\
+Oracle (VBS) & 0.308 & +1.00 [+1.00, +1.00] & 24.3 & 60\% \\
+\bottomrule
+\end{tabular}
+\caption{Strategy selection, pooled 5-fold evaluation, $T=60$\,s, $n=113$ test instances. Closed gap is relative to the hindsight single best strategy on the same instances (C0; 0 = SBS, 1 = oracle). TTT: time to 1\% primal gap, censored at $2T$, shifted geometric mean.}\label{tab:sel-pooled-60}
+\end{table}

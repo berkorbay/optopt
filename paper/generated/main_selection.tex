@@ -1,0 +1,16 @@
+\begin{table}[t]\centering\small
+\begin{tabular}{lrrrr}
+\toprule
+& \multicolumn{2}{c}{seen families (pooled)} & \multicolumn{2}{c}{unseen family (LOFO)} \\
+policy & 10\,s & 30\,s & 10\,s & 30\,s \\
+\midrule
+Best fixed, chosen on training data & +0.00 & +0.00 & -1.09 & +0.00 \\
+LightGBM & +0.24 & +0.03 & -0.03 & -0.40 \\
+MLP & +0.07 & -0.00 & -0.08 & -0.42 \\
+Laya, zero-shot & -0.37 & -0.57 & -1.04 & -1.38 \\
+Laya, fine-tuned & +0.31 & +0.10 & +0.09 & -0.02 \\
+Oracle & +1.00 & +1.00 & +1.00 & +1.00 \\
+\bottomrule
+\end{tabular}
+\caption{Selecting a strategy before the solve from 62 static instance features: closed gap between the hindsight single best strategy (0) and the oracle (1); one model for all families, 163 instances with grouped cross-validation (seen families) and 313 with leave-one-family-out (unseen family), all from the cohort where some strategy finds a solution (one FERC unit-commitment case). The hindsight single best defines 0; the best fixed strategy chosen on the training folds can score below it. Intervals resample test instances with the fitted models held fixed; they do not cover retraining or other folds. Positive closed gaps whose 95\,\% interval excludes zero: the fine-tuned Laya, seen families, 10\,s ([0.14, 0.48]); intervals, per-family results and time-to-target are in Appendix~\ref{app:trackA}.}\label{tab:selection}
+\end{table}

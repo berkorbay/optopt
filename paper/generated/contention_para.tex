@@ -1,0 +1,11 @@
+Does running Laya slow cuOpt on the shared GPU? On five MIPLIB
+instances where cuOpt keeps improving between 5 and 30\,s, cuOpt C0 ran for 30\,s under four conditions, two
+repetitions each, with condition order rotated (Table~\ref{tab:contention}). Keeping Laya \emph{loaded but idle}
+(B, about 5\,GB of the unified memory) and making \emph{one decision every 5\,s} (C, the duty cycle of a dynamic
+controller) change cuOpt's primal integral by $+0.014$ and $+0.009$ on average --- within run-to-run noise (median
+paired differences $-0.004$ and $0.000$). Running Laya \emph{continuously} (D) doubles cuOpt's primal integral
+(0.226$\to$0.452; worse in 10 of 10 paired runs) even though the SM clock stays at 2.39\,GHz: the two workloads
+compete for the GPU and its 273\,GB/s memory system, not for power. Laya's own latency is 30\,ms median (50\,ms
+p90) beside cuOpt. The practical rule: \textbf{call the decision model sequentially
+or at a low duty cycle, never concurrently in a loop.} At a 5\,s decision interval the raw inference overhead is
+about 0.6\,\%.

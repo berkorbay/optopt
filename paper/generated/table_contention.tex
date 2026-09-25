@@ -1,0 +1,13 @@
+\begin{table}[t]\centering\small
+\begin{tabular}{lrrrrrr}
+\toprule
+condition & runs & $P(30)$ & $\Delta P$ vs A & GPU util & SM MHz & Laya ms (med/p90) \\
+\midrule
+A: cuOpt alone & 10 & 0.226 & +0.000 $\pm$ 0.025 & 71\% & 2405 & -- \\
+B: + Laya loaded, idle & 10 & 0.240 & +0.014 $\pm$ 0.062 & 75\% & 2398 & -- \\
+C: + Laya every 5 s & 10 & 0.235 & +0.009 $\pm$ 0.028 & 74\% & 2398 & 30 / 50 \\
+D: + Laya continuous & 10 & 0.452 & +0.226 $\pm$ 0.094 & 89\% & 2390 & 26 / 44 \\
+\bottomrule
+\end{tabular}
+\caption{GPU contention between cuOpt (C0, 30\,s) and Laya inference on the shared GB10 GPU. $\Delta P$: paired difference in primal integral against condition A on the same instance (mean $\pm$ s.d. over instances and repetitions).}\label{tab:contention}
+\end{table}

@@ -1,0 +1,1042 @@
+% refs.bib -- related work for "Laya as a cross-solver MIP decision model"
+% Every entry below was checked on 2026-09-23 against Crossref, OpenAlex, a
+% publisher page, PMLR/OpenReview, or the arXiv abstract page. Fields that could
+% not be confirmed (e.g. some page ranges) were left out rather than guessed.
+% "and others" marks author lists truncated on purpose (suite reports, big teams).
+
+% ---------------------------------------------------------------------------
+% 1. Algorithm selection, portfolios, configuration
+% ---------------------------------------------------------------------------
+
+@incollection{rice1976algorithm,
+  author    = {Rice, John R.},
+  title     = {The Algorithm Selection Problem},
+  booktitle = {Advances in Computers},
+  volume    = {15},
+  pages     = {65--118},
+  publisher = {Elsevier},
+  year      = {1976},
+  doi       = {10.1016/S0065-2458(08)60520-3},
+  note      = {Open version: \url{https://docs.lib.purdue.edu/cstech/99/} (Purdue CS technical report of the same title, 1975)}
+}
+
+@article{gomes2001portfolios,
+  author  = {Gomes, Carla P. and Selman, Bart},
+  title   = {Algorithm Portfolios},
+  journal = {Artificial Intelligence},
+  volume  = {126},
+  number  = {1--2},
+  pages   = {43--62},
+  year    = {2001},
+  doi     = {10.1016/S0004-3702(00)00081-3},
+  note    = {Open version: \url{https://www.sciencedirect.com/science/article/pii/S0004370200000813} (Elsevier open archive)}
+}
+
+@article{xu2008satzilla,
+  author  = {Xu, Lin and Hutter, Frank and Hoos, Holger H. and Leyton-Brown, Kevin},
+  title   = {{SATzilla}: Portfolio-based Algorithm Selection for {SAT}},
+  journal = {Journal of Artificial Intelligence Research},
+  volume  = {32},
+  pages   = {565--606},
+  year    = {2008},
+  doi     = {10.1613/jair.2490}
+}
+
+@inproceedings{omahony2008cphydra,
+  author    = {O'Mahony, Eoin and Hebrard, Emmanuel and Holland, Alan and Nugent, Conor and O'Sullivan, Barry},
+  title     = {Using Case-Based Reasoning in an Algorithm Portfolio for Constraint Solving},
+  booktitle = {Proceedings of the 19th Irish Conference on Artificial Intelligence and Cognitive Science (AICS)},
+  pages     = {210--216},
+  year      = {2008}
+}
+
+@inproceedings{kadioglu2010isac,
+  author    = {Kadioglu, Serdar and Malitsky, Yuri and Sellmann, Meinolf and Tierney, Kevin},
+  title     = {{ISAC} -- Instance-Specific Algorithm Configuration},
+  booktitle = {Proceedings of the 19th European Conference on Artificial Intelligence (ECAI 2010)},
+  series    = {Frontiers in Artificial Intelligence and Applications},
+  publisher = {IOS Press},
+  year      = {2010},
+  doi       = {10.3233/978-1-60750-606-5-751}
+}
+
+@inproceedings{xu2010hydra,
+  author    = {Xu, Lin and Hoos, Holger H. and Leyton-Brown, Kevin},
+  title     = {Hydra: Automatically Configuring Algorithms for Portfolio-Based Selection},
+  booktitle = {Proceedings of the AAAI Conference on Artificial Intelligence},
+  volume    = {24},
+  number    = {1},
+  pages     = {210--216},
+  year      = {2010},
+  doi       = {10.1609/aaai.v24i1.7565}
+}
+
+@inproceedings{xu2011hydramip,
+  author    = {Xu, Lin and Hutter, Frank and Hoos, Holger H. and Leyton-Brown, Kevin},
+  title     = {{Hydra-MIP}: Automated Algorithm Configuration and Selection for Mixed Integer Programming},
+  booktitle = {RCRA Workshop on Experimental Evaluation of Algorithms for Solving Problems with Combinatorial Explosion at IJCAI 2011},
+  year      = {2011},
+  url       = {https://www.cs.ubc.ca/~hoos/Publ/XuEtAl11.pdf}
+}
+
+@article{hutter2009paramils,
+  author  = {Hutter, Frank and Hoos, Holger H. and Leyton-Brown, Kevin and St{\"u}tzle, Thomas},
+  title   = {{ParamILS}: An Automatic Algorithm Configuration Framework},
+  journal = {Journal of Artificial Intelligence Research},
+  volume  = {36},
+  pages   = {267--306},
+  year    = {2009},
+  doi     = {10.1613/jair.2861}
+}
+
+@inproceedings{hutter2010mipconfig,
+  author    = {Hutter, Frank and Hoos, Holger H. and Leyton-Brown, Kevin},
+  title     = {Automated Configuration of Mixed Integer Programming Solvers},
+  booktitle = {Integration of AI and OR Techniques in Constraint Programming for Combinatorial Optimization Problems (CPAIOR 2010)},
+  series    = {Lecture Notes in Computer Science},
+  pages     = {186--202},
+  publisher = {Springer},
+  year      = {2010},
+  doi       = {10.1007/978-3-642-13520-0_23},
+  note      = {Open version: \url{https://www.cs.ubc.ca/~hutter/papers/10-CPAIOR-MIP-Config.pdf}}
+}
+
+@inproceedings{hutter2011smac,
+  author    = {Hutter, Frank and Hoos, Holger H. and Leyton-Brown, Kevin},
+  title     = {Sequential Model-Based Optimization for General Algorithm Configuration},
+  booktitle = {Learning and Intelligent Optimization (LION 5)},
+  series    = {Lecture Notes in Computer Science},
+  pages     = {507--523},
+  publisher = {Springer},
+  year      = {2011},
+  doi       = {10.1007/978-3-642-25566-3_40},
+  note      = {Open version: \url{https://www.cs.ubc.ca/labs/algorithms/Projects/SMAC/papers/11-LION5-SMAC.pdf}}
+}
+
+@article{hutter2014runtime,
+  author  = {Hutter, Frank and Xu, Lin and Hoos, Holger H. and Leyton-Brown, Kevin},
+  title   = {Algorithm Runtime Prediction: Methods \& Evaluation},
+  journal = {Artificial Intelligence},
+  volume  = {206},
+  pages   = {79--111},
+  year    = {2014},
+  doi     = {10.1016/j.artint.2013.10.003},
+  eprint  = {1211.0906},
+  archivePrefix = {arXiv}
+}
+
+@article{kotthoff2014survey,
+  author  = {Kotthoff, Lars},
+  title   = {Algorithm Selection for Combinatorial Search Problems: A Survey},
+  journal = {AI Magazine},
+  volume  = {35},
+  number  = {3},
+  pages   = {48--60},
+  year    = {2014},
+  doi     = {10.1609/aimag.v35i3.2460},
+  eprint  = {1210.7959},
+  archivePrefix = {arXiv}
+}
+
+@article{lindauer2015autofolio,
+  author  = {Lindauer, Marius and Hoos, Holger H. and Hutter, Frank and Schaub, Torsten},
+  title   = {{AutoFolio}: An Automatically Configured Algorithm Selector},
+  journal = {Journal of Artificial Intelligence Research},
+  volume  = {53},
+  pages   = {745--778},
+  year    = {2015},
+  doi     = {10.1613/jair.4726}
+}
+
+@article{bischl2016aslib,
+  author  = {Bischl, Bernd and Kerschke, Pascal and Kotthoff, Lars and Lindauer, Marius and Malitsky, Yuri and Fr{\'e}chette, Alexandre and Hoos, Holger H. and Hutter, Frank and Leyton-Brown, Kevin and Tierney, Kevin and Vanschoren, Joaquin},
+  title   = {{ASlib}: A Benchmark Library for Algorithm Selection},
+  journal = {Artificial Intelligence},
+  volume  = {237},
+  pages   = {41--58},
+  year    = {2016},
+  doi     = {10.1016/j.artint.2016.04.003},
+  eprint  = {1506.02465},
+  archivePrefix = {arXiv},
+  note = {Preprint: \url{https://arxiv.org/abs/1506.02465}}
+}
+
+@article{kerschke2019survey,
+  author  = {Kerschke, Pascal and Hoos, Holger H. and Neumann, Frank and Trautmann, Heike},
+  title   = {Automated Algorithm Selection: Survey and Perspectives},
+  journal = {Evolutionary Computation},
+  volume  = {27},
+  number  = {1},
+  pages   = {3--45},
+  year    = {2019},
+  doi     = {10.1162/evco_a_00242},
+  eprint  = {1811.11597},
+  archivePrefix = {arXiv}
+}
+
+@article{schede2022survey,
+  author  = {Schede, Elias and Brandt, Jasmin and Tornede, Alexander and Wever, Marcel and Bengs, Viktor and H{\"u}llermeier, Eyke and Tierney, Kevin},
+  title   = {A Survey of Methods for Automated Algorithm Configuration},
+  journal = {Journal of Artificial Intelligence Research},
+  volume  = {75},
+  pages   = {425--487},
+  year    = {2022},
+  doi     = {10.1613/jair.1.13676}
+}
+
+@article{gleixner2021miplib,
+  author  = {Gleixner, Ambros and Hendel, Gregor and Gamrath, Gerald and Achterberg, Tobias and Bastubbe, Michael and Berthold, Timo and Christophel, Philipp and Jarck, Kati and Koch, Thorsten and Linderoth, Jeff and L{\"u}bbecke, Marco and Mittelmann, Hans D. and Ozyurt, Derya and Ralphs, Ted K. and Salvagnin, Domenico and Shinano, Yuji},
+  title   = {{MIPLIB} 2017: Data-Driven Compilation of the 6th Mixed-Integer Programming Library},
+  journal = {Mathematical Programming Computation},
+  volume  = {13},
+  number  = {3},
+  pages   = {443--490},
+  year    = {2021},
+  doi     = {10.1007/s12532-020-00194-3},
+  note    = {Open version: \url{https://link.springer.com/article/10.1007/s12532-020-00194-3} (open access, CC BY 4.0)}
+}
+
+% ---------------------------------------------------------------------------
+% 2. Learned components inside MIP solvers
+% ---------------------------------------------------------------------------
+
+@inproceedings{khalil2016learning,
+  author    = {Khalil, Elias B. and Le Bodic, Pierre and Song, Le and Nemhauser, George and Dilkina, Bistra},
+  title     = {Learning to Branch in Mixed Integer Programming},
+  booktitle = {Proceedings of the AAAI Conference on Artificial Intelligence},
+  volume    = {30},
+  number    = {1},
+  year      = {2016},
+  doi       = {10.1609/aaai.v30i1.10080}
+}
+
+@article{alvarez2017strong,
+  author  = {Marcos Alvarez, Alejandro and Louveaux, Quentin and Wehenkel, Louis},
+  title   = {A Machine Learning-Based Approximation of Strong Branching},
+  journal = {INFORMS Journal on Computing},
+  volume  = {29},
+  number  = {1},
+  pages   = {185--195},
+  year    = {2017},
+  doi     = {10.1287/ijoc.2016.0723},
+  note    = {Open version: \url{https://orbi.uliege.be/handle/2268/198561}}
+}
+
+@inproceedings{khalil2017heuristics,
+  author    = {Khalil, Elias B. and Dilkina, Bistra and Nemhauser, George L. and Ahmed, Shabbir and Shao, Yufen},
+  title     = {Learning to Run Heuristics in Tree Search},
+  booktitle = {Proceedings of the 26th International Joint Conference on Artificial Intelligence (IJCAI)},
+  pages     = {659--666},
+  year      = {2017},
+  doi       = {10.24963/ijcai.2017/92}
+}
+
+@inproceedings{gasse2019exact,
+  author    = {Gasse, Maxime and Ch{\'e}telat, Didier and Ferroni, Nicola and Charlin, Laurent and Lodi, Andrea},
+  title     = {Exact Combinatorial Optimization with Graph Convolutional Neural Networks},
+  booktitle = {Advances in Neural Information Processing Systems 32 (NeurIPS 2019)},
+  year      = {2019},
+  eprint    = {1906.01629},
+  archivePrefix = {arXiv},
+  note = {Preprint: \url{https://arxiv.org/abs/1906.01629}}
+}
+
+@misc{nair2020solving,
+  author = {Nair, Vinod and Bartunov, Sergey and Gimeno, Felix and von Glehn, Ingrid and Lichocki, Pawel and Lobov, Ivan and O'Donoghue, Brendan and Sonnerat, Nicolas and others},
+  title  = {Solving Mixed Integer Programs Using Neural Networks},
+  year   = {2020},
+  eprint = {2012.13349},
+  archivePrefix = {arXiv},
+  doi    = {10.48550/arXiv.2012.13349},
+  note = {Preprint: \url{https://arxiv.org/abs/2012.13349}}
+}
+
+@inproceedings{song2020general,
+  author    = {Song, Jialin and Lanka, Ravi and Yue, Yisong and Dilkina, Bistra},
+  title     = {A General Large Neighborhood Search Framework for Solving Integer Linear Programs},
+  booktitle = {Advances in Neural Information Processing Systems 33 (NeurIPS 2020)},
+  year      = {2020},
+  eprint    = {2004.00422},
+  archivePrefix = {arXiv},
+  note = {Preprint: \url{https://arxiv.org/abs/2004.00422}}
+}
+
+@inproceedings{tang2020rl,
+  author    = {Tang, Yunhao and Agrawal, Shipra and Faenza, Yuri},
+  title     = {Reinforcement Learning for Integer Programming: Learning to Cut},
+  booktitle = {Proceedings of the 37th International Conference on Machine Learning (ICML)},
+  series    = {Proceedings of Machine Learning Research},
+  volume    = {119},
+  pages     = {9367--9376},
+  year      = {2020},
+  eprint    = {1906.04859},
+  archivePrefix = {arXiv},
+  url       = {https://proceedings.mlr.press/v119/tang20a.html}
+}
+
+@misc{sonnerat2021learning,
+  author = {Sonnerat, Nicolas and Wang, Pengming and Ktena, Ira and Bartunov, Sergey and Nair, Vinod},
+  title  = {Learning a Large Neighborhood Search Algorithm for Mixed Integer Programs},
+  year   = {2021},
+  eprint = {2107.10201},
+  archivePrefix = {arXiv},
+  doi    = {10.48550/arXiv.2107.10201},
+  note = {Preprint: \url{https://arxiv.org/abs/2107.10201}}
+}
+
+@inproceedings{chmiela2021learning,
+  author    = {Chmiela, Antonia and Khalil, Elias B. and Gleixner, Ambros and Lodi, Andrea and Pokutta, Sebastian},
+  title     = {Learning to Schedule Heuristics in Branch-and-Bound},
+  booktitle = {Advances in Neural Information Processing Systems 34 (NeurIPS 2021)},
+  year      = {2021},
+  eprint    = {2103.10294},
+  archivePrefix = {arXiv},
+  note = {Preprint: \url{https://arxiv.org/abs/2103.10294}}
+}
+
+@article{bengio2021ml,
+  author  = {Bengio, Yoshua and Lodi, Andrea and Prouvost, Antoine},
+  title   = {Machine Learning for Combinatorial Optimization: A Methodological Tour d'Horizon},
+  journal = {European Journal of Operational Research},
+  volume  = {290},
+  number  = {2},
+  pages   = {405--421},
+  year    = {2021},
+  doi     = {10.1016/j.ejor.2020.07.063},
+  eprint  = {1811.06128},
+  archivePrefix = {arXiv},
+  note = {Preprint: \url{https://arxiv.org/abs/1811.06128}}
+}
+
+@article{hendel2022alns,
+  author  = {Hendel, Gregor},
+  title   = {Adaptive Large Neighborhood Search for Mixed Integer Programming},
+  journal = {Mathematical Programming Computation},
+  volume  = {14},
+  number  = {2},
+  pages   = {185--221},
+  year    = {2022},
+  doi     = {10.1007/s12532-021-00209-7},
+  note    = {Open version: \url{https://link.springer.com/article/10.1007/s12532-021-00209-7} (open access, CC BY 4.0)}
+}
+
+@inproceedings{liu2022localbranching,
+  author    = {Liu, Defeng and Fischetti, Matteo and Lodi, Andrea},
+  title     = {Learning to Search in Local Branching},
+  booktitle = {Proceedings of the AAAI Conference on Artificial Intelligence},
+  volume    = {36},
+  number    = {4},
+  pages     = {3796--3803},
+  year      = {2022},
+  doi       = {10.1609/aaai.v36i4.20294}
+}
+
+@inproceedings{paulus2022learning,
+  author    = {Paulus, Max B. and Zarpellon, Giulia and Krause, Andreas and Charlin, Laurent and Maddison, Chris J.},
+  title     = {Learning To Cut By Looking Ahead: Cutting Plane Selection via Imitation Learning},
+  booktitle = {Proceedings of the 39th International Conference on Machine Learning (ICML)},
+  series    = {Proceedings of Machine Learning Research},
+  volume    = {162},
+  year      = {2022},
+  eprint    = {2206.13414},
+  archivePrefix = {arXiv}
+}
+
+@inproceedings{wang2023learning,
+  author    = {Wang, Zhihai and Li, Xijun and Wang, Jie and Kuang, Yufei and Yuan, Mingxuan and Zeng, Jia and Zhang, Yongdong and Wu, Feng},
+  title     = {Learning Cut Selection for Mixed-Integer Linear Programming via Hierarchical Sequence Model},
+  booktitle = {International Conference on Learning Representations (ICLR)},
+  year      = {2023},
+  eprint    = {2302.00244},
+  archivePrefix = {arXiv},
+  url       = {https://openreview.net/forum?id=Zob4P9bRNcK}
+}
+
+@inproceedings{huang2023searching,
+  author    = {Huang, Taoan and Ferber, Aaron and Tian, Yuandong and Dilkina, Bistra and Steiner, Benoit},
+  title     = {Searching Large Neighborhoods for Integer Linear Programs with Contrastive Learning},
+  booktitle = {Proceedings of the 40th International Conference on Machine Learning (ICML)},
+  series    = {Proceedings of Machine Learning Research},
+  volume    = {202},
+  pages     = {13869--13890},
+  year      = {2023},
+  eprint    = {2302.01578},
+  archivePrefix = {arXiv},
+  url       = {https://proceedings.mlr.press/v202/huang23g.html},
+  note = {Preprint: \url{https://arxiv.org/abs/2302.01578}}
+}
+
+@inproceedings{li2023separators,
+  author    = {Li, Sirui and Ouyang, Wenbin and Paulus, Max B. and Wu, Cathy},
+  title     = {Learning to Configure Separators in Branch-and-Cut},
+  booktitle = {Advances in Neural Information Processing Systems 36 (NeurIPS 2023)},
+  pages     = {60021--60034},
+  year      = {2023},
+  doi       = {10.52202/075280-2622},
+  eprint    = {2311.05650},
+  archivePrefix = {arXiv}
+}
+
+@article{scavuzzo2024ml,
+  author  = {Scavuzzo, Lara and Aardal, Karen and Lodi, Andrea and Yorke-Smith, Neil},
+  title   = {Machine Learning Augmented Branch and Bound for Mixed Integer Linear Programming},
+  journal = {Mathematical Programming},
+  volume  = {217},
+  number  = {1--2},
+  pages   = {123--166},
+  year    = {2024},
+  note    = {Published online 2024; Preprint: \url{https://arxiv.org/abs/2402.05501}},
+  doi     = {10.1007/s10107-024-02130-y},
+  eprint  = {2402.05501},
+  archivePrefix = {arXiv}
+}
+
+% ---------------------------------------------------------------------------
+% 3. ML4CO competition and tooling
+% ---------------------------------------------------------------------------
+
+@misc{prouvost2020ecole,
+  author = {Prouvost, Antoine and Dumouchelle, Justin and Scavuzzo, Lara and Gasse, Maxime and Ch{\'e}telat, Didier and Lodi, Andrea},
+  title  = {Ecole: A Gym-like Library for Machine Learning in Combinatorial Optimization Solvers},
+  year   = {2020},
+  eprint = {2011.06069},
+  archivePrefix = {arXiv},
+  doi    = {10.48550/arXiv.2011.06069}
+}
+
+@inproceedings{gasse2022ml4co,
+  author    = {Gasse, Maxime and Cappart, Quentin and others},
+  title     = {The Machine Learning for Combinatorial Optimization Competition ({ML4CO}): Results and Insights},
+  booktitle = {Proceedings of the NeurIPS 2021 Competitions and Demonstrations Track},
+  series    = {Proceedings of Machine Learning Research},
+  volume    = {176},
+  pages     = {220--231},
+  year      = {2022},
+  eprint    = {2203.02433},
+  archivePrefix = {arXiv},
+  note = {Preprint: \url{https://arxiv.org/abs/2203.02433}}
+}
+
+@misc{valentin2022instance,
+  author = {Valentin, Romeo and Ferrari, Claudio and Scheurer, J{\'e}r{\'e}my and Amrollahi, Andisheh and Wendler, Chris and Paulus, Max B.},
+  title  = {Instance-wise Algorithm Configuration with Graph Neural Networks},
+  year   = {2022},
+  eprint = {2202.04910},
+  archivePrefix = {arXiv},
+  doi    = {10.48550/arXiv.2202.04910},
+  note = {Preprint: \url{https://arxiv.org/abs/2202.04910}}
+}
+
+% ---------------------------------------------------------------------------
+% 4. Learned solver configuration, benchmarks, L2O
+% ---------------------------------------------------------------------------
+
+@inproceedings{iommazzo2020learning,
+  author    = {Iommazzo, Gabriele and D'Ambrosio, Claudia and Frangioni, Antonio and Liberti, Leo},
+  title     = {Learning to Configure Mathematical Programming Solvers by Mathematical Programming},
+  booktitle = {Learning and Intelligent Optimization (LION 14)},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {12096},
+  pages     = {377--389},
+  publisher = {Springer},
+  year      = {2020},
+  doi       = {10.1007/978-3-030-53552-0_34},
+  eprint    = {2401.05041},
+  archivePrefix = {arXiv}
+}
+
+@inproceedings{khalil2022mipgnn,
+  author    = {Khalil, Elias B. and Morris, Christopher and Lodi, Andrea},
+  title     = {{MIP-GNN}: A Data-Driven Framework for Guiding Combinatorial Solvers},
+  booktitle = {Proceedings of the AAAI Conference on Artificial Intelligence},
+  volume    = {36},
+  number    = {9},
+  pages     = {10219--10227},
+  year      = {2022},
+  doi       = {10.1609/aaai.v36i9.21262},
+  eprint    = {2205.14210},
+  archivePrefix = {arXiv}
+}
+
+@misc{hosny2023automatic,
+  author = {Hosny, Abdelrahman and Reda, Sherief},
+  title  = {Automatic {MILP} Solver Configuration By Learning Problem Similarities},
+  year   = {2023},
+  note   = {arXiv comment: to appear in Annals of Operations Research},
+  eprint = {2307.00670},
+  archivePrefix = {arXiv}
+}
+
+@article{chen2022l2o,
+  author  = {Chen, Tianlong and Chen, Xiaohan and Chen, Wuyang and Heaton, Howard and Liu, Jialin and Wang, Zhangyang and Yin, Wotao},
+  title   = {Learning to Optimize: A Primer and A Benchmark},
+  journal = {Journal of Machine Learning Research},
+  volume  = {23},
+  year    = {2022},
+  url     = {https://jmlr.org/papers/v23/21-0308.html},
+  eprint  = {2103.12828},
+  archivePrefix = {arXiv}
+}
+
+@misc{li2025benloc,
+  author = {Li, Hongpei and He, Ziyan and Wang, Yufei and Tu, Wenting and Pu, Shanwen and Deng, Qi and Ge, Dongdong},
+  title  = {{BenLOC}: A Benchmark for Learning to Configure {MIP} Optimizers},
+  year   = {2025},
+  eprint = {2506.02752},
+  archivePrefix = {arXiv},
+  doi    = {10.48550/arXiv.2506.02752},
+  note = {Preprint: \url{https://arxiv.org/abs/2506.02752}}
+}
+
+% ---------------------------------------------------------------------------
+% 5. Solvers in the portfolio
+% ---------------------------------------------------------------------------
+
+@article{huangfu2018parallelizing,
+  author  = {Huangfu, Q. and Hall, J. A. J.},
+  title   = {Parallelizing the Dual Revised Simplex Method},
+  journal = {Mathematical Programming Computation},
+  volume  = {10},
+  number  = {1},
+  pages   = {119--142},
+  year    = {2018},
+  doi     = {10.1007/s12532-017-0130-5},
+  note    = {Open version: \url{https://link.springer.com/article/10.1007/s12532-017-0130-5} (open access, CC BY 4.0)}
+}
+
+@misc{highs,
+  author       = {{HiGHS development team}},
+  title        = {{HiGHS}: High-performance parallel linear optimization software ({LP}, {MIP}, {QP})},
+  howpublished = {\url{https://highs.dev/}},
+  note         = {MIT licence; branch-and-cut MIP solver by L. Gottwald. Source: \url{https://github.com/ERGO-Code/HiGHS}. No journal paper describes the MIP solver; cite the release version used},
+  year         = {2026}
+}
+
+@misc{bolusani2024scip9,
+  author = {Bolusani, Suresh and Besan{\c{c}}on, Mathieu and Bestuzheva, Ksenia and Chmiela, Antonia and Dion{\'\i}sio, Jo{\~a}o and others},
+  title  = {The {SCIP} Optimization Suite 9.0},
+  year   = {2024},
+  eprint = {2402.17702},
+  archivePrefix = {arXiv},
+  doi    = {10.48550/arXiv.2402.17702}
+}
+
+@misc{hojny2025scip10,
+  author = {Hojny, Christopher and Besan{\c{c}}on, Mathieu and Bestuzheva, Ksenia and Borst, Sander and Dion{\'\i}sio, Jo{\~a}o and others},
+  title  = {The {SCIP} Optimization Suite 10.0},
+  year   = {2025},
+  eprint = {2511.18580},
+  archivePrefix = {arXiv},
+  doi    = {10.48550/arXiv.2511.18580},
+  note = {Preprint: \url{https://arxiv.org/abs/2511.18580}}
+}
+
+@inproceedings{applegate2021pdlp,
+  author    = {Applegate, David and D{\'\i}az, Mateo and Hinder, Oliver and Lu, Haihao and Lubin, Miles and O'Donoghue, Brendan and Schudy, Warren},
+  title     = {Practical Large-Scale Linear Programming using Primal-Dual Hybrid Gradient},
+  booktitle = {Advances in Neural Information Processing Systems 34 (NeurIPS 2021)},
+  year      = {2021},
+  eprint    = {2106.04756},
+  archivePrefix = {arXiv}
+}
+
+@article{lu2025cupdlp,
+  author  = {Lu, Haihao and Yang, Jinwen},
+  title   = {{cuPDLP.jl}: A {GPU} Implementation of Restarted Primal-Dual Hybrid Gradient for Linear Programming in {Julia}},
+  journal = {Operations Research},
+  volume  = {73},
+  number  = {6},
+  pages   = {3440--3452},
+  year    = {2025},
+  doi     = {10.1287/opre.2024.1069},
+  eprint  = {2311.12180},
+  archivePrefix = {arXiv}
+}
+
+@article{luteberget2023fj,
+  author  = {Luteberget, Bj{\o}rnar and Sartor, Giorgio},
+  title   = {Feasibility Jump: an {LP}-free {Lagrangian} {MIP} heuristic},
+  journal = {Mathematical Programming Computation},
+  volume  = {15},
+  number  = {2},
+  pages   = {365--388},
+  year    = {2023},
+  doi     = {10.1007/s12532-023-00234-8},
+  note    = {Open version: \url{https://link.springer.com/article/10.1007/s12532-023-00234-8} (open access, CC BY 4.0)}
+}
+
+@misc{corduk2025gpu,
+  author = {{\c{C}}{\"o}rd{\"u}k, Akif and Sielski, Piotr and Boucher, Alice and Aatish, Kumar},
+  title  = {{GPU}-Accelerated Primal Heuristics for Mixed Integer Programming},
+  year   = {2025},
+  eprint = {2510.20499},
+  archivePrefix = {arXiv},
+  doi    = {10.48550/arXiv.2510.20499}
+}
+
+@misc{cuopt,
+  author       = {{NVIDIA}},
+  title        = {{NVIDIA cuOpt}: {GPU}-accelerated decision optimization ({LP}, {MILP}, routing)},
+  howpublished = {\url{https://github.com/NVIDIA/cuopt}},
+  note         = {Open source (Apache-2.0); release 26.08 used here},
+  year         = {2026}
+}
+
+% ---------------------------------------------------------------------------
+% 6. Anytime performance measures and benchmarking hygiene
+% ---------------------------------------------------------------------------
+
+@article{berthold2013primal,
+  author  = {Berthold, Timo},
+  title   = {Measuring the Impact of Primal Heuristics},
+  journal = {Operations Research Letters},
+  volume  = {41},
+  number  = {6},
+  pages   = {611--614},
+  year    = {2013},
+  doi     = {10.1016/j.orl.2013.08.007},
+  note    = {Open version: \url{https://opus4.kobv.de/opus4-zib/frontdoor/index/index/docId/1788} (ZIB-Report 13-17)}
+}
+
+@incollection{lodi2013variability,
+  author    = {Lodi, Andrea and Tramontani, Andrea},
+  title     = {Performance Variability in Mixed-Integer Programming},
+  booktitle = {Theory Driven by Influential Applications},
+  series    = {INFORMS TutORials in Operations Research},
+  pages     = {1--12},
+  publisher = {INFORMS},
+  year      = {2013},
+  doi       = {10.1287/educ.2013.0112}
+}
+
+% ---------------------------------------------------------------------------
+% 7. Unit commitment
+% ---------------------------------------------------------------------------
+
+@article{knueven2020uc,
+  author  = {Knueven, Bernard and Ostrowski, James and Watson, Jean-Paul},
+  title   = {On Mixed-Integer Programming Formulations for the Unit Commitment Problem},
+  journal = {INFORMS Journal on Computing},
+  year    = {2020},
+  doi     = {10.1287/ijoc.2019.0944},
+  note    = {Open version: \url{https://www.osti.gov/biblio/1670724} (accepted manuscript, SAND2019-13440J)}
+}
+
+@article{xavier2020uc,
+  author  = {Xavier, {\'A}linson S. and Qiu, Feng and Ahmed, Shabbir},
+  title   = {Learning to Solve Large-Scale Security-Constrained Unit Commitment Problems},
+  journal = {INFORMS Journal on Computing},
+  year    = {2020},
+  doi     = {10.1287/ijoc.2020.0976},
+  eprint  = {1902.01697},
+  archivePrefix = {arXiv}
+}
+
+@misc{pglibuc,
+  author       = {{IEEE PES Task Force on Benchmarks for Validation of Emerging Power System Algorithms}},
+  title        = {{PGLib-UC}: Benchmarks for the Unit Commitment Problem},
+  howpublished = {\url{https://github.com/power-grid-lib/pglib-uc}},
+  note         = {JSON case files (ca, ferc, rts\_gmlc), CC BY licence},
+  year         = {2026}
+}
+
+% ---------------------------------------------------------------------------
+% 8. LLMs / foundation models for optimization; small decision models
+% ---------------------------------------------------------------------------
+
+@inproceedings{ahmaditeshnizi2024optimus,
+  author    = {AhmadiTeshnizi, Ali and Gao, Wenzhi and Udell, Madeleine},
+  title     = {{OptiMUS}: Scalable Optimization Modeling with ({MI}){LP} Solvers and Large Language Models},
+  booktitle = {Proceedings of the 41st International Conference on Machine Learning (ICML)},
+  series    = {Proceedings of Machine Learning Research},
+  volume    = {235},
+  pages     = {577--596},
+  year      = {2024},
+  eprint    = {2402.10172},
+  archivePrefix = {arXiv}
+}
+
+@article{romeraparedes2024funsearch,
+  author  = {Romera-Paredes, Bernardino and Barekatain, Mohammadamin and Novikov, Alexander and Balog, Matej and Kumar, M. Pawan and Dupont, Emilien and Ruiz, Francisco J. R. and Ellenberg, Jordan S. and others},
+  title   = {Mathematical Discoveries from Program Search with Large Language Models},
+  journal = {Nature},
+  volume  = {625},
+  number  = {7995},
+  pages   = {468--475},
+  year    = {2024},
+  doi     = {10.1038/s41586-023-06924-6},
+  note    = {Open version: \url{https://www.nature.com/articles/s41586-023-06924-6} (open access, CC BY 4.0)}
+}
+
+@inproceedings{lawless2025llm,
+  author    = {Lawless, Connor and Li, Yingxi and Wikum, Anders and Udell, Madeleine and Vitercik, Ellen},
+  title     = {{LLMs} for Cold-Start Cutting Plane Separator Configuration},
+  booktitle = {Integration of Constraint Programming, Artificial Intelligence, and Operations Research (CPAIOR 2025)},
+  series    = {Lecture Notes in Computer Science},
+  pages     = {51--69},
+  publisher = {Springer},
+  year      = {2025},
+  doi       = {10.1007/978-3-031-95976-9_4},
+  eprint    = {2412.12038},
+  archivePrefix = {arXiv}
+}
+
+@misc{luo2026grimip,
+  author = {Luo, Yidong and Chen, Xuemin and Wang, Chenguang and Zhu, Fangzhou and Zhong, Tao and Yu, Tianshu},
+  title  = {{GRIMIP}: A General Framework for Instance-Specific Configuration of {MIP} Solvers Using {LLMs}},
+  year   = {2026},
+  eprint = {2606.23299},
+  archivePrefix = {arXiv}
+}
+
+@article{daros2025llmco,
+  author  = {Da Ros, Francesca and Soprano, Michael and Di Gaspero, Luca and others},
+  title   = {Large Language Models for Combinatorial Optimization: A Systematic Review},
+  journal = {ACM Computing Surveys},
+  volume  = {58},
+  number  = {11},
+  year    = {2026},
+  doi     = {10.1145/3801961},
+  eprint  = {2507.03637},
+  archivePrefix = {arXiv}
+}
+
+@misc{ong2024routellm,
+  author = {Ong, Isaac and Almahairi, Amjad and Wu, Vincent and Chiang, Wei-Lin and Wu, Tianhao and Gonzalez, Joseph E. and Kadous, M. Waleed and Stoica, Ion},
+  title  = {{RouteLLM}: Learning to Route {LLMs} with Preference Data},
+  year   = {2024},
+  eprint = {2406.18665},
+  archivePrefix = {arXiv}
+}
+
+@inproceedings{warner2025modernbert,
+  author    = {Warner, Benjamin and Chaffin, Antoine and Clavi{\'e}, Benjamin and Weller, Orion and Hallstr{\"o}m, Oskar and Taghadouini, Said and Gallagher, Alexis and Biswas, Raja and others},
+  title     = {Smarter, Better, Faster, Longer: A Modern Bidirectional Encoder for Fast, Memory Efficient, and Long Context Finetuning and Inference},
+  booktitle = {Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics (ACL 2025)},
+  pages     = {2526--2547},
+  year      = {2025},
+  doi       = {10.18653/v1/2025.acl-long.127}
+}
+
+@misc{marone2025mmbert,
+  author = {Marone, Marc and Weller, Orion and Fleshman, William and Yang, Eugene and Lawrie, Dawn and Van Durme, Benjamin},
+  title  = {{mmBERT}: A Modern Multilingual Encoder with Annealed Language Learning},
+  year   = {2025},
+  eprint = {2509.06888},
+  archivePrefix = {arXiv}
+}
+
+@article{gneiting2007scoring,
+  author  = {Gneiting, Tilmann and Raftery, Adrian E.},
+  title   = {Strictly Proper Scoring Rules, Prediction, and Estimation},
+  journal = {Journal of the American Statistical Association},
+  volume  = {102},
+  number  = {477},
+  pages   = {359--378},
+  year    = {2007},
+  doi     = {10.1198/016214506000001437},
+  note    = {Open version: \url{https://sites.stat.washington.edu/raftery/Research/PDF/Gneiting2007jasa.pdf}}
+}
+
+@inproceedings{guo2017calibration,
+  author    = {Guo, Chuan and Pleiss, Geoff and Sun, Yu and Weinberger, Kilian Q.},
+  title     = {On Calibration of Modern Neural Networks},
+  booktitle = {Proceedings of the 34th International Conference on Machine Learning (ICML)},
+  series    = {Proceedings of Machine Learning Research},
+  volume    = {70},
+  pages     = {1321--1330},
+  year      = {2017},
+  eprint    = {1706.04599},
+  archivePrefix = {arXiv}
+}
+
+@misc{shao2024deepseekmath,
+  author = {Shao, Zhihong and Wang, Peiyi and Zhu, Qihao and Xu, Runxin and Song, Junxiao and others},
+  title  = {{DeepSeekMath}: Pushing the Limits of Mathematical Reasoning in Open Language Models},
+  year   = {2024},
+  note   = {Introduces GRPO (group-relative baseline), which Laya's RLCD update follows},
+  eprint = {2402.03300},
+  archivePrefix = {arXiv}
+}
+
+@misc{laya2026,
+  author       = {{Convai Innovations}},
+  title        = {Laya: Multilingual, Non-Autoregressive System 1 Decision Model (model card)},
+  howpublished = {\url{https://huggingface.co/convaiinnovations/laya}},
+  note         = {Hugging Face model repository, created 2026-09-18, last modified 2026-09-20; Apache-2.0. Code: \url{https://github.com/NandhaKishorM/laya}. No paper; accessed 2026-09-23},
+  year         = {2026}
+}
+
+% ---------------------------------------------------------------------------
+% Track B: in-solver dynamic control (node selection, restarts, adaptive effort)
+% ---------------------------------------------------------------------------
+
+@inproceedings{he2014learning,
+  author    = {He, He and Daum{\'e} III, Hal and Eisner, Jason},
+  title     = {Learning to Search in Branch and Bound Algorithms},
+  booktitle = {Advances in Neural Information Processing Systems 27 (NIPS 2014)},
+  year      = {2014},
+  url       = {https://proceedings.neurips.cc/paper_files/paper/2014/hash/533d190f5aa2926b2a8a30c8bea0e05d-Abstract.html}
+}
+
+@inproceedings{labassi2022nodes,
+  author    = {Labassi, Abdel Ghani and Ch{\'e}telat, Didier and Lodi, Andrea},
+  title     = {Learning to Compare Nodes in Branch and Bound with Graph Neural Networks},
+  booktitle = {Advances in Neural Information Processing Systems 35 (NeurIPS 2022)},
+  year      = {2022},
+  eprint    = {2210.16934},
+  archivePrefix = {arXiv},
+  url       = {https://proceedings.neurips.cc/paper_files/paper/2022/hash/cf5bb18807a3e9cfaaa51e667e18f807-Abstract-Conference.html},
+  note = {Preprint: \url{https://arxiv.org/abs/2210.16934}}
+}
+
+@inproceedings{anderson2019restarts,
+  author    = {Anderson, Daniel and Hendel, Gregor and Le Bodic, Pierre and Viernickel, Merlin},
+  title     = {Clairvoyant Restarts in Branch-and-Bound Search Using Online Tree-Size Estimation},
+  booktitle = {Proceedings of the AAAI Conference on Artificial Intelligence},
+  volume    = {33},
+  number    = {01},
+  pages     = {1427--1434},
+  year      = {2019},
+  doi       = {10.1609/aaai.v33i01.33011427}
+}
+
+@inproceedings{hendel2019bandits,
+  author    = {Hendel, Gregor and Miltenberger, Matthias and Witzig, Jakob},
+  title     = {Adaptive Algorithmic Behavior for Solving Mixed Integer Programs Using Bandit Algorithms},
+  booktitle = {Operations Research Proceedings 2018},
+  editor    = {Fortz, Bernard and Labb{\'e}, Martine},
+  publisher = {Springer},
+  pages     = {513--519},
+  year      = {2019},
+  doi       = {10.1007/978-3-030-18500-8_64},
+  note      = {Open version: \url{https://opus4.kobv.de/opus4-zib/frontdoor/index/index/docId/6956} (ZIB-Report 18-36)}
+}
+
+@article{mattick2024node,
+  author  = {Mattick, Alexander Julian and Mutschler, Christopher},
+  title   = {Reinforcement Learning for Node Selection in Branch-and-Bound},
+  journal = {Transactions on Machine Learning Research},
+  year    = {2024},
+  eprint  = {2310.00112},
+  archivePrefix = {arXiv},
+  url     = {https://openreview.net/forum?id=VrWl6yNk1E}
+}
+
+@inproceedings{chmiela2023online,
+  author    = {Chmiela, Antonia and Gleixner, Ambros and Lichocki, Pawel and Pokutta, Sebastian},
+  title     = {Online Learning for Scheduling {MIP} Heuristics},
+  booktitle = {Integration of Constraint Programming, Artificial Intelligence, and Operations Research (CPAIOR 2023)},
+  series    = {Lecture Notes in Computer Science},
+  publisher = {Springer},
+  pages     = {114--123},
+  year      = {2023},
+  doi       = {10.1007/978-3-031-33271-5_8},
+  eprint    = {2304.03755},
+  archivePrefix = {arXiv},
+  note = {Preprint: \url{https://arxiv.org/abs/2304.03755}}
+}
+
+@inproceedings{birattari2002racing,
+  author    = {Birattari, Mauro and St{\"u}tzle, Thomas and Paquete, Lu{\'\i}s and Varrentrapp, Klaus},
+  title     = {A Racing Algorithm for Configuring Metaheuristics},
+  booktitle = {Proceedings of the Genetic and Evolutionary Computation Conference (GECCO 2002)},
+  editor    = {Langdon, W. B. and others},
+  publisher = {Morgan Kaufmann},
+  pages     = {11--18},
+  year      = {2002},
+  note      = {Open version: \url{https://eden.dei.uc.pt/~paquete/papers/gecco2002.pdf}}
+}
+
+% --- prior-art sweep 2026-09-23 (metadata verified via OpenAlex / Semantic Scholar) ---
+@article{diliberto2016dash,
+  author  = {Di Liberto, Giovanni and Kadioglu, Serdar and Leo, Kevin and Malitsky, Yuri},
+  title   = {{DASH}: Dynamic Approach for Switching Heuristics},
+  journal = {European Journal of Operational Research},
+  volume  = {248},
+  number  = {3},
+  pages   = {943--953},
+  year    = {2016},
+  doi     = {10.1016/j.ejor.2015.08.018},
+  note    = {Preprint: \url{https://arxiv.org/abs/1307.4689}}
+}
+
+@inproceedings{hendel2017phases,
+  author    = {Hendel, Gregor},
+  title     = {Exploiting Solving Phases for Mixed-Integer Programs},
+  booktitle = {Operations Research Proceedings 2015},
+  publisher = {Springer},
+  pages     = {3--9},
+  year      = {2017},
+  doi       = {10.1007/978-3-319-42902-1_1},
+  note      = {Preprint: \url{https://opus4.kobv.de/opus4-zib/files/5709/Hendel_ExploitingSolvingPhases.pdf}}
+}
+
+@article{berthold2018phases,
+  author  = {Berthold, Timo and Hendel, Gregor and Koch, Thorsten},
+  title   = {From Feasibility to Improvement to Proof: Three Phases of Solving Mixed-Integer Programs},
+  journal = {Optimization Methods and Software},
+  volume  = {33},
+  number  = {3},
+  pages   = {499--517},
+  year    = {2018},
+  doi     = {10.1080/10556788.2017.1392519},
+  note    = {Preprint: ZIB-Report 16-78, \url{https://opus4.kobv.de/opus4-zib/files/6160/zib-paper.pdf}}
+}
+
+@inproceedings{cai2025balans,
+  author    = {Cai, Junyang and Kadioglu, Serdar and Dilkina, Bistra},
+  title     = {Balans: Multi-Armed Bandits-based Adaptive Large Neighborhood Search for Mixed-Integer Programming Problems},
+  booktitle = {Proceedings of the 34th International Joint Conference on Artificial Intelligence (IJCAI 2025)},
+  pages     = {2566--2574},
+  year      = {2025},
+  doi       = {10.24963/ijcai.2025/286}
+}
+
+@misc{yilmaz2025parbalans,
+  author = {Y{\i}lmaz, Ali Emre and Cai, Junyang and Kadioglu, Serdar and Dilkina, Bistra},
+  title  = {{ParBalans}: Parallel Multi-Armed Bandits-based Adaptive Large Neighborhood Search},
+  year   = {2025},
+  eprint = {2508.06736},
+  archivePrefix = {arXiv}
+}
+
+@misc{mexi2026rexi,
+  author = {Mexi, Gioni and Rehfeldt, Daniel},
+  title  = {Race, Exchange, Improve: Finding High-Quality {MIP} Solutions Quickly},
+  year   = {2026},
+  eprint = {2609.05954},
+  archivePrefix = {arXiv}
+}
+
+@inproceedings{cai2025multitask,
+  author    = {Cai, Junyang and Huang, Taoan and Dilkina, Bistra},
+  title     = {Multi-task Representation Learning for Mixed Integer Linear Programming},
+  booktitle = {Integration of Constraint Programming, Artificial Intelligence, and Operations Research (CPAIOR 2025)},
+  series    = {Lecture Notes in Computer Science},
+  publisher = {Springer},
+  pages     = {134--151},
+  year      = {2025},
+  doi       = {10.1007/978-3-031-95973-8_9},
+  note      = {Preprint: \url{https://arxiv.org/abs/2412.14409}}
+}
+
+@misc{szeider2026zerofolio,
+  author = {Szeider, Stefan},
+  title  = {Algorithm Selection with Zero Domain Knowledge via Text Embeddings},
+  year   = {2026},
+  eprint = {2604.19753},
+  archivePrefix = {arXiv}
+}
+
+% --- paywalled, no legal full-text copy found; cited only in the appendix "Related work behind paywalls" ---
+@inproceedings{kadioglu2011threes,
+  author    = {Kadioglu, Serdar and Malitsky, Yuri and Sabharwal, Ashish and Samulowitz, Horst and Sellmann, Meinolf},
+  title     = {Algorithm Selection and Scheduling},
+  booktitle = {Principles and Practice of Constraint Programming (CP 2011)},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {6876},
+  publisher = {Springer},
+  pages     = {454--469},
+  year      = {2011},
+  doi       = {10.1007/978-3-642-23786-7_35}
+}
+
+@article{carvajal2014diversification,
+  author  = {Carvajal, Rodolfo and Ahmed, Shabbir and Nemhauser, George L. and Furman, Kevin C. and Goel, Vikas and Shao, Yufen},
+  title   = {Using Diversification, Communication and Parallelism to Solve Mixed-Integer Linear Programs},
+  journal = {Operations Research Letters},
+  volume  = {42},
+  number  = {2},
+  pages   = {186--189},
+  year    = {2014},
+  doi     = {10.1016/j.orl.2013.12.012}
+}
+
+@inproceedings{kruber2017decomposition,
+  author    = {Kruber, Markus and L{\"u}bbecke, Marco E. and Parmentier, Axel},
+  title     = {Learning When to Use a Decomposition},
+  booktitle = {Integration of AI and OR Techniques in Constraint Programming (CPAIOR 2017)},
+  series    = {Lecture Notes in Computer Science},
+  publisher = {Springer},
+  pages     = {202--210},
+  year      = {2017},
+  doi       = {10.1007/978-3-319-59776-8_16}
+}
+
+@inproceedings{bonami2018miqp,
+  author    = {Bonami, Pierre and Lodi, Andrea and Zarpellon, Giulia},
+  title     = {Learning a Classification of Mixed-Integer Quadratic Programming Problems},
+  booktitle = {Integration of Constraint Programming, Artificial Intelligence, and Operations Research (CPAIOR 2018)},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {10848},
+  publisher = {Springer},
+  pages     = {595--604},
+  year      = {2018},
+  doi       = {10.1007/978-3-319-93031-2_43}
+}
+
+@article{lodi2017survey,
+  author  = {Lodi, Andrea and Zarpellon, Giulia},
+  title   = {On Learning and Branching: A Survey},
+  journal = {TOP},
+  volume  = {25},
+  number  = {2},
+  pages   = {207--236},
+  year    = {2017},
+  doi     = {10.1007/s11750-017-0451-6}
+}
+
+@inproceedings{achterberg2009hybrid,
+  author    = {Achterberg, Tobias and Berthold, Timo},
+  title     = {Hybrid Branching},
+  booktitle = {Integration of AI and OR Techniques in Constraint Programming for Combinatorial Optimization Problems (CPAIOR 2009)},
+  series    = {Lecture Notes in Computer Science},
+  publisher = {Springer},
+  pages     = {309--311},
+  year      = {2009},
+  doi       = {10.1007/978-3-642-01929-6_23}
+}
+
+% --- novelty re-check 2026-09-23 night (metadata verified via Crossref / DataCite / LIPIcs / ZIB OPUS) ---
+@article{lindauer2019oasc,
+  author  = {Lindauer, Marius and van Rijn, Jan N. and Kotthoff, Lars},
+  title   = {The Algorithm Selection Competitions 2015 and 2017},
+  journal = {Artificial Intelligence},
+  volume  = {272},
+  pages   = {86--100},
+  year    = {2019},
+  doi     = {10.1016/j.artint.2018.10.004},
+  note    = {Preprint: \url{https://arxiv.org/abs/1805.01214}}
+}
+
+@inproceedings{pellegrino2025transformer,
+  author    = {Pellegrino, Alessio and Akg{\"u}n, {\"O}zg{\"u}r and Dang, Nguyen and Kiziltan, Zeynep and Miguel, Ian},
+  title     = {Transformer-Based Feature Learning for Algorithm Selection in Combinatorial Optimisation},
+  booktitle = {31st International Conference on Principles and Practice of Constraint Programming (CP 2025)},
+  series    = {LIPIcs},
+  volume    = {340},
+  pages     = {31:1--31:22},
+  year      = {2025},
+  doi       = {10.4230/LIPIcs.CP.2025.31}
+}
+
+@inproceedings{vermetten2020dynamic,
+  author    = {Vermetten, Diederick and Wang, Hao and B{\"a}ck, Thomas and Doerr, Carola},
+  title     = {Towards Dynamic Algorithm Selection for Numerical Black-Box Optimization: Investigating {BBOB} as a Use Case},
+  booktitle = {Proceedings of the Genetic and Evolutionary Computation Conference (GECCO 2020)},
+  pages     = {654--662},
+  year      = {2020},
+  doi       = {10.1145/3377930.3390189},
+  note      = {Preprint: \url{https://arxiv.org/abs/2006.06586}}
+}
+
+@techreport{georges2018selection,
+  author      = {Georges, Alexander and Gleixner, Ambros and Gojic, Gorana and Gottwald, Robert Lion and Haley, David and Hendel, Gregor and Matejczyk, Bart{\l}omiej},
+  title       = {Feature-Based Algorithm Selection for Mixed Integer Programming},
+  institution = {Zuse Institute Berlin},
+  type        = {ZIB-Report},
+  number      = {18-17},
+  year        = {2018},
+  url         = {https://opus4.kobv.de/opus4-zib/frontdoor/index/index/docId/6836}
+}

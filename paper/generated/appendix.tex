@@ -1,0 +1,242 @@
+\paragraph{Naming.} The appendix and the repository call the cross-solver study (HiGHS, SCIP, cuOpt; Sections~\ref{sec:headroom},
+\ref{sec:predict} and \ref{sec:parallel}) \emph{Track~A}, and the SCIP studies (Sections~\ref{sec:switch} and
+\ref{sec:agent}) \emph{Track~B}, with B0--B3 its experiments.
+
+\section{Related work in detail, and work behind paywalls}\label{app:related}
+We searched for prior work that uses a learned, neural or foundation model for the solver-side functions studied here
+(per-instance configuration, switching during the solve, selection across solvers), in four sweeps: branching and node
+selection; primal heuristics and large-neighbourhood search; configuration, selection and dynamic control; and LLMs,
+foundation models and GPU solvers (159 works), followed by a re-check of the novelty claims (21 more; the notes, with the evidence for each entry, are in the repository vault
+under \texttt{40-literature/prior-art}). Learned per-instance configuration of one solver is well
+established~\citep{xu2011hydramip,valentin2022instance,li2025benloc}; BenLOC's finding that learned gains over the
+per-dataset best stay under 5\,\% and that tree models beat deep ones agrees with our Table~\ref{tab:selection}. The
+closest foundation-model work, GRIMIP~\citep{luo2026grimip}, reports primal-dual integrals on the same ML4CO families
+and MIPLIB, but tunes Gurobi with about ten solver runs per instance; our selectors make one prediction inside the
+budget. Choosing among SCIP settings per instance from features was studied by \citet{georges2018selection}, and
+choosing among MIP solvers (CBC, CPLEX, Gurobi, SCIP, Xpress) is the ASlib MIP-2016 scenario of the 2017 selection
+competition, where the best selector closed about half of the gap to the oracle~\citep{lindauer2019oasc}. What we did
+not find --- a GPU solver in the portfolio, the primal integral as the selection target, a fine-tuned pretrained encoder
+as the selector --- rests on negative searches in which part of the 2025--2026 preprint literature could only be
+reached by web search, so we make no priority claim. Relevant works we could not read legally are listed separately in Appendix~\ref{app:paywalled}.
+
+\subsection{Paywalled research}\label{app:paywalled}
+This subsection is the only place in the paper that cites work we could not read. The following works appear relevant but are behind publisher paywalls, and we
+found no legal free copy (preprint, accepted manuscript, repository or thesis version). \emph{We have not read them in
+full.} They were found through accessible papers that cite or describe them, or judged relevant from their abstract
+and metadata; the descriptions below are limited to what those sources state. Per-instance configuration by clustering
+(ISAC,~\citealp{kadioglu2010isac}) and algorithm selection combined with a schedule of short runs
+(3S,~\citealp{kadioglu2011threes}); running differently configured copies of one MILP solver in parallel with shared
+information~\citep{carvajal2014diversification}; learned per-instance decisions inside a solver, whether to use a
+decomposition~\citep{kruber2017decomposition} or whether CPLEX should linearise a quadratic
+problem~\citep{bonami2018miqp}; SCIP's non-learned combination of branching scores~\citep{achterberg2009hybrid}; a
+survey of learning for branching~\citep{lodi2017survey}; and the standard account of performance variability under
+seeds~\citep{lodi2013variability}, which underlies the parallel copies of Table~\ref{tab:parallel}. Where a work in this
+paper is paywalled but a legal preprint exists, the bibliography points to the preprint.
+
+\section{Hardware, software and resources}\label{app:resources}
+\input{generated/env.tex}
+
+\paragraph{Heterogeneous cores.} The GB10 has ten Cortex-X925 cores at 3.9\,GHz and ten Cortex-A725 cores at 2.8\,GHz.
+Pinned, SCIP explored 4{,}686 nodes on an X925 core and 2{,}413 on an A725 core in the same 20\,s (tr12-30). Track~A
+and B0 runs were not pinned, so their effective budgets varied by up to about $2\times$ at random (no strategy favoured);
+all later experiments pin one run per X925 core and use A725 cores only for untimed work.
+
+\paragraph{Memory.} From Track~B on, every solver run is confined to its own systemd scope with a hard memory cap
+(8--9\,GiB, no swap) and the solver's own limit set 1\,GiB lower; the runner refuses to start if lanes $\times$ cap plus a
+16\,GiB margin exceeds available memory.
+
+\section{Instances}\label{app:data}
+\input{generated/datasets.tex}
+\input{generated/table_flow.tex}
+
+\section{Metrics and verification}\label{app:metrics}
+For incumbent $z(t)$ and reference $z^\ast$ the primal gap is $\gamma(t)=|z(t)-z^\ast|/\max(|z(t)|,|z^\ast|)$, with
+$\gamma=1$ before the first incumbent or on a sign mismatch~\citep{berthold2013primal}; $P(T)=\frac1T\int_0^T\gamma$.
+Berthold's definition assumes $z^\ast$ is optimal and leaves one case open: an incumbent \emph{better} than the
+reference. We score it as $\gamma=0$ when it is within $10^{-4}$ (relative) of the reference ---
+solver tolerance, 21 of 3{,}768 Track~A runs --- and as invalid ($\gamma=1$) beyond that. The one invalid case was a
+placeholder objective (0.0 against a proven optimum of 576.34) that cuOpt returned with an error status, outside
+the budget; it affects no result. Where the reference is a best known value rather than a proven optimum, a better
+incumbent can also mean the reference is out of date; a reusable policy should check such a solution and, if it is
+feasible, update the reference rather than score it as invalid. Time-to-target is the first time $\gamma\le 1\,\%$, censored at
+$2T$ and summarised by the shifted geometric mean.
+
+\paragraph{Recording SCIP's incumbents.} At SCIP's ``best solution found'' event the solver's primal bound still
+holds the \emph{previous} incumbent, so reading it there records incumbent $k-1$ at the time of incumbent $k$. Because
+every new best solution fires its own event, the true sequence is recoverable exactly (the value read at event $k+1$, and
+the final primal bound for the last one); every SCIP trajectory in this paper records each incumbent at its own time.
+Reading the bound at the event would favour settings that reach branch-and-bound nodes sooner, such as separation off.
+HiGHS and cuOpt callbacks report the new solution's own objective and were not affected (checked for HiGHS: at every
+improving-solution event its reported primal bound equals the new solution's objective).
+
+\paragraph{Integration and tests.} The primal-dual integral is integrated on the exact event times, with regression
+tests against an independent reference. Paired tests are over instances, with the seeds of an instance averaged. In the
+agent runs other than the timing-matched controls, an agent called at a new-solution event saw the previous incumbent's
+value (the recording lag above, in the agent's state); the timing-matched control runs give agents the current value.
+
+\paragraph{Solution checking.} From Track~B on, every SCIP run stores its final incumbent (earlier incumbents, which also
+enter $P(T)$, are not stored), and an independent checker
+re-reads the model with HiGHS and verifies bounds, integrality, every row and the objective in exact rational
+arithmetic at tolerance $10^{-6}$ (rows by a float pass with an exact re-check of any row near the tolerance). HiGHS and cuOpt
+solutions from the live pair runs are stored and checked too. Of 4{,}332 stored solutions (4{,}125 SCIP, 67 HiGHS, 140
+cuOpt), 4{,}326 are strictly within $10^{-6}$. Four SCIP solutions (one instance, the aggressive-heuristics arm) exceed it
+by about $10^{-13}$ relative, i.e.\ they sit at the solver's own feasibility tolerance. Two cuOpt solutions exceed it by
+up to $3\cdot10^{-6}$ in integrality: cuOpt's default feasibility tolerances are $10^{-4}$, so its incumbents are not
+guaranteed at the stricter standard used here. Two further stored solutions have no matching trace and are not scored. A deliberately corrupted solution is rejected.
+
+\section{Track A details: selection across HiGHS, SCIP and cuOpt}\label{app:trackA}
+\begin{table}[h]
+\centering\small
+\begin{tabular}{lll}
+\toprule
+id & solver & settings (non-default only) \\
+\midrule
+H0 & HiGHS 1.15.1 & default \\
+H1 & HiGHS 1.15.1 & \texttt{mip\_heuristic\_effort}=0.3 (default 0.05) \\
+S0 & SCIP 10.0 & default \\
+S1 & SCIP 10.0 & heuristics emphasis \texttt{AGGRESSIVE} \\
+C0 & cuOpt 26.08 & default (GPU + 3 CPU threads) \\
+C1 & cuOpt 26.08 & \texttt{mip\_cut\_passes}=0 (default 10), RINS time limit 10\,s (default 3\,s) \\
+\bottomrule
+\end{tabular}
+\caption{Track A strategy portfolio, chosen a priori (not tuned).}\label{tab:portfolio}
+\end{table}
+Budgets were 60\,s (MIPLIB, PGLib-UC) and 30\,s (ML4CO); 10\,s and 30\,s views are cut from the same trajectories.
+HiGHS and SCIP ran single-threaded on twelve concurrent CPU lanes and cuOpt on two GPU lanes.
+\input{generated/table_portfolio.tex}
+\input{generated/table_variance.tex}
+\input{generated/table_bands.tex}
+
+\paragraph{Selectors.} Features: 62 static statistics of the constraint matrix (sizes, variable and row types,
+set-partitioning and knapsack row shares, coefficient, cost and right-hand-side ranges, degrees), computed in
+well under a second except on PGLib-UC, where parsing dominates (Table~\ref{tab:overhead}). LightGBM: one cost
+regressor per strategy. MLP: two hidden layers of 64 units, soft targets with $\beta=20$. Hand rules: four rules
+committed before any result was seen. Laya: the published checkpoint asked a six-way choice question over a
+$\sim$260-token text rendering of the features (zero-shot), and the same checkpoint fully fine-tuned with the same
+soft targets (8 epochs, AdamW, encoder $2\cdot10^{-5}$, head $10^{-4}$, one seed per fold, 70--100\,s per fold on the GPU).
+Pooled evaluation: one model for all families, five folds, every instance tested once. LOFO: train on three families,
+test on the fourth.
+\input{generated/table_selection_pooled_10.tex}
+\input{generated/table_selection_pooled_30.tex}
+\input{generated/table_selection_lofo_30.tex}
+\input{generated/table_selection_family.tex}
+\input{generated/table_pairs.tex}
+\input{generated/table_overhead.tex}
+
+\section{GPU contention between Laya and cuOpt}\label{app:contention}
+\input{generated/contention_para.tex}
+\input{generated/table_contention.tex}
+
+\section{Experiments without a positive result}\label{app:nofruit}
+\paragraph{B0: node-selection, heuristic and cut schedules at 30\,s.} Five static SCIP settings (default, depth-first,
+best-first, aggressive heuristics, separation off) and seven schedules switching between them at the first
+incumbent or at 25/50\,\% of the budget, 45 MIPLIB instances, two seeds (Table~\ref{tab:b0}). Separation off was best
+(9\,\% better than the default on $P$); the held-out oracle over all twelve arms added 3.2\,\% ($P$) and 5.8\,\% (PDI) over
+it, and almost none of that came from the schedules (the static oracle alone gives 3.2\,\% and 5.1\,\%).
+\input{generated/table_b0.tex}
+
+\paragraph{B1: the same contrast at 120\,s on pinned cores.} Separation off still leads on $P$, but its advantage
+decays with the budget (20\,\% at 30\,s, $p=0.009$; 17\,\% at 60\,s; 5\,\% at 120\,s, not significant) and turns negative on
+PDI by 120\,s as cuts pay for the bound; switching separation back on at 25 or 50\,\% of the budget changes nothing (Table~\ref{tab:b1}).
+\input{generated/table_b1.tex}
+
+\paragraph{Restarting unpromising runs.} From B2 traces we estimated, by splicing recorded trajectories (a trace-based counterfactual, not a re-run), a controller that at time $\tau$ either
+continues the default run or restarts into another static setting for the remaining budget (incumbent and bound
+carried over; conservative, since a real restart also keeps presolve information). A hindsight oracle gains 5.8\,\%
+(PDI) at $\tau=10$\,s and 3.5 and 2.3\,\% at 20 and 30\,s; a LightGBM policy on simple state features (gap, bound
+movement, node rate, incumbent age) did 5--8\,\% \emph{worse} than never restarting (90 runs on 45 instances).
+
+\paragraph{Rule agent.} Rules distilled from the MIPLIB component results (separation off at the start, one restart
+at 10\,s without an incumbent, inference branching when the bound stalls) did not transfer to the held-out
+instances ($-2.6\,\%$ on $P$, not significant).
+
+\paragraph{B3: switching at 300\,s.} The B2 design (12 arms, two seeds) on the 20 MIPLIB instances with the largest
+B2 headroom, at 300\,s. On $P$ the static choice is worth $+20.4\,\%$ $[1.6, 35.9]$ and switching adds $-0.2\,\%$
+$[-1.8, 1.0]$ (at 120\,s on the same instances: $+13.8\,\%$ and $-0.1\,\%$). On PDI the static choice is worth $+11.3\,\%$ and
+switching adds $+1.5\,\%$ $[-0.2, 4.3]$ (120\,s: $+10.2\,\%$ and $+1.4\,\%$); the best schedule by mean (pseudo-cost
+branching for the first quarter, then default, 0.313) is within 1\,\% of the best static setting (inference branching,
+0.316). Separation off does not help at 300\,s, and the
+online bandit is within 2\,\% of both the default and the best static setting. One run (aggressive heuristics on
+opm2-z10-s4) exceeded SCIP's 300\,s limit by more than 200\,s and is scored as a failure.
+
+\paragraph{Exchanging incumbents between SCIP and cuOpt.} SCIP (one Cortex-X925 core) and cuOpt (GPU and five
+Cortex-A725 cores) were launched together on the 80 MIPLIB instances (60\,s) in three arms: no exchange (a race),
+cuOpt's incumbents handed to SCIP, and exchange in both directions (cuOpt accepts outside solutions through a
+set-solution callback, which disables its presolve). Time runs from the launch of both processes; the pair's value is
+the better of the two incumbents at each moment. Solutions pass into SCIP through a SCIP primal
+heuristic called before every node and during the root LP loop, which hands a better outside solution to
+\texttt{trySol}: no run failed, and 38 instances received solutions. The race, with both arms interleaved in one session, beats SCIP alone by 21.5\,\% (44 instances, better on 28,
+worse on 13); one-way exchange improves SCIP's own trajectory by 14.1\,\% ($p=2\cdot10^{-4}$, 47 better,
+24 worse) and leaves the pair's value unchanged ($+1.1\,\%$, $p=0.57$); two-way exchange costs 14.7\,\% ($p=0.002$).
+Injecting solutions from SCIP's event handler instead is not safe in this PySCIPOpt version: SCIP's process died
+without a result on 9 of 80 instances per exchange arm. Solutions must be mapped between the solvers' variable orders
+outside the timed window (parsing the model a second time inside SCIP's process costs about 0.7\,s of the budget), and a
+process that dies without output is counted as a failure.
+
+\paragraph{An evolutionary partner for SCIP.} A population-based partner on one Cortex-A725 core exchanged solutions with
+SCIP (one Cortex-X925 core) in both directions: SCIP's incumbents enter the population; offspring (uniform crossover on
+the integer variables, mutation, a greedy violation repair, and for mixed problems an LP over the continuous variables
+with the integers fixed) that improve on SCIP's incumbent are handed to SCIP, which checks and accepts them between
+nodes. A second arm let up to 20\,\% of the population be infeasible individuals whose objective beats the best
+feasible one, kept with a probability that falls with their infeasibility rank (the least infeasible survive most
+often). On the 80 MIPLIB instances at 60\,s no improvement of SCIP's primal integral was detected in either arm ($-7.5\,\%$ and $-3.7\,\%$, not
+significant, counting three runs in which SCIP's process died as failures; without them $-0.1\,\%$ and $0.0\,\%$), the
+infeasible share did not differ from the feasible-only population, and both lost to the equal-compute control of a
+second SCIP with another seed ($p\le0.015$). Of 129 improvements of its own population, only 11
+beat SCIP's incumbent at the time; SCIP accepted all 11. The partner's feasibility test is per row.
+
+\paragraph{Cheaper evaluation by racing.} Replaying an F-Race-style race~\citep{birattari2002racing} over B0, with instances ordered by how strongly they separated the Track~A strategies, reached the
+same verdict with 65\,\% of the runs (random order: 92\,\%). Racing selects the best single configuration; it is the
+wrong tool for measuring per-instance headroom, which B2 instead evaluated in instance blocks with a sequential
+confidence-interval stop.
+
+\section{Agent-in-the-loop details}\label{app:agents}
+\paragraph{Interface.} SCIP calls the agent from an event handler every $\Delta$ seconds with the current state
+(incumbent, bound, primal-dual gap, incumbent count and age, node count and rate, LP iterations, current setting,
+history). The agent returns nothing, a setting, or a restart. SCIP's limit is wall clock
+(\texttt{timing/clocktype}=2; verified by sleeping inside the callback), so decision time is charged to the run;
+measured decision time was below 0.1\,ms for both agents.
+\paragraph{Bandit.} UCB1 over the six static B2 settings; reward per interval = relative reduction of the primal-dual
+gap plus 0.5 for a new incumbent; $\Delta=10$\,s (set 1) or 5\,s (set 2). On item placement it spent about a third of
+its time in aggressive heuristics, the best fixed setting for that family.
+\input{generated/table_pilot.tex}
+On set 2 (30 further held-out ML4CO instances (validation split), two seeds, 120\,s), the bandit improved $P$ over the default by 20.8\,\%
+($\Delta=10$\,s) and 27.1\,\% ($\Delta=5$\,s, $p=3\cdot10^{-4}$); against the best fixed setting for the
+family it was $-2.5\,\%$ at 120\,s (not significant) and $-12.5\,\%$ at 60\,s ($p=0.047$) on item placement.
+
+\paragraph{Diagnosis first move.} Six static settings were run on 60 ML4CO training instances (120\,s); LightGBM cost
+regressors on the static features then predicted a setting for each of the 30 set-2 test instances, scored exactly on
+the recorded test runs. Primal integral $P(120)$ relative to the default: best fixed setting from training (aggressive
+heuristics) $+28.5\,\%$ ($p=4\cdot10^{-5}$), per-family majority $+28.3\,\%$, LightGBM per-instance diagnosis $+23.4\,\%$,
+bandit $+20.3\,\%$ / $+26.5\,\%$ ($\Delta=10$ / 5\,s), diagnose-then-bandit (prediction as the first move, bandit
+afterwards) $+29.1\,\%$ ($p=0.01$), per-run static oracle $+34.8\,\%$. On the primal-dual integral the fixed setting also led
+($+2.9\,\%$ vs $+0.8\,\%$ for LightGBM). Laya, asked the same six-way question on a text rendering of the same
+features and fine-tuned on the 60 training instances (soft targets, three seeds), reached $+28.3\,\%$ and, on PDI,
+chose aggressive heuristics on all 30 instances, i.e.\ the fixed setting's $+2.9\,\%$: it learned the family rule (aggressive heuristics for item placement) and so tied the best fixed
+setting while beating LightGBM; zero-shot it always chose the default.
+Paired Wilcoxon tests over instances (seeds averaged within an instance) throughout; all 483 agent and fixed-setting solutions from these runs pass the checker.
+
+\input{generated/table_timing_mech.tex}
+
+\section{Resources per experiment}\label{app:resourcetable}
+\input{generated/resources.tex}
+
+\section{Limitations}\label{app:limitations}
+\input{generated/limitations.tex}
+
+\section{Companion file for automated readers}\label{app:companion}
+A single markdown file, \texttt{AGENTS.md}, accompanies this paper as an arXiv ancillary file and at the root of the
+repository \url{https://github.com/berkorbay/optopt}. It lists every claim with its numbers, the tables, data files and
+scripts behind it, and its caveats, together with a map of the repository, reproduction commands and the rules used for
+new experiments, so that an AI agent can check or extend the results without parsing this PDF.
+
+\section{Reproducibility and use of AI tools}
+Code, job files, derived tables, per-run resource records and the research journal are in the
+public repository \url{https://github.com/berkorbay/optopt}, packaged as the Python library \texttt{optopt}. The original run trajectories, stored solutions, launch and resource
+records are published as a versioned release archive with SHA-256 checksums and the code revision
+(\url{https://github.com/berkorbay/optopt/releases/tag/traces-v1}); from them the
+modules in \texttt{optopt.analysis} generate every table in this paper, and \texttt{optopt reproduce} re-derives all
+of them and fails if any step fails or any table differs. Re-running the job files instead is a new replication, whose
+wall-clock results will differ. The experiments were designed with and executed by AgentRA (Agent Research Assistant; AgentRA is mainly Claude Opus 5.5), under the author's direction;
+literature references were verified against publisher or proceedings pages before inclusion. The repository's code, data, research vault and tutorials are released under the MIT License, and this
+paper under CC BY 4.0.

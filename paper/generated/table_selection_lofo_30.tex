@@ -1,0 +1,18 @@
+\begin{table}[t]\centering\small
+\begin{tabular}{lrrrr}
+\toprule
+policy & cost $P(T)$ & closed gap [95\% CI] & TTT sgm (s) & reached 1\% \\
+\midrule
+Random (expected) & 0.328 & -0.73 [-1.16, -0.42] & 42.4 & 12\% \\
+Best default solver & 0.299 & -0.31 [-0.48, -0.17] & 29.1 & 45\% \\
+Best fixed strategy & 0.278 & +0.00 [+0.00, +0.00] & 26.0 & 52\% \\
+Hand rules & 0.299 & -0.30 [-0.68, -0.05] & 31.2 & 40\% \\
+LightGBM & 0.305 & -0.40 [-0.71, -0.18] & 30.8 & 40\% \\
+MLP & 0.307 & -0.42 [-0.77, -0.19] & 31.2 & 40\% \\
+Laya zero-shot & 0.372 & -1.38 [-2.06, -0.88] & 43.8 & 16\% \\
+MIP-Laya (fine-tuned) & 0.280 & -0.02 [-0.08, +0.03] & 33.4 & 34\% \\
+Oracle (VBS) & 0.210 & +1.00 [+1.00, +1.00] & 25.1 & 50\% \\
+\bottomrule
+\end{tabular}
+\caption{Strategy selection, leave-one-family-out evaluation, $T=30$\,s, $n=313$ test instances. Closed gap is relative to the hindsight single best strategy on the same instances (H1; 0 = SBS, 1 = oracle). TTT: time to 1\% primal gap, censored at $2T$, shifted geometric mean.}\label{tab:sel-lofo-30}
+\end{table}

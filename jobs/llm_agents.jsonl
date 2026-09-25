@@ -1,0 +1,60 @@
+{"set": "llm_agents", "instance": "data/ml4co/instances/1_item_placement/valid/item_placement_9910.mps.gz", "strategies": ["A:default", "C:HEU", "A:laya", "A:llm", "A:llm+laya"], "seeds": [0, 1], "budget": 120}
+{"set": "llm_agents", "instance": "data/ml4co/instances/1_item_placement/valid/item_placement_9910.mps.gz", "strategies": ["A:gpt6luna"], "seeds": [0], "budget": 120}
+{"set": "llm_agents", "instance": "data/ml4co/instances/1_item_placement/valid/item_placement_9911.mps.gz", "strategies": ["A:default", "C:HEU", "A:laya", "A:llm", "A:llm+laya"], "seeds": [0, 1], "budget": 120}
+{"set": "llm_agents", "instance": "data/ml4co/instances/1_item_placement/valid/item_placement_9911.mps.gz", "strategies": ["A:gpt6luna"], "seeds": [0], "budget": 120}
+{"set": "llm_agents", "instance": "data/ml4co/instances/1_item_placement/valid/item_placement_9912.mps.gz", "strategies": ["A:default", "C:HEU", "A:laya", "A:llm", "A:llm+laya"], "seeds": [0, 1], "budget": 120}
+{"set": "llm_agents", "instance": "data/ml4co/instances/1_item_placement/valid/item_placement_9912.mps.gz", "strategies": ["A:gpt6luna"], "seeds": [0], "budget": 120}
+{"set": "llm_agents", "instance": "data/ml4co/instances/1_item_placement/valid/item_placement_9913.mps.gz", "strategies": ["A:default", "C:HEU", "A:laya", "A:llm", "A:llm+laya"], "seeds": [0, 1], "budget": 120}
+{"set": "llm_agents", "instance": "data/ml4co/instances/1_item_placement/valid/item_placement_9913.mps.gz", "strategies": ["A:gpt6luna"], "seeds": [0], "budget": 120}
+{"set": "llm_agents", "instance": "data/ml4co/instances/1_item_placement/valid/item_placement_9914.mps.gz", "strategies": ["A:default", "C:HEU", "A:laya", "A:llm", "A:llm+laya"], "seeds": [0, 1], "budget": 120}
+{"set": "llm_agents", "instance": "data/ml4co/instances/1_item_placement/valid/item_placement_9914.mps.gz", "strategies": ["A:gpt6luna"], "seeds": [0], "budget": 120}
+{"set": "llm_agents", "instance": "data/ml4co/instances/1_item_placement/valid/item_placement_9915.mps.gz", "strategies": ["A:default", "C:HEU", "A:laya", "A:llm", "A:llm+laya"], "seeds": [0, 1], "budget": 120}
+{"set": "llm_agents", "instance": "data/ml4co/instances/1_item_placement/valid/item_placement_9915.mps.gz", "strategies": ["A:gpt6luna"], "seeds": [0], "budget": 120}
+{"set": "llm_agents", "instance": "data/ml4co/instances/1_item_placement/valid/item_placement_9916.mps.gz", "strategies": ["A:default", "C:HEU", "A:laya", "A:llm", "A:llm+laya"], "seeds": [0, 1], "budget": 120}
+{"set": "llm_agents", "instance": "data/ml4co/instances/1_item_placement/valid/item_placement_9916.mps.gz", "strategies": ["A:gpt6luna"], "seeds": [0], "budget": 120}
+{"set": "llm_agents", "instance": "data/ml4co/instances/1_item_placement/valid/item_placement_9917.mps.gz", "strategies": ["A:default", "C:HEU", "A:laya", "A:llm", "A:llm+laya"], "seeds": [0, 1], "budget": 120}
+{"set": "llm_agents", "instance": "data/ml4co/instances/1_item_placement/valid/item_placement_9917.mps.gz", "strategies": ["A:gpt6luna"], "seeds": [0], "budget": 120}
+{"set": "llm_agents", "instance": "data/ml4co/instances/1_item_placement/valid/item_placement_9918.mps.gz", "strategies": ["A:default", "C:HEU", "A:laya", "A:llm", "A:llm+laya"], "seeds": [0, 1], "budget": 120}
+{"set": "llm_agents", "instance": "data/ml4co/instances/1_item_placement/valid/item_placement_9918.mps.gz", "strategies": ["A:gpt6luna"], "seeds": [0], "budget": 120}
+{"set": "llm_agents", "instance": "data/ml4co/instances/1_item_placement/valid/item_placement_9919.mps.gz", "strategies": ["A:default", "C:HEU", "A:laya", "A:llm", "A:llm+laya"], "seeds": [0, 1], "budget": 120}
+{"set": "llm_agents", "instance": "data/ml4co/instances/1_item_placement/valid/item_placement_9919.mps.gz", "strategies": ["A:gpt6luna"], "seeds": [0], "budget": 120}
+{"set": "llm_agents", "instance": "data/ml4co/instances/1_item_placement/valid/item_placement_9920.mps.gz", "strategies": ["A:default", "C:HEU", "A:laya", "A:llm", "A:llm+laya"], "seeds": [0, 1], "budget": 120}
+{"set": "llm_agents", "instance": "data/ml4co/instances/1_item_placement/valid/item_placement_9920.mps.gz", "strategies": ["A:gpt6luna"], "seeds": [0], "budget": 120}
+{"set": "llm_agents", "instance": "data/ml4co/instances/1_item_placement/valid/item_placement_9921.mps.gz", "strategies": ["A:default", "C:HEU", "A:laya", "A:llm", "A:llm+laya"], "seeds": [0, 1], "budget": 120}
+{"set": "llm_agents", "instance": "data/ml4co/instances/1_item_placement/valid/item_placement_9921.mps.gz", "strategies": ["A:gpt6luna"], "seeds": [0], "budget": 120}
+{"set": "llm_agents", "instance": "data/ml4co/instances/1_item_placement/valid/item_placement_9922.mps.gz", "strategies": ["A:default", "C:HEU", "A:laya", "A:llm", "A:llm+laya"], "seeds": [0, 1], "budget": 120}
+{"set": "llm_agents", "instance": "data/ml4co/instances/1_item_placement/valid/item_placement_9922.mps.gz", "strategies": ["A:gpt6luna"], "seeds": [0], "budget": 120}
+{"set": "llm_agents", "instance": "data/ml4co/instances/1_item_placement/valid/item_placement_9923.mps.gz", "strategies": ["A:default", "C:HEU", "A:laya", "A:llm", "A:llm+laya"], "seeds": [0, 1], "budget": 120}
+{"set": "llm_agents", "instance": "data/ml4co/instances/1_item_placement/valid/item_placement_9923.mps.gz", "strategies": ["A:gpt6luna"], "seeds": [0], "budget": 120}
+{"set": "llm_agents", "instance": "data/ml4co/instances/1_item_placement/valid/item_placement_9924.mps.gz", "strategies": ["A:default", "C:HEU", "A:laya", "A:llm", "A:llm+laya"], "seeds": [0, 1], "budget": 120}
+{"set": "llm_agents", "instance": "data/ml4co/instances/1_item_placement/valid/item_placement_9924.mps.gz", "strategies": ["A:gpt6luna"], "seeds": [0], "budget": 120}
+{"set": "llm_agents", "instance": "data/ml4co/instances/2_load_balancing/valid/load_balancing_9910.mps.gz", "strategies": ["A:default", "C:HEU", "A:laya", "A:llm", "A:llm+laya"], "seeds": [0, 1], "budget": 120}
+{"set": "llm_agents", "instance": "data/ml4co/instances/2_load_balancing/valid/load_balancing_9910.mps.gz", "strategies": ["A:gpt6luna"], "seeds": [0], "budget": 120}
+{"set": "llm_agents", "instance": "data/ml4co/instances/2_load_balancing/valid/load_balancing_9911.mps.gz", "strategies": ["A:default", "C:HEU", "A:laya", "A:llm", "A:llm+laya"], "seeds": [0, 1], "budget": 120}
+{"set": "llm_agents", "instance": "data/ml4co/instances/2_load_balancing/valid/load_balancing_9911.mps.gz", "strategies": ["A:gpt6luna"], "seeds": [0], "budget": 120}
+{"set": "llm_agents", "instance": "data/ml4co/instances/2_load_balancing/valid/load_balancing_9912.mps.gz", "strategies": ["A:default", "C:HEU", "A:laya", "A:llm", "A:llm+laya"], "seeds": [0, 1], "budget": 120}
+{"set": "llm_agents", "instance": "data/ml4co/instances/2_load_balancing/valid/load_balancing_9912.mps.gz", "strategies": ["A:gpt6luna"], "seeds": [0], "budget": 120}
+{"set": "llm_agents", "instance": "data/ml4co/instances/2_load_balancing/valid/load_balancing_9913.mps.gz", "strategies": ["A:default", "C:HEU", "A:laya", "A:llm", "A:llm+laya"], "seeds": [0, 1], "budget": 120}
+{"set": "llm_agents", "instance": "data/ml4co/instances/2_load_balancing/valid/load_balancing_9913.mps.gz", "strategies": ["A:gpt6luna"], "seeds": [0], "budget": 120}
+{"set": "llm_agents", "instance": "data/ml4co/instances/2_load_balancing/valid/load_balancing_9914.mps.gz", "strategies": ["A:default", "C:HEU", "A:laya", "A:llm", "A:llm+laya"], "seeds": [0, 1], "budget": 120}
+{"set": "llm_agents", "instance": "data/ml4co/instances/2_load_balancing/valid/load_balancing_9914.mps.gz", "strategies": ["A:gpt6luna"], "seeds": [0], "budget": 120}
+{"set": "llm_agents", "instance": "data/ml4co/instances/2_load_balancing/valid/load_balancing_9915.mps.gz", "strategies": ["A:default", "C:HEU", "A:laya", "A:llm", "A:llm+laya"], "seeds": [0, 1], "budget": 120}
+{"set": "llm_agents", "instance": "data/ml4co/instances/2_load_balancing/valid/load_balancing_9915.mps.gz", "strategies": ["A:gpt6luna"], "seeds": [0], "budget": 120}
+{"set": "llm_agents", "instance": "data/ml4co/instances/2_load_balancing/valid/load_balancing_9916.mps.gz", "strategies": ["A:default", "C:HEU", "A:laya", "A:llm", "A:llm+laya"], "seeds": [0, 1], "budget": 120}
+{"set": "llm_agents", "instance": "data/ml4co/instances/2_load_balancing/valid/load_balancing_9916.mps.gz", "strategies": ["A:gpt6luna"], "seeds": [0], "budget": 120}
+{"set": "llm_agents", "instance": "data/ml4co/instances/2_load_balancing/valid/load_balancing_9917.mps.gz", "strategies": ["A:default", "C:HEU", "A:laya", "A:llm", "A:llm+laya"], "seeds": [0, 1], "budget": 120}
+{"set": "llm_agents", "instance": "data/ml4co/instances/2_load_balancing/valid/load_balancing_9917.mps.gz", "strategies": ["A:gpt6luna"], "seeds": [0], "budget": 120}
+{"set": "llm_agents", "instance": "data/ml4co/instances/2_load_balancing/valid/load_balancing_9918.mps.gz", "strategies": ["A:default", "C:HEU", "A:laya", "A:llm", "A:llm+laya"], "seeds": [0, 1], "budget": 120}
+{"set": "llm_agents", "instance": "data/ml4co/instances/2_load_balancing/valid/load_balancing_9918.mps.gz", "strategies": ["A:gpt6luna"], "seeds": [0], "budget": 120}
+{"set": "llm_agents", "instance": "data/ml4co/instances/2_load_balancing/valid/load_balancing_9919.mps.gz", "strategies": ["A:default", "C:HEU", "A:laya", "A:llm", "A:llm+laya"], "seeds": [0, 1], "budget": 120}
+{"set": "llm_agents", "instance": "data/ml4co/instances/2_load_balancing/valid/load_balancing_9919.mps.gz", "strategies": ["A:gpt6luna"], "seeds": [0], "budget": 120}
+{"set": "llm_agents", "instance": "data/ml4co/instances/2_load_balancing/valid/load_balancing_9920.mps.gz", "strategies": ["A:default", "C:HEU", "A:laya", "A:llm", "A:llm+laya"], "seeds": [0, 1], "budget": 120}
+{"set": "llm_agents", "instance": "data/ml4co/instances/2_load_balancing/valid/load_balancing_9920.mps.gz", "strategies": ["A:gpt6luna"], "seeds": [0], "budget": 120}
+{"set": "llm_agents", "instance": "data/ml4co/instances/2_load_balancing/valid/load_balancing_9921.mps.gz", "strategies": ["A:default", "C:HEU", "A:laya", "A:llm", "A:llm+laya"], "seeds": [0, 1], "budget": 120}
+{"set": "llm_agents", "instance": "data/ml4co/instances/2_load_balancing/valid/load_balancing_9921.mps.gz", "strategies": ["A:gpt6luna"], "seeds": [0], "budget": 120}
+{"set": "llm_agents", "instance": "data/ml4co/instances/2_load_balancing/valid/load_balancing_9922.mps.gz", "strategies": ["A:default", "C:HEU", "A:laya", "A:llm", "A:llm+laya"], "seeds": [0, 1], "budget": 120}
+{"set": "llm_agents", "instance": "data/ml4co/instances/2_load_balancing/valid/load_balancing_9922.mps.gz", "strategies": ["A:gpt6luna"], "seeds": [0], "budget": 120}
+{"set": "llm_agents", "instance": "data/ml4co/instances/2_load_balancing/valid/load_balancing_9923.mps.gz", "strategies": ["A:default", "C:HEU", "A:laya", "A:llm", "A:llm+laya"], "seeds": [0, 1], "budget": 120}
+{"set": "llm_agents", "instance": "data/ml4co/instances/2_load_balancing/valid/load_balancing_9923.mps.gz", "strategies": ["A:gpt6luna"], "seeds": [0], "budget": 120}
+{"set": "llm_agents", "instance": "data/ml4co/instances/2_load_balancing/valid/load_balancing_9924.mps.gz", "strategies": ["A:default", "C:HEU", "A:laya", "A:llm", "A:llm+laya"], "seeds": [0, 1], "budget": 120}
+{"set": "llm_agents", "instance": "data/ml4co/instances/2_load_balancing/valid/load_balancing_9924.mps.gz", "strategies": ["A:gpt6luna"], "seeds": [0], "budget": 120}

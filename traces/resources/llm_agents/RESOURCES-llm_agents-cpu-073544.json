@@ -1,0 +1,30 @@
+{
+ "started": "2026-09-24T07:35:44+0200",
+ "jobs": "experiments/jobs/llm_agents.jsonl",
+ "only": "cpu",
+ "cpu_lanes": 4,
+ "gpu_lanes": 0,
+ "pinned_cores": [
+  5,
+  6,
+  7,
+  8
+ ],
+ "pinned_core_models": [
+  "Cortex-X925"
+ ],
+ "mem_cap_gb_per_run": 8.0,
+ "scip_mem_limit_mb": 7168,
+ "min_avail_gate_gb": 20.0,
+ "mem_available_gb_at_start": 52.4,
+ "threads_per_run": {
+  "highs": 1,
+  "scip": 1,
+  "cuopt_cpu": 3
+ },
+ "serving_units": {
+  "Ornith-1.5-35B-A3B (vLLM)": "active",
+  "Qwen3.8-27B (llama.cpp)": "inactive"
+ },
+ "gpu_processes": "VLLM::EngineCore, 48426 MiB\npython, 5335 MiB"
+}

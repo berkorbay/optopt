@@ -1,0 +1,132 @@
+{
+ "P": {
+  "Laya zero-shot": {
+   "cost": 0.19595426037724048,
+   "vs_default_pct": 0.0,
+   "p": 1.0,
+   "picks": {
+    "D": 30
+   }
+  },
+  "Laya fine-tuned (seed 0)": {
+   "cost": 0.1404705713288431,
+   "vs_default_pct": 28.31461226797682,
+   "p": 6.018771851822144e-05,
+   "picks": {
+    "HEU": 15,
+    "INF": 14,
+    "NOC": 1
+   }
+  },
+  "Laya fine-tuned (seed 1)": {
+   "cost": 0.140507650416302,
+   "vs_default_pct": 28.295689950397446,
+   "p": 0.0004099883731940295,
+   "picks": {
+    "HEU": 15,
+    "PSC": 15
+   }
+  },
+  "Laya fine-tuned (seed 2)": {
+   "cost": 0.14048031464550392,
+   "vs_default_pct": 28.30964002769888,
+   "p": 7.16871365127798e-05,
+   "picks": {
+    "HEU": 15,
+    "PSC": 11,
+    "D": 4
+   }
+  },
+  "Laya fine-tuned (mean of 3)": {
+   "cost": 0.14055476660353386,
+   "vs_default_pct": 28.271645468210043,
+   "p": 0.00010464352972318072,
+   "picks": {
+    "HEU": 16,
+    "INF": 9,
+    "PSC": 5
+   }
+  },
+  "default": {
+   "cost": 0.19595426037724048,
+   "vs_default_pct": 0.0,
+   "p": 1.0
+  },
+  "LightGBM diagnosis": {
+   "cost": 0.1500573980000709,
+   "vs_default_pct": 23.422232458131525,
+   "p": 1.574320828749264e-05
+  },
+  "oracle (static, per run)": {
+   "cost": 0.12772670825885443,
+   "vs_default_pct": 34.818100911426
+  },
+  "best fixed (HEU)": {
+   "cost": 0.14010280410399029,
+   "vs_default_pct": 28.50229240524192,
+   "p": 2.7408615941872816e-06
+  }
+ },
+ "PDI": {
+  "Laya zero-shot": {
+   "cost": 0.5344322308522659,
+   "vs_default_pct": 0.0,
+   "p": 1.0,
+   "picks": {
+    "D": 30
+   }
+  },
+  "Laya fine-tuned (seed 0)": {
+   "cost": 0.5014216456200936,
+   "vs_default_pct": 6.176757936086651,
+   "p": 0.013106576170631417,
+   "picks": {
+    "HEU": 28,
+    "PSC": 2
+   }
+  },
+  "Laya fine-tuned (seed 1)": {
+   "cost": 0.5025951110530108,
+   "vs_default_pct": 5.957185581506567,
+   "p": 0.007052676173054014,
+   "picks": {
+    "HEU": 30
+   }
+  },
+  "Laya fine-tuned (seed 2)": {
+   "cost": 0.5025951110530108,
+   "vs_default_pct": 5.957185581506567,
+   "p": 0.007052676173054014,
+   "picks": {
+    "HEU": 30
+   }
+  },
+  "Laya fine-tuned (mean of 3)": {
+   "cost": 0.5025951110530108,
+   "vs_default_pct": 5.957185581506567,
+   "p": 0.007052676173054014,
+   "picks": {
+    "HEU": 30
+   }
+  },
+  "default": {
+   "cost": 0.5344322308522659,
+   "vs_default_pct": 0.0,
+   "p": 1.0
+  },
+  "LightGBM diagnosis": {
+   "cost": 0.5250590498110663,
+   "vs_default_pct": 1.7538577391284993,
+   "p": 0.09600833911119773
+  },
+  "oracle (static, per run)": {
+   "cost": 0.48935703845004574,
+   "vs_default_pct": 8.434220430593818
+  },
+  "best fixed (HEU)": {
+   "cost": 0.5025951110530108,
+   "vs_default_pct": 5.957185581506567,
+   "p": 0.007052676173054014
+  }
+ }
+}

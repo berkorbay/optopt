@@ -1,0 +1,33 @@
+\begin{itemize}
+\item \textbf{One machine, budgets of 30--300\,s.} The cross-solver study uses 30--60\,s, the SCIP studies 30--300\,s;
+the best fixed strategy changes with the budget, so conclusions are budget-specific. ML4CO uses 75--100
+training and 25 test instances per family instead of 1000/100. The whole study used one GB10 and cuOpt was the
+throughput bottleneck.
+\item \textbf{Concurrency is part of the measurement.} Twelve single-threaded CPU runs and two cuOpt runs shared the
+machine. This makes absolute times noisier and slower than on an idle machine, but it applies to every strategy
+and is also the regime in which a CPU$\|$GPU pair would run. For about 11 minutes an analysis job of ours added
+CPU load; the 172 affected CPU runs were repeated (mean $P(60)$ changed from 0.197 to 0.195) and 43 cuOpt runs in
+that window were kept.
+\item \textbf{Heterogeneous cores.} The GB10 has ten Cortex-X925 (3.9\,GHz) and ten Cortex-A725 (2.8\,GHz) cores. Solver
+runs were not pinned, and a pinned check found SCIP explores about twice as many nodes per second on an X925 as on
+an A725 (4,686 vs 2,413 nodes in 20\,s). Placement was random, so no strategy is favoured, but every run had an
+effective budget of roughly $1\times$ or $2\times$; this inflates run-to-run noise and part of the measured oracle
+headroom (the held-out-seed scoring of Table~\ref{tab:variance} absorbs some of it). Later experiments pin one run per
+fast core.
+\item \textbf{Single seed for the main grid.} Labels come from seed 0. The variance subset (12 MIPLIB instances,
+HiGHS/SCIP, five seeds) shows the oracle headroom survives noise (Table~\ref{tab:variance}), but cuOpt's own
+variance was not measured and GPU heuristics are typically nondeterministic.
+\item \textbf{Failures are scored as failures.} Three runs ignored the wall-clock limit (HiGHS on \texttt{s100},
+cuOpt C1 on \texttt{sorrell3}) and were killed at 150\,s with no trajectory kept; they count as $P=1$. PGLib-UC
+references are the best value found by any run, so UC gaps are relative to our own best, not to proven optima.
+\item \textbf{Six strategies, not tuned.} The portfolio is the spec's milestone set; tuned or more diverse
+strategies would change the headroom. PGLib-UC has only three base systems, so ``split by system'' has three groups.
+\item \textbf{Laya input is a text rendering of 62 static features.} It sees no solver state; a richer state
+(root LP statistics, early incumbents) is where a text-encoder policy could differ most from LightGBM and was not
+tested. Fine-tuning hyper-parameters were set once and not tuned, and each fold was fine-tuned with a single seed.
+No superiority of fine-tuned Laya over LightGBM was established on the families seen in training (paired $p=0.67$ at
+10\,s); on a family left out of training Laya was better at 30\,s.
+\item \textbf{Pairs: offline and live.} The cross-solver pair estimate is computed from trajectories recorded under
+concurrent load; the live SCIP$\|$cuOpt run with both arms in one session gives 21.5\,\% on 44 of the 80 instances; comparisons across sessions would fold in session drift. Solution exchange
+was tested for one solver pair and one budget (60\,s).
+\end{itemize}

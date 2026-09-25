@@ -1,0 +1,35 @@
+{
+ "started": "2026-09-23T08:47:30+0200",
+ "jobs": "experiments/jobs/b1.jsonl",
+ "only": "cpu",
+ "cpu_lanes": 10,
+ "gpu_lanes": 0,
+ "pinned_cores": [
+  5,
+  6,
+  7,
+  8,
+  9,
+  15,
+  16,
+  17,
+  18,
+  19
+ ],
+ "pinned_core_models": [
+  "Cortex-X925"
+ ],
+ "mem_cap_gb_per_run": 8,
+ "scip_mem_limit_mb": 7168,
+ "min_avail_gate_gb": 20,
+ "mem_available_gb_at_start": 112,
+ "threads_per_run": {
+  "scip": 1
+ },
+ "serving_units": {
+  "Ornith-1.5-35B-A3B (vLLM)": "inactive (stopped for window)",
+  "Qwen3.8-27B (llama.cpp)": "inactive (stopped for window)"
+ },
+ "gpu_processes": "none",
+ "note": "written by hand: this run set started before the runner recorded resources automatically; values verified live (taskset per pid, systemd scope MemoryMax=8589934592)"
+}

@@ -1,0 +1,13 @@
+\begin{table}[t]\centering\small
+\begin{tabular}{llrr}
+\toprule
+setting & portfolio & $P$ gain & PDI gain \\
+\midrule
+HiGHS/SCIP/cuOpt study, pooled (313 inst.) & HiGHS (1 thread) $\|$ cuOpt (GPU) & 22\,\% & -- \\
+SCIP, 20 MIPLIB inst., 120\,s & 2 copies of the best setting & 7\% & 5\% \\
+SCIP, 20 MIPLIB inst., 120\,s & 3 copies of the best setting & 9\% & 8\% \\
+SCIP, 20 MIPLIB inst., 120\,s & 5 copies of the best setting & 11\% & 9\% \\
+\bottomrule
+\end{tabular}
+\caption{Parallel portfolios, computed exactly from recorded trajectories: best incumbent (and bound) of runs executed side by side, against the best single strategy. HiGHS$\|$cuOpt captures 80\,\% of the cross-solver oracle headroom; SCIP copies differ only in the random seed.}\label{tab:parallel}
+\end{table}

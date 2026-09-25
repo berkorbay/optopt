@@ -1,0 +1,3503 @@
+{
+ "summary": {
+  "n": {
+   "hrace": 80,
+   "hsolo": 80,
+   "solo": 80,
+   "scip2": 80,
+   "ea0": 80,
+   "ea20": 80
+  },
+  "mean": {
+   "hrace": {
+    "scip": 0.3084572864812435,
+    "portfolio": 0.2136334613284659,
+    "injected_instances": 0,
+    "scip_crashed": 1
+   },
+   "hsolo": {
+    "scip": 0.3067477566018709,
+    "portfolio": 0.3067477566018709,
+    "injected_instances": 0,
+    "scip_crashed": 1
+   },
+   "solo": {
+    "scip": 0.3388674733591946,
+    "portfolio": 0.3388674733591946,
+    "injected_instances": 0,
+    "scip_crashed": 0
+   },
+   "scip2": {
+    "scip": 0.3396529331309207,
+    "portfolio": 0.3358916989022459,
+    "injected_instances": 0,
+    "scip_crashed": 0
+   },
+   "ea0": {
+    "scip": 0.3641115750253632,
+    "portfolio": 0.3396934621541665,
+    "injected_instances": 3,
+    "scip_crashed": 2
+   },
+   "ea20": {
+    "scip": 0.3513638102592857,
+    "portfolio": 0.3388185795736393,
+    "injected_instances": 5,
+    "scip_crashed": 1
+   }
+  },
+  "paired": {
+   "scip2.portfolio vs solo.scip": {
+    "n": 80,
+    "scip2.portfolio": 0.3358916989022459,
+    "solo.scip": 0.33886747335919465,
+    "gain_pct": 0.8781528741752281,
+    "p": 0.002030541285023988,
+    "better/worse": [
+     45,
+     23
+    ]
+   },
+   "ea0.scip vs solo.scip": {
+    "n": 80,
+    "ea0.scip": 0.3641115750253632,
+    "solo.scip": 0.33886747335919465,
+    "gain_pct": -7.4495499423192335,
+    "p": 0.12813992309213845,
+    "better/worse": [
+     31,
+     37
+    ]
+   },
+   "ea20.scip vs solo.scip": {
+    "n": 80,
+    "ea20.scip": 0.35136381025928565,
+    "solo.scip": 0.33886747335919465,
+    "gain_pct": -3.6876767121419944,
+    "p": 0.31925616068031404,
+    "better/worse": [
+     33,
+     35
+    ]
+   },
+   "ea20.scip vs ea0.scip": {
+    "n": 80,
+    "ea20.scip": 0.35136381025928565,
+    "ea0.scip": 0.3641115750253632,
+    "gain_pct": 3.5010600157903657,
+    "p": 0.11984731241938464,
+    "better/worse": [
+     38,
+     29
+    ]
+   },
+   "ea20.scip vs scip2.portfolio": {
+    "n": 80,
+    "ea20.scip": 0.35136381025928565,
+    "scip2.portfolio": 0.3358916989022459,
+    "gain_pct": -4.606279764461393,
+    "p": 0.015274250377969372,
+    "better/worse": [
+     25,
+     43
+    ]
+   },
+   "ea0.scip vs scip2.portfolio": {
+    "n": 80,
+    "ea0.scip": 0.3641115750253632,
+    "scip2.portfolio": 0.3358916989022459,
+    "gain_pct": -8.401480660386925,
+    "p": 0.0035610062923177466,
+    "better/worse": [
+     21,
+     47
+    ]
+   },
+   "hrace.portfolio vs hsolo.scip": {
+    "n": 80,
+    "hrace.portfolio": 0.2136334613284659,
+    "hsolo.scip": 0.3067477566018709,
+    "gain_pct": 30.355330485516294,
+    "p": 4.979834540444471e-09,
+    "better/worse": [
+     61,
+     13
+    ]
+   }
+  }
+ },
+ "rows": {
+  "hrace": {
+   "50v-10": {
+    "scip": 0.056317520030163354,
+    "partner": 0.21090158122980676,
+    "portfolio": 0.056317520030163354,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "CMS750_4": {
+    "scip": 0.5221594327171472,
+    "partner": 0.45908044045569507,
+    "portfolio": 0.3740415538361014,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "academictimetablesmall": {
+    "scip": 1.0,
+    "partner": 1.0,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "air05": {
+    "scip": 0.04137138672472613,
+    "partner": 0.14612532161583033,
+    "portfolio": 0.036539566255645334,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "assign1-5-8": {
+    "scip": 0.0009368645537788971,
+    "partner": 0.03208001165743009,
+    "portfolio": 0.0009368645527532908,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "beasleyC3": {
+    "scip": 0.004699359094104658,
+    "partner": 0.14842877239435462,
+    "portfolio": 0.004699359094104658,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "binkar10_1": {
+    "scip": 0.0011349902566126539,
+    "partner": 0.04927216829805287,
+    "portfolio": 0.0011349902566126539,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "cbs-cta": {
+    "scip": 0.6567917681667799,
+    "partner": 0.21733462578461815,
+    "portfolio": 0.21733462578461815,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "chromaticindex1024-7": {
+    "scip": 0.04828395739896223,
+    "partner": 0.8993354074715171,
+    "portfolio": 0.04828395739896223,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "cod105": {
+    "scip": 0.32887420534392614,
+    "partner": 0.03180787603131547,
+    "portfolio": 0.03012301986762193,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "comp21-2idx": {
+    "scip": 0.7625003786319546,
+    "partner": 0.60421343749224,
+    "portfolio": 0.5863913715309891,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "cryptanalysiskb128n5obj16": {
+    "scip": 1.0,
+    "partner": 1.0,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "dano3_3": {
+    "scip": 0.1933801256593772,
+    "partner": 1.0,
+    "portfolio": 0.1933801256593772,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "decomp2": {
+    "scip": 0.02942023321714563,
+    "partner": 0.035625502652231585,
+    "portfolio": 0.02942023321714563,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "drayage-100-23": {
+    "scip": 0.011492943732086104,
+    "partner": 0.10379810133887486,
+    "portfolio": 0.011492943732086104,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "dws008-01": {
+    "scip": 0.7885170993424898,
+    "partner": 0.9405219683453491,
+    "portfolio": 0.784238120016433,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "eil33-2": {
+    "scip": 0.0897595354298888,
+    "partner": 0.16962850809388158,
+    "portfolio": 0.08532913248974193,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "enlight_hard": {
+    "scip": 0.14885875964925313,
+    "partner": 0.032734776466774446,
+    "portfolio": 0.032734776466774446,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "exp-1-500-5-5": {
+    "scip": 0.008597729945720712,
+    "partner": 0.21637276892770396,
+    "portfolio": 0.008597729945720712,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "gen-ip054": {
+    "scip": 0.0025155927024196082,
+    "partner": 0.04766575804314695,
+    "portfolio": 0.0025155927024196082,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "glass-sc": {
+    "scip": 0.05474283528821473,
+    "partner": 0.028830090501896884,
+    "portfolio": 0.022409159342624163,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "graphdraw-domain": {
+    "scip": 0.061729061633548014,
+    "partner": 0.1613272451792143,
+    "portfolio": 0.06023499016784934,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "h80x6320d": {
+    "scip": 0.050790919529211914,
+    "partner": 0.35518241580026616,
+    "portfolio": 0.04414148581145587,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "hypothyroid-k1": {
+    "scip": 0.06958208374888944,
+    "partner": 0.1606574562432604,
+    "portfolio": 0.06765629200451405,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "ic97_potential": {
+    "scip": 0.03884751225854621,
+    "partner": 0.04532476781517756,
+    "portfolio": 0.033954786324021734,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "istanbul-no-cutoff": {
+    "scip": 0.04841941837169155,
+    "partner": 0.15743162505472022,
+    "portfolio": 0.04841941837169155,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "mad": {
+    "scip": 0.8326746493682738,
+    "partner": 0.8761268832506925,
+    "portfolio": 0.8326746493682738,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "markshare2": {
+    "scip": 0.9736346598082467,
+    "partner": 0.9724249433020039,
+    "portfolio": 0.9709025073785907,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "mas74": {
+    "scip": 0.019686915046657556,
+    "partner": 0.11551752463636951,
+    "portfolio": 0.019686915046657556,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "mas76": {
+    "scip": 0.0003759150295378749,
+    "partner": 0.06060044346290698,
+    "portfolio": 0.00037591474067132124,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "n3div36": {
+    "scip": 0.09412630024923632,
+    "partner": 0.12817951203925718,
+    "portfolio": 0.07195609312169896,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-1171737": {
+    "scip": 0.05131743041270118,
+    "partner": 0.0713852569750933,
+    "portfolio": 0.035998176187800844,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-1445765": {
+    "scip": 0.10309971965437843,
+    "partner": 0.16189626685665484,
+    "portfolio": 0.09760816229030764,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-1456979": {
+    "scip": 0.3937658537162894,
+    "partner": 0.5899753714772867,
+    "portfolio": 0.28524474804139693,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-2657525-crna": {
+    "scip": 0.7049826212496778,
+    "partner": 0.7847980455877845,
+    "portfolio": 0.654184712972684,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-2746589-doon": {
+    "scip": 1.0,
+    "partner": 0.848087652872488,
+    "portfolio": 0.848087652872488,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-2978193-inde": {
+    "scip": 0.010986502104637464,
+    "partner": 0.19949918703534528,
+    "portfolio": 0.010986502104637464,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-3004026-krka": {
+    "scip": 1.0,
+    "partner": 0.03366914433427155,
+    "portfolio": 0.03366914433427155,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-3046615-murg": {
+    "scip": 0.012220442211851482,
+    "partner": 0.05300085092614131,
+    "portfolio": 0.012220442211851482,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-3381206-awhea": {
+    "scip": 0.001606357474946172,
+    "partner": 0.2877604685628544,
+    "portfolio": 0.001606357474946172,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-3656078-kumeu": {
+    "scip": 1.0,
+    "partner": 0.23063692927044108,
+    "portfolio": 0.23063692927044108,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-3754480-nidda": {
+    "scip": 0.10174519802426601,
+    "partner": 0.058457903715538134,
+    "portfolio": 0.024044746139360414,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-4722843-widden": {
+    "scip": 0.38994967588705026,
+    "partner": 1.0,
+    "portfolio": 0.38994967588705026,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-4763324-toguru": {
+    "scip": 0.7728125050137287,
+    "partner": 0.7135593030526434,
+    "portfolio": 0.7135593030526434,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-787933": {
+    "scip": 0.2404269270388269,
+    "partner": 0.3122257861756965,
+    "portfolio": 0.15901230543185424,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-860300": {
+    "scip": 0.0549955160353226,
+    "partner": 0.1535767129099401,
+    "portfolio": 0.049612491965600275,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-873061": {
+    "scip": 0.1277669021423917,
+    "partner": 0.996756332855474,
+    "portfolio": 0.1277669021423917,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-911970": {
+    "scip": 0.009731482545634629,
+    "partner": 0.11598621971532484,
+    "portfolio": 0.009731482545634629,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos17": {
+    "scip": 0.007557275138170521,
+    "partner": 0.31172041692455266,
+    "portfolio": 0.007557275138170521,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos5": {
+    "scip": 0.00047806429211870623,
+    "partner": 0.034854219454026315,
+    "portfolio": 0.00047806429211870623,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos8": {
+    "scip": 0.03397349340764659,
+    "partner": 0.07263429552941877,
+    "portfolio": 0.03397349340764659,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "net12": {
+    "scip": 0.18238726926318624,
+    "partner": 0.2106333518997075,
+    "portfolio": 0.18238726926318624,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "ns1116954": {
+    "scip": 0.019080616399878635,
+    "partner": 0.8559247880126349,
+    "portfolio": 0.019080616399878635,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "ns1952667": {
+    "scip": 1.0,
+    "partner": 1.0,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "opm2-z10-s4": {
+    "scip": 0.998088577473126,
+    "partner": 0.1944103946157108,
+    "portfolio": 0.1944103946157108,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "p200x1188c": {
+    "scip": 0.0003701387786960354,
+    "partner": 0.0440574816336006,
+    "portfolio": 0.0003701387786960354,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "piperout-27": {
+    "scip": 0.47682564303395514,
+    "partner": 0.13446032344528625,
+    "portfolio": 0.13446032344528625,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "pk1": {
+    "scip": 0.2282979054198659,
+    "partner": 0.24394724582990168,
+    "portfolio": 0.15068852879802785,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "radiationm40-10-02": {
+    "scip": 1.0,
+    "partner": 0.15369579199448305,
+    "portfolio": 0.15369579199448305,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "rail01": {
+    "scip": 1.0,
+    "partner": 1.0,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "rail507": {
+    "scip": 0.10297712795067684,
+    "partner": 0.15324762821246257,
+    "portfolio": 0.06007932059807373,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "roll3000": {
+    "scip": 0.03333241349595393,
+    "partner": 0.17171606622407473,
+    "portfolio": 0.03333241349595393,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "s100": {
+    "scip": 1.0,
+    "partner": 0.288602311798298,
+    "portfolio": 0.288602311798298,
+    "injected": 0,
+    "scip_crashed": true
+   },
+   "satellites2-40": {
+    "scip": 1.0,
+    "partner": 1.0,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "seymour": {
+    "scip": 0.03624264449908601,
+    "partner": 0.05244103422240833,
+    "portfolio": 0.027174512738442635,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "seymour1": {
+    "scip": 0.007869682301587733,
+    "partner": 0.052216931859813576,
+    "portfolio": 0.007869682301587733,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "sing326": {
+    "scip": 0.6731858513450859,
+    "partner": 0.9816755054013916,
+    "portfolio": 0.6731858513450859,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "snp-02-004-104": {
+    "scip": 0.11043674250588324,
+    "partner": 0.8280549289469475,
+    "portfolio": 0.10802698711685005,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "sorrell3": {
+    "scip": 0.8746301999641825,
+    "partner": 0.05329338912306412,
+    "portfolio": 0.052902134694280296,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "sp150x300d": {
+    "scip": 0.00010698840055973248,
+    "partner": 0.0353544752920688,
+    "portfolio": 0.00010698840055973248,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "sp98ar": {
+    "scip": 0.10728542613414964,
+    "partner": 0.25125470764396446,
+    "portfolio": 0.08234391547676675,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "supportcase18": {
+    "scip": 0.04635454634207788,
+    "partner": 0.09133201026557497,
+    "portfolio": 0.0395098205304253,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "supportcase22": {
+    "scip": 1.0,
+    "partner": 1.0,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "supportcase26": {
+    "scip": 0.053428211211642956,
+    "partner": 0.06003792400932877,
+    "portfolio": 0.034140549864032636,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "supportcase42": {
+    "scip": 0.6444131133684835,
+    "partner": 0.39008825097029703,
+    "portfolio": 0.3228253910098546,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "swath3": {
+    "scip": 0.018549451719227412,
+    "partner": 0.12591906814218204,
+    "portfolio": 0.018549451719227412,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "timtab1": {
+    "scip": 0.018602468934029257,
+    "partner": 0.18357324781590695,
+    "portfolio": 0.018602468934029257,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "tr12-30": {
+    "scip": 0.004564956535443673,
+    "partner": 0.09066442780705475,
+    "portfolio": 0.004564956535443673,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "traininstance6": {
+    "scip": 0.03431078980945333,
+    "partner": 0.09661715155465515,
+    "portfolio": 0.03431078980945333,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "uccase12": {
+    "scip": 0.04760403433501947,
+    "partner": 0.992559448182897,
+    "portfolio": 0.04760403433501947,
+    "injected": 0,
+    "scip_crashed": false
+   }
+  },
+  "hsolo": {
+   "50v-10": {
+    "scip": 0.05648416924267499,
+    "partner": null,
+    "portfolio": 0.05648416924267499,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "CMS750_4": {
+    "scip": 0.5201951501718186,
+    "partner": null,
+    "portfolio": 0.5201951501718186,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "academictimetablesmall": {
+    "scip": 1.0,
+    "partner": null,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "air05": {
+    "scip": 0.04150292531228891,
+    "partner": null,
+    "portfolio": 0.04150292531228891,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "assign1-5-8": {
+    "scip": 0.0009435649863590591,
+    "partner": null,
+    "portfolio": 0.0009435649863590591,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "beasleyC3": {
+    "scip": 0.0049306087483489995,
+    "partner": null,
+    "portfolio": 0.0049306087483489995,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "binkar10_1": {
+    "scip": 0.0011375597382656236,
+    "partner": null,
+    "portfolio": 0.0011375597382656236,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "cbs-cta": {
+    "scip": 0.6519164255839617,
+    "partner": null,
+    "portfolio": 0.6519164255839617,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "chromaticindex1024-7": {
+    "scip": 0.048690089800705515,
+    "partner": null,
+    "portfolio": 0.048690089800705515,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "cod105": {
+    "scip": 0.3269449758054331,
+    "partner": null,
+    "portfolio": 0.3269449758054331,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "comp21-2idx": {
+    "scip": 0.7627188704600094,
+    "partner": null,
+    "portfolio": 0.7627188704600094,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "cryptanalysiskb128n5obj16": {
+    "scip": 1.0,
+    "partner": null,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "dano3_3": {
+    "scip": 0.19402446264392742,
+    "partner": null,
+    "portfolio": 0.19402446264392742,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "decomp2": {
+    "scip": 0.02953062450008777,
+    "partner": null,
+    "portfolio": 0.02953062450008777,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "drayage-100-23": {
+    "scip": 0.011525023294443548,
+    "partner": null,
+    "portfolio": 0.011525023294443548,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "dws008-01": {
+    "scip": 0.7900745565657874,
+    "partner": null,
+    "portfolio": 0.7900745565657874,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "eil33-2": {
+    "scip": 0.08974206289480158,
+    "partner": null,
+    "portfolio": 0.08974206289480158,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "enlight_hard": {
+    "scip": 0.1485196649329737,
+    "partner": null,
+    "portfolio": 0.1485196649329737,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "exp-1-500-5-5": {
+    "scip": 0.008654016858588475,
+    "partner": null,
+    "portfolio": 0.008654016858588475,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "gen-ip054": {
+    "scip": 0.0025164829202450334,
+    "partner": null,
+    "portfolio": 0.0025164829202450334,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "glass-sc": {
+    "scip": 0.0551459895775056,
+    "partner": null,
+    "portfolio": 0.0551459895775056,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "graphdraw-domain": {
+    "scip": 0.06138408198380179,
+    "partner": null,
+    "portfolio": 0.06138408198380179,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "h80x6320d": {
+    "scip": 0.05109406878513866,
+    "partner": null,
+    "portfolio": 0.05109406878513866,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "hypothyroid-k1": {
+    "scip": 0.061078523597930076,
+    "partner": null,
+    "portfolio": 0.061078523597930076,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "ic97_potential": {
+    "scip": 0.0387046370789304,
+    "partner": null,
+    "portfolio": 0.0387046370789304,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "istanbul-no-cutoff": {
+    "scip": 0.04861560827110458,
+    "partner": null,
+    "portfolio": 0.04861560827110458,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "mad": {
+    "scip": 0.8326342234404478,
+    "partner": null,
+    "portfolio": 0.8326342234404478,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "markshare2": {
+    "scip": 0.97364905808442,
+    "partner": null,
+    "portfolio": 0.97364905808442,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "mas74": {
+    "scip": 0.019647884792488253,
+    "partner": null,
+    "portfolio": 0.019647884792488253,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "mas76": {
+    "scip": 0.00038220332362041303,
+    "partner": null,
+    "portfolio": 0.00038220332362041303,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "n3div36": {
+    "scip": 0.09464490691337053,
+    "partner": null,
+    "portfolio": 0.09464490691337053,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-1171737": {
+    "scip": 0.051356016802372575,
+    "partner": null,
+    "portfolio": 0.051356016802372575,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-1445765": {
+    "scip": 0.10618440174453579,
+    "partner": null,
+    "portfolio": 0.10618440174453579,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-1456979": {
+    "scip": 0.39102746340430455,
+    "partner": null,
+    "portfolio": 0.39102746340430455,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-2657525-crna": {
+    "scip": 0.704932232836684,
+    "partner": null,
+    "portfolio": 0.704932232836684,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-2746589-doon": {
+    "scip": 1.0,
+    "partner": null,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-2978193-inde": {
+    "scip": 0.011045409592491005,
+    "partner": null,
+    "portfolio": 0.011045409592491005,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-3004026-krka": {
+    "scip": 1.0,
+    "partner": null,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-3046615-murg": {
+    "scip": 0.012324074554655812,
+    "partner": null,
+    "portfolio": 0.012324074554655812,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-3381206-awhea": {
+    "scip": 0.001615811538845791,
+    "partner": null,
+    "portfolio": 0.001615811538845791,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-3656078-kumeu": {
+    "scip": 1.0,
+    "partner": null,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-3754480-nidda": {
+    "scip": 0.1017535488819887,
+    "partner": null,
+    "portfolio": 0.1017535488819887,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-4722843-widden": {
+    "scip": 0.37003970481649506,
+    "partner": null,
+    "portfolio": 0.37003970481649506,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-4763324-toguru": {
+    "scip": 0.7721598945975577,
+    "partner": null,
+    "portfolio": 0.7721598945975577,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-787933": {
+    "scip": 0.24018815575226635,
+    "partner": null,
+    "portfolio": 0.24018815575226635,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-860300": {
+    "scip": 0.05310379005755951,
+    "partner": null,
+    "portfolio": 0.05310379005755951,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-873061": {
+    "scip": 0.11674696589210627,
+    "partner": null,
+    "portfolio": 0.11674696589210627,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-911970": {
+    "scip": 0.009652378780910497,
+    "partner": null,
+    "portfolio": 0.009652378780910497,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos17": {
+    "scip": 0.007532319312833205,
+    "partner": null,
+    "portfolio": 0.007532319312833205,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos5": {
+    "scip": 0.0004885381863832143,
+    "partner": null,
+    "portfolio": 0.0004885381863832143,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos8": {
+    "scip": 0.033903252011992735,
+    "partner": null,
+    "portfolio": 0.033903252011992735,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "net12": {
+    "scip": 0.1826062877890552,
+    "partner": null,
+    "portfolio": 0.1826062877890552,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "ns1116954": {
+    "scip": 0.01946324705107448,
+    "partner": null,
+    "portfolio": 0.01946324705107448,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "ns1952667": {
+    "scip": 1.0,
+    "partner": null,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "opm2-z10-s4": {
+    "scip": 0.9882496303649216,
+    "partner": null,
+    "portfolio": 0.9882496303649216,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "p200x1188c": {
+    "scip": 0.00037049359836238704,
+    "partner": null,
+    "portfolio": 0.00037049359836238704,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "piperout-27": {
+    "scip": 0.46425424211581107,
+    "partner": null,
+    "portfolio": 0.46425424211581107,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "pk1": {
+    "scip": 0.22819120926813052,
+    "partner": null,
+    "portfolio": 0.22819120926813052,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "radiationm40-10-02": {
+    "scip": 1.0,
+    "partner": null,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "rail01": {
+    "scip": 1.0,
+    "partner": null,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "rail507": {
+    "scip": 0.10389948179769365,
+    "partner": null,
+    "portfolio": 0.10389948179769365,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "roll3000": {
+    "scip": 0.03390033228449479,
+    "partner": null,
+    "portfolio": 0.03390033228449479,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "s100": {
+    "scip": 1.0,
+    "partner": null,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": true
+   },
+   "satellites2-40": {
+    "scip": 1.0,
+    "partner": null,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "seymour": {
+    "scip": 0.03587067511598934,
+    "partner": null,
+    "portfolio": 0.03587067511598934,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "seymour1": {
+    "scip": 0.007857356364135374,
+    "partner": null,
+    "portfolio": 0.007857356364135374,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "sing326": {
+    "scip": 0.6734693177771791,
+    "partner": null,
+    "portfolio": 0.6734693177771791,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "snp-02-004-104": {
+    "scip": 0.1100909362351937,
+    "partner": null,
+    "portfolio": 0.1100909362351937,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "sorrell3": {
+    "scip": 0.8463603034370559,
+    "partner": null,
+    "portfolio": 0.8463603034370559,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "sp150x300d": {
+    "scip": 0.00010873244893890172,
+    "partner": null,
+    "portfolio": 0.00010873244893890172,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "sp98ar": {
+    "scip": 0.1062172857106156,
+    "partner": null,
+    "portfolio": 0.1062172857106156,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "supportcase18": {
+    "scip": 0.04653129539508686,
+    "partner": null,
+    "portfolio": 0.04653129539508686,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "supportcase22": {
+    "scip": 1.0,
+    "partner": null,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "supportcase26": {
+    "scip": 0.053269969045805915,
+    "partner": null,
+    "portfolio": 0.053269969045805915,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "supportcase42": {
+    "scip": 0.604718152069206,
+    "partner": null,
+    "portfolio": 0.604718152069206,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "swath3": {
+    "scip": 0.01849266324547024,
+    "partner": null,
+    "portfolio": 0.01849266324547024,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "timtab1": {
+    "scip": 0.018570579295086372,
+    "partner": null,
+    "portfolio": 0.018570579295086372,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "tr12-30": {
+    "scip": 0.004596072201211853,
+    "partner": null,
+    "portfolio": 0.004596072201211853,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "traininstance6": {
+    "scip": 0.03427510739986025,
+    "partner": null,
+    "portfolio": 0.03427510739986025,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "uccase12": {
+    "scip": 0.047370779065835165,
+    "partner": null,
+    "portfolio": 0.047370779065835165,
+    "injected": 0,
+    "scip_crashed": false
+   }
+  },
+  "solo": {
+   "air05": {
+    "scip": 0.0497747801095457,
+    "partner": null,
+    "portfolio": 0.0497747801095457,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "50v-10": {
+    "scip": 0.1169107514761263,
+    "partner": null,
+    "portfolio": 0.1169107514761263,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "assign1-5-8": {
+    "scip": 0.0068148695466312805,
+    "partner": null,
+    "portfolio": 0.0068148695466312805,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "CMS750_4": {
+    "scip": 0.09541463351361773,
+    "partner": null,
+    "portfolio": 0.09541463351361773,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "academictimetablesmall": {
+    "scip": 1.0,
+    "partner": null,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "chromaticindex1024-7": {
+    "scip": 1.0,
+    "partner": null,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "beasleyC3": {
+    "scip": 0.02919770232104596,
+    "partner": null,
+    "portfolio": 0.02919770232104596,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "cbs-cta": {
+    "scip": 0.23528631404818345,
+    "partner": null,
+    "portfolio": 0.23528631404818345,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "binkar10_1": {
+    "scip": 0.003987702175231441,
+    "partner": null,
+    "portfolio": 0.003987702175231441,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "cod105": {
+    "scip": 0.1852005345611057,
+    "partner": null,
+    "portfolio": 0.1852005345611057,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "decomp2": {
+    "scip": 0.025953108656297748,
+    "partner": null,
+    "portfolio": 0.025953108656297748,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "drayage-100-23": {
+    "scip": 0.10999584676575157,
+    "partner": null,
+    "portfolio": 0.10999584676575157,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "comp21-2idx": {
+    "scip": 0.8980896404489116,
+    "partner": null,
+    "portfolio": 0.8980896404489116,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "dano3_3": {
+    "scip": 0.15832251915415543,
+    "partner": null,
+    "portfolio": 0.15832251915415543,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "cryptanalysiskb128n5obj16": {
+    "scip": 1.0,
+    "partner": null,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "exp-1-500-5-5": {
+    "scip": 0.008596633664043795,
+    "partner": null,
+    "portfolio": 0.008596633664043795,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "gen-ip054": {
+    "scip": 0.0042039212980624465,
+    "partner": null,
+    "portfolio": 0.0042039212980624465,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "enlight_hard": {
+    "scip": 0.0015790724117929736,
+    "partner": null,
+    "portfolio": 0.0015790724117929736,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "hypothyroid-k1": {
+    "scip": 0.07678629090883231,
+    "partner": null,
+    "portfolio": 0.07678629090883231,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "dws008-01": {
+    "scip": 0.8924386895520143,
+    "partner": null,
+    "portfolio": 0.8924386895520143,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "eil33-2": {
+    "scip": 0.05374991266148674,
+    "partner": null,
+    "portfolio": 0.05374991266148674,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "h80x6320d": {
+    "scip": 0.5854750748534168,
+    "partner": null,
+    "portfolio": 0.5854750748534168,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "mas74": {
+    "scip": 0.038514328856105215,
+    "partner": null,
+    "portfolio": 0.038514328856105215,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "ic97_potential": {
+    "scip": 0.02287721871647732,
+    "partner": null,
+    "portfolio": 0.02287721871647732,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "glass-sc": {
+    "scip": 0.011740528094454602,
+    "partner": null,
+    "portfolio": 0.011740528094454602,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "graphdraw-domain": {
+    "scip": 0.04707653297056677,
+    "partner": null,
+    "portfolio": 0.04707653297056677,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "markshare2": {
+    "scip": 0.9747017844098568,
+    "partner": null,
+    "portfolio": 0.9747017844098568,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "mas76": {
+    "scip": 0.0019777947373362226,
+    "partner": null,
+    "portfolio": 0.0019777947373362226,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-1456979": {
+    "scip": 0.4813325362723843,
+    "partner": null,
+    "portfolio": 0.4813325362723843,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "istanbul-no-cutoff": {
+    "scip": 0.10335267400808448,
+    "partner": null,
+    "portfolio": 0.10335267400808448,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "mad": {
+    "scip": 0.8088303817414882,
+    "partner": null,
+    "portfolio": 0.8088303817414882,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-1445765": {
+    "scip": 0.24824991189236206,
+    "partner": null,
+    "portfolio": 0.24824991189236206,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-2657525-crna": {
+    "scip": 0.8286601959388217,
+    "partner": null,
+    "portfolio": 0.8286601959388217,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-3046615-murg": {
+    "scip": 0.019499226820642684,
+    "partner": null,
+    "portfolio": 0.019499226820642684,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "n3div36": {
+    "scip": 0.349378786866632,
+    "partner": null,
+    "portfolio": 0.349378786866632,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-1171737": {
+    "scip": 0.11788507188539314,
+    "partner": null,
+    "portfolio": 0.11788507188539314,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-3004026-krka": {
+    "scip": 0.8089660046175898,
+    "partner": null,
+    "portfolio": 0.8089660046175898,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-3381206-awhea": {
+    "scip": 0.024651620337196315,
+    "partner": null,
+    "portfolio": 0.024651620337196315,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-4763324-toguru": {
+    "scip": 0.7848905844822954,
+    "partner": null,
+    "portfolio": 0.7848905844822954,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-787933": {
+    "scip": 0.0212947164291197,
+    "partner": null,
+    "portfolio": 0.0212947164291197,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-2746589-doon": {
+    "scip": 1.0,
+    "partner": null,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-2978193-inde": {
+    "scip": 0.025136773984629938,
+    "partner": null,
+    "portfolio": 0.025136773984629938,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-4722843-widden": {
+    "scip": 0.16840798707267102,
+    "partner": null,
+    "portfolio": 0.16840798707267102,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos17": {
+    "scip": 0.007925497838848961,
+    "partner": null,
+    "portfolio": 0.007925497838848961,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos5": {
+    "scip": 0.0036342792676760725,
+    "partner": null,
+    "portfolio": 0.0036342792676760725,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-3656078-kumeu": {
+    "scip": 1.0,
+    "partner": null,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-3754480-nidda": {
+    "scip": 0.06260652416627709,
+    "partner": null,
+    "portfolio": 0.06260652416627709,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-911970": {
+    "scip": 0.016467221108605858,
+    "partner": null,
+    "portfolio": 0.016467221108605858,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "ns1952667": {
+    "scip": 1.0,
+    "partner": null,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "opm2-z10-s4": {
+    "scip": 0.5349150602942034,
+    "partner": null,
+    "portfolio": 0.5349150602942034,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-860300": {
+    "scip": 0.12428961015831012,
+    "partner": null,
+    "portfolio": 0.12428961015831012,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "ns1116954": {
+    "scip": 1.0,
+    "partner": null,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-873061": {
+    "scip": 0.861930483784997,
+    "partner": null,
+    "portfolio": 0.861930483784997,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "radiationm40-10-02": {
+    "scip": 0.676655009513619,
+    "partner": null,
+    "portfolio": 0.676655009513619,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos8": {
+    "scip": 0.03665117768216193,
+    "partner": null,
+    "portfolio": 0.03665117768216193,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "rail01": {
+    "scip": 1.0,
+    "partner": null,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "p200x1188c": {
+    "scip": 0.0037891015445720563,
+    "partner": null,
+    "portfolio": 0.0037891015445720563,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "pk1": {
+    "scip": 0.08269324033592355,
+    "partner": null,
+    "portfolio": 0.08269324033592355,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "net12": {
+    "scip": 1.0,
+    "partner": null,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "satellites2-40": {
+    "scip": 1.0,
+    "partner": null,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "rail507": {
+    "scip": 0.07352459255873975,
+    "partner": null,
+    "portfolio": 0.07352459255873975,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "seymour": {
+    "scip": 0.025581819226243096,
+    "partner": null,
+    "portfolio": 0.025581819226243096,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "piperout-27": {
+    "scip": 0.11069679378712578,
+    "partner": null,
+    "portfolio": 0.11069679378712578,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "s100": {
+    "scip": 1.0,
+    "partner": null,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "sorrell3": {
+    "scip": 0.34176539274206635,
+    "partner": null,
+    "portfolio": 0.34176539274206635,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "sp150x300d": {
+    "scip": 0.0015976290847345394,
+    "partner": null,
+    "portfolio": 0.0015976290847345394,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "seymour1": {
+    "scip": 0.012259916683671546,
+    "partner": null,
+    "portfolio": 0.012259916683671546,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "roll3000": {
+    "scip": 0.11862810296501904,
+    "partner": null,
+    "portfolio": 0.11862810296501904,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "snp-02-004-104": {
+    "scip": 0.5049061497506511,
+    "partner": null,
+    "portfolio": 0.5049061497506511,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "supportcase42": {
+    "scip": 0.0664266064059613,
+    "partner": null,
+    "portfolio": 0.0664266064059613,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "supportcase26": {
+    "scip": 0.04840746061166421,
+    "partner": null,
+    "portfolio": 0.04840746061166421,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "sp98ar": {
+    "scip": 0.169159738822444,
+    "partner": null,
+    "portfolio": 0.169159738822444,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "sing326": {
+    "scip": 0.9385181802663983,
+    "partner": null,
+    "portfolio": 0.9385181802663983,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "supportcase22": {
+    "scip": 1.0,
+    "partner": null,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "uccase12": {
+    "scip": 0.32657529328184615,
+    "partner": null,
+    "portfolio": 0.32657529328184615,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "traininstance6": {
+    "scip": 0.34359476017212665,
+    "partner": null,
+    "portfolio": 0.34359476017212665,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "swath3": {
+    "scip": 0.04575927287554553,
+    "partner": null,
+    "portfolio": 0.04575927287554553,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "supportcase18": {
+    "scip": 0.09482820650981096,
+    "partner": null,
+    "portfolio": 0.09482820650981096,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "tr12-30": {
+    "scip": 0.005027638372459666,
+    "partner": null,
+    "portfolio": 0.005027638372459666,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "timtab1": {
+    "scip": 0.045380450663503116,
+    "partner": null,
+    "portfolio": 0.045380450663503116,
+    "injected": 0,
+    "scip_crashed": false
+   }
+  },
+  "scip2": {
+   "air05": {
+    "scip": 0.05060439890729963,
+    "partner": 0.0671336002323931,
+    "portfolio": 0.04985461607026325,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "50v-10": {
+    "scip": 0.118021831851648,
+    "partner": 0.23245204805180295,
+    "portfolio": 0.11192464614978408,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "assign1-5-8": {
+    "scip": 0.006614098925625076,
+    "partner": 0.0081024443291149,
+    "portfolio": 0.006121340442208175,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "CMS750_4": {
+    "scip": 0.09694408318983858,
+    "partner": 0.06597717859118153,
+    "portfolio": 0.06372784690340347,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "academictimetablesmall": {
+    "scip": 1.0,
+    "partner": 1.0,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "beasleyC3": {
+    "scip": 0.029467950527208943,
+    "partner": 0.04468887560132675,
+    "portfolio": 0.029467950527208943,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "cbs-cta": {
+    "scip": 0.2337350193100671,
+    "partner": 0.5493170452750443,
+    "portfolio": 0.2337350193100671,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "binkar10_1": {
+    "scip": 0.003765742595011396,
+    "partner": 0.0062772874668095505,
+    "portfolio": 0.0035824467641205307,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "chromaticindex1024-7": {
+    "scip": 1.0,
+    "partner": 1.0,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "cod105": {
+    "scip": 0.18038830432471714,
+    "partner": 0.2535724966861178,
+    "portfolio": 0.18038830432471714,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "decomp2": {
+    "scip": 0.026613776539064323,
+    "partner": 0.03667414410738275,
+    "portfolio": 0.026613776539064323,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "drayage-100-23": {
+    "scip": 0.10128972918016527,
+    "partner": 0.14330002295760322,
+    "portfolio": 0.10128972918016527,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "comp21-2idx": {
+    "scip": 0.8986269380676801,
+    "partner": 0.9064981777558201,
+    "portfolio": 0.8986269380676801,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "dano3_3": {
+    "scip": 0.15798862894225968,
+    "partner": 0.19331656275553682,
+    "portfolio": 0.15798862894225968,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "cryptanalysiskb128n5obj16": {
+    "scip": 1.0,
+    "partner": 1.0,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "exp-1-500-5-5": {
+    "scip": 0.008540718496940592,
+    "partner": 0.014954154782308752,
+    "portfolio": 0.008540718496940592,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "enlight_hard": {
+    "scip": 0.0014189537129520129,
+    "partner": 0.0020134505602375915,
+    "portfolio": 0.0014189537129520129,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "hypothyroid-k1": {
+    "scip": 0.07671992108170046,
+    "partner": 0.14081099204235206,
+    "portfolio": 0.07671992108170046,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "gen-ip054": {
+    "scip": 0.004294955973143965,
+    "partner": 0.0031847881568796794,
+    "portfolio": 0.0023935223607318627,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "dws008-01": {
+    "scip": 0.8727589747240337,
+    "partner": 1.0,
+    "portfolio": 0.8727589747240337,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "eil33-2": {
+    "scip": 0.05293466108035556,
+    "partner": 0.07375984930017586,
+    "portfolio": 0.0446580580718194,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "h80x6320d": {
+    "scip": 0.6092061758394318,
+    "partner": 0.6286788644149188,
+    "portfolio": 0.6092061758394318,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "mas74": {
+    "scip": 0.03848559540830944,
+    "partner": 0.031741289472443014,
+    "portfolio": 0.026783686898174994,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "ic97_potential": {
+    "scip": 0.023122481724927327,
+    "partner": 0.024107396638764322,
+    "portfolio": 0.020028624489540004,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "glass-sc": {
+    "scip": 0.011766160696645465,
+    "partner": 0.05346634847780747,
+    "portfolio": 0.011766160696645465,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "graphdraw-domain": {
+    "scip": 0.04739423266101075,
+    "partner": 0.09175735534963367,
+    "portfolio": 0.04682559482315355,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "markshare2": {
+    "scip": 0.9747765700673667,
+    "partner": 0.9764638075814536,
+    "portfolio": 0.974192476026229,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "mas76": {
+    "scip": 0.001918777492967122,
+    "partner": 0.002973278665653684,
+    "portfolio": 0.001918777492967122,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-1456979": {
+    "scip": 0.48172335909872815,
+    "partner": 1.0,
+    "portfolio": 0.48172335909872815,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "istanbul-no-cutoff": {
+    "scip": 0.10338516108025163,
+    "partner": 0.14179007217690182,
+    "portfolio": 0.10338516108025163,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "mad": {
+    "scip": 0.8078328970283182,
+    "partner": 0.8842782539021093,
+    "portfolio": 0.8078327335338175,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-1445765": {
+    "scip": 0.23607865927628857,
+    "partner": 0.3440831991109744,
+    "portfolio": 0.23607865927628857,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-2657525-crna": {
+    "scip": 0.8275194182377169,
+    "partner": 0.8780144500144391,
+    "portfolio": 0.8235974045214091,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-3046615-murg": {
+    "scip": 0.019348742191803475,
+    "partner": 0.043408715649361586,
+    "portfolio": 0.018918279618916185,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "n3div36": {
+    "scip": 0.36614427075072087,
+    "partner": 0.5903238094129459,
+    "portfolio": 0.36614427075072087,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-1171737": {
+    "scip": 0.12034609753294793,
+    "partner": 0.14356081841448265,
+    "portfolio": 0.07959765991191618,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-3381206-awhea": {
+    "scip": 0.024185961306405563,
+    "partner": 0.02217203734069755,
+    "portfolio": 0.02217203734069755,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-3004026-krka": {
+    "scip": 0.7931897409493104,
+    "partner": 1.0,
+    "portfolio": 0.7931897409493104,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-787933": {
+    "scip": 0.022523736707305893,
+    "partner": 0.029099122224955865,
+    "portfolio": 0.022523736707305893,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-4763324-toguru": {
+    "scip": 0.786816380881252,
+    "partner": 0.7993996844273323,
+    "portfolio": 0.786816380881252,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-2746589-doon": {
+    "scip": 1.0,
+    "partner": 1.0,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-2978193-inde": {
+    "scip": 0.02558661208576967,
+    "partner": 0.048440036328467766,
+    "portfolio": 0.02558661208576967,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos17": {
+    "scip": 0.0080378525112199,
+    "partner": 0.014392250223381583,
+    "portfolio": 0.007947977098262992,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-4722843-widden": {
+    "scip": 0.17543570604950123,
+    "partner": 0.18311102099848012,
+    "portfolio": 0.15958412001656247,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos5": {
+    "scip": 0.002691226766472936,
+    "partner": 0.004232967735180965,
+    "portfolio": 0.002691226766472936,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-911970": {
+    "scip": 0.016704425398157675,
+    "partner": 0.033768504742676085,
+    "portfolio": 0.016523357228033362,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-3656078-kumeu": {
+    "scip": 1.0,
+    "partner": 1.0,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-3754480-nidda": {
+    "scip": 0.06210362931214532,
+    "partner": 0.06675456339953353,
+    "portfolio": 0.06210362931214532,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "ns1952667": {
+    "scip": 1.0,
+    "partner": 1.0,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-860300": {
+    "scip": 0.12034272543482755,
+    "partner": 0.1507078605203977,
+    "portfolio": 0.12034272543482755,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "opm2-z10-s4": {
+    "scip": 0.5575875216500166,
+    "partner": 0.6011325925356655,
+    "portfolio": 0.5575875216500166,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "ns1116954": {
+    "scip": 1.0,
+    "partner": 1.0,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-873061": {
+    "scip": 0.8792019343084821,
+    "partner": 0.9256355924324043,
+    "portfolio": 0.8792019343084821,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos8": {
+    "scip": 0.03261412344749149,
+    "partner": 0.03315810877595436,
+    "portfolio": 0.03261412344749149,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "radiationm40-10-02": {
+    "scip": 0.6646978292817404,
+    "partner": 0.7533634899016699,
+    "portfolio": 0.6646978292817404,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "p200x1188c": {
+    "scip": 0.0035232253971762347,
+    "partner": 0.006734913384822407,
+    "portfolio": 0.0035232253971762347,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "rail01": {
+    "scip": 1.0,
+    "partner": 1.0,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "pk1": {
+    "scip": 0.07835625848374558,
+    "partner": 0.12099316565630865,
+    "portfolio": 0.06908413711933073,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "net12": {
+    "scip": 1.0,
+    "partner": 1.0,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "satellites2-40": {
+    "scip": 1.0,
+    "partner": 1.0,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "rail507": {
+    "scip": 0.07152121130406476,
+    "partner": 0.09907797384744912,
+    "portfolio": 0.06730293347344138,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "seymour": {
+    "scip": 0.025484982943916844,
+    "partner": 0.03626151118568093,
+    "portfolio": 0.025484982943916844,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "piperout-27": {
+    "scip": 0.11205475924275339,
+    "partner": 0.33234957845115704,
+    "portfolio": 0.11205475924275339,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "s100": {
+    "scip": 1.0,
+    "partner": 1.0,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "sp150x300d": {
+    "scip": 0.0013643312335548236,
+    "partner": 0.002233732387051669,
+    "portfolio": 0.0013643312335548236,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "sorrell3": {
+    "scip": 0.3421286513457744,
+    "partner": 0.35423779661953936,
+    "portfolio": 0.3421286513457744,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "seymour1": {
+    "scip": 0.012525503943419421,
+    "partner": 0.023390948275482326,
+    "portfolio": 0.012525503943419421,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "roll3000": {
+    "scip": 0.12027875743814155,
+    "partner": 0.0553711132203539,
+    "portfolio": 0.049698964171020016,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "snp-02-004-104": {
+    "scip": 0.5438528160173638,
+    "partner": 0.7446609609317725,
+    "portfolio": 0.5438528160173638,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "supportcase42": {
+    "scip": 0.06567565663864228,
+    "partner": 0.08533935696530123,
+    "portfolio": 0.06567565663864228,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "supportcase26": {
+    "scip": 0.04834554020522007,
+    "partner": 0.06931234369422926,
+    "portfolio": 0.047504970229959594,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "sp98ar": {
+    "scip": 0.16695965539236918,
+    "partner": 0.21689819833687993,
+    "portfolio": 0.16455800638516008,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "sing326": {
+    "scip": 0.9412290972639201,
+    "partner": 1.0,
+    "portfolio": 0.9412290972639201,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "supportcase22": {
+    "scip": 1.0,
+    "partner": 1.0,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "uccase12": {
+    "scip": 0.33380157204513927,
+    "partner": 0.5155056700185024,
+    "portfolio": 0.33380157204513927,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "traininstance6": {
+    "scip": 0.3466860531643137,
+    "partner": 0.316171602003332,
+    "portfolio": 0.2874600482485881,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "swath3": {
+    "scip": 0.05161620216764031,
+    "partner": 0.0813446943324452,
+    "portfolio": 0.03969106076755386,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "supportcase18": {
+    "scip": 0.09599897639814711,
+    "partner": 0.10720004745941747,
+    "portfolio": 0.08372810918972645,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "tr12-30": {
+    "scip": 0.005182620251358233,
+    "partner": 0.006834110677453455,
+    "portfolio": 0.005121631297795779,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "timtab1": {
+    "scip": 0.0441520869897494,
+    "partner": 0.11599268909942008,
+    "portfolio": 0.0441520869897494,
+    "injected": 0,
+    "scip_crashed": false
+   }
+  },
+  "ea0": {
+   "air05": {
+    "scip": 0.05351519766402711,
+    "partner": 0.2113799089687202,
+    "portfolio": 0.05351337851211519,
+    "injected": 1,
+    "scip_crashed": false
+   },
+   "50v-10": {
+    "scip": 0.12148710413183288,
+    "partner": 1.0,
+    "portfolio": 0.12148710413183288,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "academictimetablesmall": {
+    "scip": 1.0,
+    "partner": 1.0,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "assign1-5-8": {
+    "scip": 1.0,
+    "partner": 0.046911509285813606,
+    "portfolio": 0.046911509285813606,
+    "injected": 0,
+    "scip_crashed": true
+   },
+   "CMS750_4": {
+    "scip": 0.11742736285954673,
+    "partner": 1.0,
+    "portfolio": 0.11742736285954673,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "beasleyC3": {
+    "scip": 0.028352403251285095,
+    "partner": 1.0,
+    "portfolio": 0.028352403251285095,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "cbs-cta": {
+    "scip": 0.22127955537095356,
+    "partner": 1.0,
+    "portfolio": 0.22127955537095356,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "cod105": {
+    "scip": 0.17544665700665468,
+    "partner": 1.0,
+    "portfolio": 0.17544665700665468,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "binkar10_1": {
+    "scip": 0.0036405421235163236,
+    "partner": 1.0,
+    "portfolio": 0.0036405421235163236,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "chromaticindex1024-7": {
+    "scip": 1.0,
+    "partner": 1.0,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "comp21-2idx": {
+    "scip": 0.8975171123261194,
+    "partner": 0.9950123357254886,
+    "portfolio": 0.8975167529660945,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "drayage-100-23": {
+    "scip": 0.09209083270379671,
+    "partner": 0.9035423005358657,
+    "portfolio": 0.09209083270379671,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "dano3_3": {
+    "scip": 0.15671244526425696,
+    "partner": 1.0,
+    "portfolio": 0.15671244526425696,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "cryptanalysiskb128n5obj16": {
+    "scip": 1.0,
+    "partner": 1.0,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "decomp2": {
+    "scip": 0.027212612790754064,
+    "partner": 1.0,
+    "portfolio": 0.027212612790754064,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "dws008-01": {
+    "scip": 0.8623313508794127,
+    "partner": 0.8720633469382514,
+    "portfolio": 0.8623303485232207,
+    "injected": 2,
+    "scip_crashed": false
+   },
+   "gen-ip054": {
+    "scip": 1.0,
+    "partner": 0.027687402183913464,
+    "portfolio": 0.027687402183913464,
+    "injected": 0,
+    "scip_crashed": true
+   },
+   "enlight_hard": {
+    "scip": 0.0014973685455818972,
+    "partner": 1.0,
+    "portfolio": 0.0014973685455818972,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "eil33-2": {
+    "scip": 0.052877985533259425,
+    "partner": 1.0,
+    "portfolio": 0.052877985533259425,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "exp-1-500-5-5": {
+    "scip": 0.00832852124121123,
+    "partner": 0.33419383777368694,
+    "portfolio": 0.008318855658519215,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "glass-sc": {
+    "scip": 0.01120588728157737,
+    "partner": 1.0,
+    "portfolio": 0.01120588728157737,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "ic97_potential": {
+    "scip": 0.022890929448320198,
+    "partner": 1.0,
+    "portfolio": 0.022890929448320198,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "h80x6320d": {
+    "scip": 0.5645650093578934,
+    "partner": 1.0,
+    "portfolio": 0.5645650093578934,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "graphdraw-domain": {
+    "scip": 0.04591144181664916,
+    "partner": 1.0,
+    "portfolio": 0.04591144181664916,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "hypothyroid-k1": {
+    "scip": 0.07400727725624863,
+    "partner": 1.0,
+    "portfolio": 0.07400727725624863,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "istanbul-no-cutoff": {
+    "scip": 0.1064825480360874,
+    "partner": 1.0,
+    "portfolio": 0.1064825480360874,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "mas76": {
+    "scip": 0.0018027218980487354,
+    "partner": 1.0,
+    "portfolio": 0.0018027218980487354,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "markshare2": {
+    "scip": 0.9748542189569899,
+    "partner": 1.0,
+    "portfolio": 0.9748542189569899,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "mad": {
+    "scip": 0.8097597778157924,
+    "partner": 1.0,
+    "portfolio": 0.8097597778157924,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "mas74": {
+    "scip": 0.03875720428185704,
+    "partner": 1.0,
+    "portfolio": 0.03875720428185704,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "n3div36": {
+    "scip": 0.38369719159798427,
+    "partner": 1.0,
+    "portfolio": 0.38369719159798427,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-2657525-crna": {
+    "scip": 0.8351790049743373,
+    "partner": 1.0,
+    "portfolio": 0.8351790049743373,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-1445765": {
+    "scip": 0.28555876064362207,
+    "partner": 1.0,
+    "portfolio": 0.28555876064362207,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-1171737": {
+    "scip": 0.12000027305267937,
+    "partner": 0.18502886478038258,
+    "portfolio": 0.10533696016331871,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-1456979": {
+    "scip": 0.5052010449897266,
+    "partner": 1.0,
+    "portfolio": 0.5052010449897266,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-3381206-awhea": {
+    "scip": 0.024455254272713015,
+    "partner": 1.0,
+    "portfolio": 0.024455254272713015,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-2746589-doon": {
+    "scip": 1.0,
+    "partner": 1.0,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-3004026-krka": {
+    "scip": 0.8237252518127207,
+    "partner": 1.0,
+    "portfolio": 0.8237252518127207,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-2978193-inde": {
+    "scip": 0.026743105947570588,
+    "partner": 1.0,
+    "portfolio": 0.026743105947570588,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-3046615-murg": {
+    "scip": 0.020761265323479085,
+    "partner": 1.0,
+    "portfolio": 0.020761265323479085,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-787933": {
+    "scip": 0.02724009235108486,
+    "partner": 1.0,
+    "portfolio": 0.02724009235108486,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-3656078-kumeu": {
+    "scip": 1.0,
+    "partner": 1.0,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-3754480-nidda": {
+    "scip": 0.06230037171107774,
+    "partner": 1.0,
+    "portfolio": 0.06230037171107774,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-4763324-toguru": {
+    "scip": 0.7873318750612742,
+    "partner": 1.0,
+    "portfolio": 0.7873318750612742,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-4722843-widden": {
+    "scip": 0.1730441437138613,
+    "partner": 1.0,
+    "portfolio": 0.1730441437138613,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos5": {
+    "scip": 0.0026578248128716537,
+    "partner": 1.0,
+    "portfolio": 0.0026578248128716537,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-860300": {
+    "scip": 0.12723553186329264,
+    "partner": 0.6183462159764717,
+    "portfolio": 0.12685177270407252,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-873061": {
+    "scip": 0.860841641786424,
+    "partner": 0.9997068664350891,
+    "portfolio": 0.860841641786424,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos17": {
+    "scip": 0.008710104235406224,
+    "partner": 0.1123264068948822,
+    "portfolio": 0.00871001335241614,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-911970": {
+    "scip": 0.018093945520868855,
+    "partner": 0.44041954124638955,
+    "portfolio": 0.01788312078527894,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos8": {
+    "scip": 0.021053405577224682,
+    "partner": 1.0,
+    "portfolio": 0.021053405577224682,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "opm2-z10-s4": {
+    "scip": 0.5333080073935251,
+    "partner": 0.9892686504759761,
+    "portfolio": 0.5310874094059249,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "net12": {
+    "scip": 1.0,
+    "partner": 1.0,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "ns1952667": {
+    "scip": 1.0,
+    "partner": 1.0,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "ns1116954": {
+    "scip": 1.0,
+    "partner": 1.0,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "p200x1188c": {
+    "scip": 0.004113208022676589,
+    "partner": 1.0,
+    "portfolio": 0.004113208022676589,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "rail01": {
+    "scip": 1.0,
+    "partner": 1.0,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "piperout-27": {
+    "scip": 0.13692010404313162,
+    "partner": 1.0,
+    "portfolio": 0.13692010404313162,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "radiationm40-10-02": {
+    "scip": 0.6029077425408875,
+    "partner": 1.0,
+    "portfolio": 0.6029077425408875,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "pk1": {
+    "scip": 0.08192042047614485,
+    "partner": 1.0,
+    "portfolio": 0.08192042047614485,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "rail507": {
+    "scip": 0.08264556614669255,
+    "partner": 1.0,
+    "portfolio": 0.08264556614669255,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "seymour": {
+    "scip": 0.026506959045271682,
+    "partner": 1.0,
+    "portfolio": 0.026506959045271682,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "roll3000": {
+    "scip": 0.13234194759000373,
+    "partner": 1.0,
+    "portfolio": 0.13234194759000373,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "satellites2-40": {
+    "scip": 1.0,
+    "partner": 1.0,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "s100": {
+    "scip": 1.0,
+    "partner": 1.0,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "seymour1": {
+    "scip": 0.012898342844887247,
+    "partner": 0.07257159867726815,
+    "portfolio": 0.012844989718891,
+    "injected": 1,
+    "scip_crashed": false
+   },
+   "sp150x300d": {
+    "scip": 0.0018314412020482874,
+    "partner": 1.0,
+    "portfolio": 0.0018314412020482874,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "sing326": {
+    "scip": 0.909164593606531,
+    "partner": 1.0,
+    "portfolio": 0.909164593606531,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "sorrell3": {
+    "scip": 0.34540860658513944,
+    "partner": 0.4574565070370833,
+    "portfolio": 0.3388840434335483,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "snp-02-004-104": {
+    "scip": 0.5469138822575902,
+    "partner": 1.0,
+    "portfolio": 0.5469138822575902,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "sp98ar": {
+    "scip": 0.17184459958613646,
+    "partner": 0.9153922473481667,
+    "portfolio": 0.17179802546658365,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "supportcase42": {
+    "scip": 0.07193204084840135,
+    "partner": 0.99999996398127,
+    "portfolio": 0.07193204050036787,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "supportcase18": {
+    "scip": 0.09393022458135443,
+    "partner": 1.0,
+    "portfolio": 0.09393022458135443,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "supportcase26": {
+    "scip": 0.048242786675305425,
+    "partner": 1.0,
+    "portfolio": 0.048242786675305425,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "supportcase22": {
+    "scip": 1.0,
+    "partner": 1.0,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "swath3": {
+    "scip": 0.045305636112555225,
+    "partner": 0.3267686051207647,
+    "portfolio": 0.04137361779784889,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "uccase12": {
+    "scip": 0.3134531254836986,
+    "partner": 1.0,
+    "portfolio": 0.3134531254836986,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "timtab1": {
+    "scip": 0.04698836678263569,
+    "partner": 1.0,
+    "portfolio": 0.04698836678263569,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "traininstance6": {
+    "scip": 0.33174208377963127,
+    "partner": 1.0,
+    "portfolio": 0.33174208377963127,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "tr12-30": {
+    "scip": 0.004822159334913607,
+    "partner": 1.0,
+    "portfolio": 0.004822159334913607,
+    "injected": 0,
+    "scip_crashed": false
+   }
+  },
+  "ea20": {
+   "50v-10": {
+    "scip": 0.11910914984894136,
+    "partner": 1.0,
+    "portfolio": 0.11910914984894136,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "air05": {
+    "scip": 0.0514777335314108,
+    "partner": 0.19478460563733405,
+    "portfolio": 0.05144442237691594,
+    "injected": 1,
+    "scip_crashed": false
+   },
+   "assign1-5-8": {
+    "scip": 0.00605171961703389,
+    "partner": 0.0780174253242443,
+    "portfolio": 0.0060037933690979305,
+    "injected": 1,
+    "scip_crashed": false
+   },
+   "academictimetablesmall": {
+    "scip": 1.0,
+    "partner": 1.0,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "CMS750_4": {
+    "scip": 0.0970667979312921,
+    "partner": 1.0,
+    "portfolio": 0.0970667979312921,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "beasleyC3": {
+    "scip": 0.02812419886678127,
+    "partner": 1.0,
+    "portfolio": 0.02812419886678127,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "cod105": {
+    "scip": 0.17375882811094115,
+    "partner": 1.0,
+    "portfolio": 0.17375882811094115,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "cbs-cta": {
+    "scip": 0.21889099948651466,
+    "partner": 1.0,
+    "portfolio": 0.21889099948651466,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "binkar10_1": {
+    "scip": 0.0037513621867595126,
+    "partner": 1.0,
+    "portfolio": 0.0037513621867595126,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "chromaticindex1024-7": {
+    "scip": 1.0,
+    "partner": 1.0,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "comp21-2idx": {
+    "scip": 0.8971996883030243,
+    "partner": 0.993833334277548,
+    "portfolio": 0.8971993552448952,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "drayage-100-23": {
+    "scip": 0.09047710064971014,
+    "partner": 0.9033381098106891,
+    "portfolio": 0.09047710064971014,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "dano3_3": {
+    "scip": 0.15592043711119263,
+    "partner": 1.0,
+    "portfolio": 0.15592043711119263,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "cryptanalysiskb128n5obj16": {
+    "scip": 1.0,
+    "partner": 1.0,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "decomp2": {
+    "scip": 0.02772295572794974,
+    "partner": 1.0,
+    "portfolio": 0.02772295572794974,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "gen-ip054": {
+    "scip": 1.0,
+    "partner": 0.025337830152961777,
+    "portfolio": 0.025337830152961777,
+    "injected": 0,
+    "scip_crashed": true
+   },
+   "dws008-01": {
+    "scip": 0.857242172102811,
+    "partner": 0.8670193749492207,
+    "portfolio": 0.8572293314786142,
+    "injected": 2,
+    "scip_crashed": false
+   },
+   "enlight_hard": {
+    "scip": 0.0013850699722145995,
+    "partner": 1.0,
+    "portfolio": 0.0013850699722145995,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "eil33-2": {
+    "scip": 0.05213834430135114,
+    "partner": 1.0,
+    "portfolio": 0.05213834430135114,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "exp-1-500-5-5": {
+    "scip": 0.008350382202965256,
+    "partner": 0.32918232205629383,
+    "portfolio": 0.008316574098847533,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "glass-sc": {
+    "scip": 0.01153051370802403,
+    "partner": 1.0,
+    "portfolio": 0.01153051370802403,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "ic97_potential": {
+    "scip": 0.02273852227463581,
+    "partner": 1.0,
+    "portfolio": 0.02273852227463581,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "h80x6320d": {
+    "scip": 0.5934412875189227,
+    "partner": 1.0,
+    "portfolio": 0.5934412875189227,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "graphdraw-domain": {
+    "scip": 0.04740332110855584,
+    "partner": 1.0,
+    "portfolio": 0.04740332110855584,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "hypothyroid-k1": {
+    "scip": 0.0756335582210951,
+    "partner": 1.0,
+    "portfolio": 0.0756335582210951,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "istanbul-no-cutoff": {
+    "scip": 0.12850152390049172,
+    "partner": 1.0,
+    "portfolio": 0.12850152390049172,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "mas76": {
+    "scip": 0.0016674197196266873,
+    "partner": 1.0,
+    "portfolio": 0.0016674197196266873,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "markshare2": {
+    "scip": 0.9753266158924596,
+    "partner": 1.0,
+    "portfolio": 0.9753266158924596,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "mad": {
+    "scip": 0.8213029130388385,
+    "partner": 1.0,
+    "portfolio": 0.8213029130388385,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "mas74": {
+    "scip": 0.0413717593165196,
+    "partner": 1.0,
+    "portfolio": 0.0413717593165196,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "n3div36": {
+    "scip": 0.38112263473151153,
+    "partner": 1.0,
+    "portfolio": 0.38112263473151153,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-2657525-crna": {
+    "scip": 0.8353096672959687,
+    "partner": 1.0,
+    "portfolio": 0.8353096672959687,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-1445765": {
+    "scip": 0.28678215126455714,
+    "partner": 1.0,
+    "portfolio": 0.28678215126455714,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-1171737": {
+    "scip": 0.12133539298705988,
+    "partner": 0.19888970350608962,
+    "portfolio": 0.10663521254385935,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-1456979": {
+    "scip": 0.5072472849998081,
+    "partner": 1.0,
+    "portfolio": 0.5072472849998081,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-3381206-awhea": {
+    "scip": 0.024554874156213675,
+    "partner": 1.0,
+    "portfolio": 0.024554874156213675,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-2746589-doon": {
+    "scip": 1.0,
+    "partner": 1.0,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-3004026-krka": {
+    "scip": 0.8093878038149948,
+    "partner": 1.0,
+    "portfolio": 0.8093878038149948,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-2978193-inde": {
+    "scip": 0.026217522939312444,
+    "partner": 1.0,
+    "portfolio": 0.026217522939312444,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-3046615-murg": {
+    "scip": 0.02054654073828972,
+    "partner": 1.0,
+    "portfolio": 0.02054654073828972,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-3656078-kumeu": {
+    "scip": 1.0,
+    "partner": 1.0,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-787933": {
+    "scip": 0.02735531700746109,
+    "partner": 1.0,
+    "portfolio": 0.02735531700746109,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-3754480-nidda": {
+    "scip": 0.06240165695223218,
+    "partner": 1.0,
+    "portfolio": 0.06240165695223218,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-4763324-toguru": {
+    "scip": 0.7874397380312078,
+    "partner": 1.0,
+    "portfolio": 0.7874397380312078,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-4722843-widden": {
+    "scip": 0.17192996292249896,
+    "partner": 1.0,
+    "portfolio": 0.17192996292249896,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos5": {
+    "scip": 0.0025378917663636965,
+    "partner": 1.0,
+    "portfolio": 0.0025378917663636965,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-860300": {
+    "scip": 0.10058831366264842,
+    "partner": 0.6299505388481423,
+    "portfolio": 0.10051081129804076,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos-873061": {
+    "scip": 0.8518316950111308,
+    "partner": 0.9996868892414009,
+    "portfolio": 0.8518316950111308,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos17": {
+    "scip": 0.0078118141173583,
+    "partner": 0.10084760711903215,
+    "portfolio": 0.0078063625953799795,
+    "injected": 2,
+    "scip_crashed": false
+   },
+   "neos-911970": {
+    "scip": 0.015691966224461826,
+    "partner": 0.43858307017106984,
+    "portfolio": 0.015484625496376808,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "neos8": {
+    "scip": 0.023425175151602282,
+    "partner": 1.0,
+    "portfolio": 0.023425175151602282,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "opm2-z10-s4": {
+    "scip": 0.5378674708074815,
+    "partner": 0.8564198354329996,
+    "portfolio": 0.5353726215620112,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "net12": {
+    "scip": 1.0,
+    "partner": 1.0,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "ns1952667": {
+    "scip": 1.0,
+    "partner": 1.0,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "ns1116954": {
+    "scip": 1.0,
+    "partner": 1.0,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "p200x1188c": {
+    "scip": 0.004351992030237318,
+    "partner": 1.0,
+    "portfolio": 0.004351992030237318,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "rail01": {
+    "scip": 1.0,
+    "partner": 1.0,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "piperout-27": {
+    "scip": 0.1385879817377839,
+    "partner": 1.0,
+    "portfolio": 0.1385879817377839,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "radiationm40-10-02": {
+    "scip": 0.59917301003229,
+    "partner": 1.0,
+    "portfolio": 0.59917301003229,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "pk1": {
+    "scip": 0.08279935027328306,
+    "partner": 1.0,
+    "portfolio": 0.08279935027328306,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "rail507": {
+    "scip": 0.07755256225359641,
+    "partner": 1.0,
+    "portfolio": 0.07755256225359641,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "seymour": {
+    "scip": 0.02613153836590214,
+    "partner": 1.0,
+    "portfolio": 0.02613153836590214,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "roll3000": {
+    "scip": 0.1282919913390737,
+    "partner": 1.0,
+    "portfolio": 0.1282919913390737,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "satellites2-40": {
+    "scip": 1.0,
+    "partner": 1.0,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "s100": {
+    "scip": 1.0,
+    "partner": 1.0,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "seymour1": {
+    "scip": 0.013228449455252277,
+    "partner": 0.07696065576139191,
+    "portfolio": 0.013181237916208375,
+    "injected": 1,
+    "scip_crashed": false
+   },
+   "sp150x300d": {
+    "scip": 0.0018299830486222287,
+    "partner": 1.0,
+    "portfolio": 0.0018299830486222287,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "sing326": {
+    "scip": 0.9199101595059579,
+    "partner": 1.0,
+    "portfolio": 0.9199101595059579,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "sorrell3": {
+    "scip": 0.34882163067147,
+    "partner": 0.4589307973782221,
+    "portfolio": 0.3410130473349758,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "snp-02-004-104": {
+    "scip": 0.5502491833786981,
+    "partner": 1.0,
+    "portfolio": 0.5502491833786981,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "sp98ar": {
+    "scip": 0.16846007976218924,
+    "partner": 0.9145704951697475,
+    "portfolio": 0.16839388798598903,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "supportcase42": {
+    "scip": 0.06819486193684249,
+    "partner": 0.9999999637687469,
+    "portfolio": 0.06819486152683227,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "supportcase18": {
+    "scip": 0.09280770734700541,
+    "partner": 1.0,
+    "portfolio": 0.09280770734700541,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "supportcase26": {
+    "scip": 0.04830344834435448,
+    "partner": 1.0,
+    "portfolio": 0.04830344834435448,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "supportcase22": {
+    "scip": 1.0,
+    "partner": 1.0,
+    "portfolio": 1.0,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "swath3": {
+    "scip": 0.04160557943771821,
+    "partner": 0.32678114041093115,
+    "portfolio": 0.03818482498701439,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "uccase12": {
+    "scip": 0.3099723026007411,
+    "partner": 1.0,
+    "portfolio": 0.3099723026007411,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "timtab1": {
+    "scip": 0.0465506047098693,
+    "partner": 1.0,
+    "portfolio": 0.0465506047098693,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "traininstance6": {
+    "scip": 0.3284931777632483,
+    "partner": 1.0,
+    "portfolio": 0.3284931777632483,
+    "injected": 0,
+    "scip_crashed": false
+   },
+   "tr12-30": {
+    "scip": 0.004819977516493188,
+    "partner": 1.0,
+    "portfolio": 0.004819977516493188,
+    "injected": 0,
+    "scip_crashed": false
+   }
+  }
+ }
+}

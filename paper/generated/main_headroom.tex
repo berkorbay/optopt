@@ -1,0 +1,15 @@
+\begin{table}[t]\centering\small
+\begin{tabular}{lrrlrrrr}
+\toprule
+ & \multicolumn{2}{c}{instances} & & & \multicolumn{2}{c}{oracle headroom} \\
+family & all & some sol. & budget & best fixed & $P$ (all) & all & some sol. \\
+\midrule
+MIPLIB 2017 & 80 & 80 & 60\,s & H1 & 0.337 & 41\% & 41\% \\
+ML4CO item placement & 100 & 100 & 30\,s & H1 & 0.207 & 16\% & 16\% \\
+ML4CO load balancing & 100 & 100 & 30\,s & S0 & 0.067 & 15\% & 15\% \\
+PGLib-UC & 56 & 33 & 60\,s & C0 & 0.788 & 5\% & 11\% \\
+Pooled & 336 & 313 & 30\,s & H1 & 0.327 & 19\% & 25\% \\
+\bottomrule
+\end{tabular}
+\caption{Headroom across HiGHS, SCIP and cuOpt (six strategies, Table~\ref{tab:portfolio}): normalised primal integral $P$ of the best fixed strategy and the improvement a per-instance oracle would achieve, one seed. \emph{All}: every attempted instance, with $P=1$ for every strategy where none finds a solution (23 PGLib-UC cases, all from the FERC system). \emph{Some sol.}: instances where at least one strategy finds a solution; the selectors of Section~\ref{sec:predict} are trained and evaluated on this cohort. On a five-seed MIPLIB subset about 80\,\% of the single-seed headroom repeats (Appendix~\ref{app:trackA}).}\label{tab:headroom}
+\end{table}

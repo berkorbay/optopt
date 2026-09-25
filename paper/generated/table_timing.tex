@@ -1,0 +1,22 @@
+\begin{table}[t]\centering\small
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.50\linewidth}rr@{}}
+\toprule
+arm & $P(120)$ & vs defaults, 95\,\% interval \\
+\midrule
+SCIP defaults & 0.179 & -- \\
+aggressive heuristics, set before presolve & 0.119 & $+33.3$\,\% $[+24.6, +41.4]$ \\
+aggressive heuristics, set at the first solver event & 0.106 & $+40.6$\,\% $[+31.6, +48.0]$ \\
+LLM agent, first decision only & 0.122 & $+31.8$\,\% $[+22.5, +41.2]$ \\
+LLM agent, every 20\,s & 0.117 & $+34.3$\,\% $[+24.8, +42.2]$ \\
+\midrule
+\emph{contrast} (first vs second arm) & mean (median) & 95\,\% interval, $p$ \\
+\midrule
+timing: heuristics at first event vs heuristics before presolve & $+10.9$\,\% ($+12.7$) & $[-3.9, +22.3]$, $p=0.0047$ \\
+judgement: LLM every 20\,s vs heuristics at first event & $-10.6$\,\% ($-3.4$) & $[-18.9, -4.0]$, $p=0.004$ \\
+steering: LLM every 20\,s vs LLM first decision & $+3.6$\,\% ($-0.2$) & $[-10.2, +15.7]$, $p=0.67$ \\
+first move: LLM first decision vs heuristics at first event & $-14.8$\,\% ($-2.7$) & $[-29.2, -3.6]$, $p<10^{-6}$ \\
+replication: LLM every 20\,s vs heuristics before presolve & $+1.5$\,\% ($+5.6$) & $[-12.8, +13.2]$, $p=0.31$ \\
+\bottomrule
+\end{tabular}
+\caption{Timing-matched controls, the primary agent comparison: 30 held-out ML4CO instances (validation split), two seeds, 120\,s, all arms in one session. Gains in primal integral, positive when the first arm is better: the gain in the mean, and in parentheses the median per-instance gain. Intervals: instance-level bootstrap of the mean gain; $p$: Wilcoxon signed-rank over instances. ``Heuristics'': the aggressive-heuristics setting; ``first event'': the first eligible solver event, where the agents first act.}\label{tab:timing}
+\end{table}

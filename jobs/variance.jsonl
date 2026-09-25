@@ -1,0 +1,24 @@
+{"set": "miplib", "instance": "data/miplib/inst/neos-3754480-nidda.mps.gz", "strategies": ["H0", "H1", "S0", "S1"], "seeds": [1, 2, 3, 4], "budget": 60}
+{"set": "miplib", "instance": "data/miplib/inst/neos-3754480-nidda.mps.gz", "strategies": ["C0", "C1"], "seeds": [1, 2], "budget": 60}
+{"set": "miplib", "instance": "data/miplib/inst/gen-ip054.mps.gz", "strategies": ["H0", "H1", "S0", "S1"], "seeds": [1, 2, 3, 4], "budget": 60}
+{"set": "miplib", "instance": "data/miplib/inst/gen-ip054.mps.gz", "strategies": ["C0", "C1"], "seeds": [1, 2], "budget": 60}
+{"set": "miplib", "instance": "data/miplib/inst/neos8.mps.gz", "strategies": ["H0", "H1", "S0", "S1"], "seeds": [1, 2, 3, 4], "budget": 60}
+{"set": "miplib", "instance": "data/miplib/inst/neos8.mps.gz", "strategies": ["C0", "C1"], "seeds": [1, 2], "budget": 60}
+{"set": "miplib", "instance": "data/miplib/inst/binkar10_1.mps.gz", "strategies": ["H0", "H1", "S0", "S1"], "seeds": [1, 2, 3, 4], "budget": 60}
+{"set": "miplib", "instance": "data/miplib/inst/binkar10_1.mps.gz", "strategies": ["C0", "C1"], "seeds": [1, 2], "budget": 60}
+{"set": "miplib", "instance": "data/miplib/inst/cod105.mps.gz", "strategies": ["H0", "H1", "S0", "S1"], "seeds": [1, 2, 3, 4], "budget": 60}
+{"set": "miplib", "instance": "data/miplib/inst/cod105.mps.gz", "strategies": ["C0", "C1"], "seeds": [1, 2], "budget": 60}
+{"set": "miplib", "instance": "data/miplib/inst/sorrell3.mps.gz", "strategies": ["H0", "H1", "S0", "S1"], "seeds": [1, 2, 3, 4], "budget": 60}
+{"set": "miplib", "instance": "data/miplib/inst/sorrell3.mps.gz", "strategies": ["C0", "C1"], "seeds": [1, 2], "budget": 60}
+{"set": "miplib", "instance": "data/miplib/inst/dano3_3.mps.gz", "strategies": ["H0", "H1", "S0", "S1"], "seeds": [1, 2, 3, 4], "budget": 60}
+{"set": "miplib", "instance": "data/miplib/inst/dano3_3.mps.gz", "strategies": ["C0", "C1"], "seeds": [1, 2], "budget": 60}
+{"set": "miplib", "instance": "data/miplib/inst/neos-873061.mps.gz", "strategies": ["H0", "H1", "S0", "S1"], "seeds": [1, 2, 3, 4], "budget": 60}
+{"set": "miplib", "instance": "data/miplib/inst/neos-873061.mps.gz", "strategies": ["C0", "C1"], "seeds": [1, 2], "budget": 60}
+{"set": "miplib", "instance": "data/miplib/inst/cbs-cta.mps.gz", "strategies": ["H0", "H1", "S0", "S1"], "seeds": [1, 2, 3, 4], "budget": 60}
+{"set": "miplib", "instance": "data/miplib/inst/cbs-cta.mps.gz", "strategies": ["C0", "C1"], "seeds": [1, 2], "budget": 60}
+{"set": "miplib", "instance": "data/miplib/inst/seymour.mps.gz", "strategies": ["H0", "H1", "S0", "S1"], "seeds": [1, 2, 3, 4], "budget": 60}
+{"set": "miplib", "instance": "data/miplib/inst/seymour.mps.gz", "strategies": ["C0", "C1"], "seeds": [1, 2], "budget": 60}
+{"set": "miplib", "instance": "data/miplib/inst/markshare2.mps.gz", "strategies": ["H0", "H1", "S0", "S1"], "seeds": [1, 2, 3, 4], "budget": 60}
+{"set": "miplib", "instance": "data/miplib/inst/markshare2.mps.gz", "strategies": ["C0", "C1"], "seeds": [1, 2], "budget": 60}
+{"set": "miplib", "instance": "data/miplib/inst/assign1-5-8.mps.gz", "strategies": ["H0", "H1", "S0", "S1"], "seeds": [1, 2, 3, 4], "budget": 60}
+{"set": "miplib", "instance": "data/miplib/inst/assign1-5-8.mps.gz", "strategies": ["C0", "C1"], "seeds": [1, 2], "budget": 60}

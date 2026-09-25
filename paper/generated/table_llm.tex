@@ -1,0 +1,15 @@
+\begin{table}[t]\centering\small
+\begin{tabular}{lrrrrr}
+\toprule
+arm & runs & $P(120)$ & vs default & vs best fixed & thinking \\
+\midrule
+SCIP defaults (no agent) & 60 & 0.184 & -- & -46.3\,\%$^{*}$ & -- \\
+best fixed setting from training & 60 & 0.126 & +31.7\,\%$^{*}$ & -- & -- \\
+Laya as the agent (fine-tuned, $t=0$) & 60 & 0.116 & +37.0\,\%$^{*}$ & +7.9\,\% & 0.1\,\% \\
+LLM agent: Ornith-1.5-35B-A3B & 60 & 0.115 & +37.5\,\%$^{*}$ & +8.5\,\% & 1.3\,\% \\
+LLM agent + Laya as a tool & 60 & 0.121 & +34.6\,\%$^{*}$ & +4.3\,\% & 1.5\,\% \\
+LLM agent: GPT-6 Luna (hosted) & 30 & 0.137 & +25.3\,\%$^{*}$ & -15.3\,\% & 10.1\,\% \\
+\bottomrule
+\end{tabular}
+\caption{The end-to-end agent experiment with LLM agents: 30 held-out ML4CO instances (validation split), SCIP starting from its defaults, one Cortex-X925 core and 8\,GiB, 120\,s of wall clock that includes every model call; two seeds (the hosted model one). Ornith-1.5-35B-A3B runs locally (NVFP4 on vLLM, thinking off) and is asked every 20\,s; GPT-6 Luna (ChatGPT Plus, reasoning effort low) every 30\,s. Gains in primal integral; $^{*}$ paired Wilcoxon $p<0.05$. \emph{Thinking}: share of the budget spent waiting for the agent.}\label{tab:llm}
+\end{table}

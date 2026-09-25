@@ -1,0 +1,384 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage[hidelinks]{hyperref}
+\graphicspath{{figures/}}
+
+\title{Optimizing the Optimizers:\\ Measuring Learned Control of MIP Solvers on a Single DGX Spark}
+\author{Berk Orbay\\ \small\texttt{berk.orbay@tideseed.com}\thanks{Experiments designed, run and written up with AgentRA (Agent Research Assistant; AgentRA is mainly Claude Opus 5.5), under the author's direction; every number was produced by the code and experiment definitions in the public repository
+\url{https://github.com/berkorbay/optopt} and can be re-derived with \texttt{optopt reproduce}. A companion file for
+automated readers is provided as an ancillary file and in the repository (Appendix~\ref{app:companion}). The study was reviewed, with suggestions for improvement, by Claude
+Fable 5.1 (Anthropic) and OpenAI GPT-6 Astra (ChatGPT).}}
+\date{Technical report --- 24 September 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+The default settings of a mixed-integer programming (MIP) solver are tuned to do well on average; a user with a fixed
+time budget cares about the instance at hand. On one NVIDIA DGX Spark we measure, for HiGHS, SCIP and NVIDIA cuOpt,
+how much sooner a good solution could be found by choosing settings per instance, whether that gain comes from the
+initial choice or from switching settings during the solve, and what simple and learned controllers recover, with
+their decision time charged to the budget. The measure is the primal integral, the gap to the best known solution
+averaged over the budget. Over 8{,}000 runs on MIPLIB 2017, two ML4CO families and PGLib-UC unit commitment give
+three main findings. First, choosing the best of six configurations per instance would lower the primal integral by
+19\,\% over all 336 attempted instances, 25\,\% on the 313 where some configuration finds a solution and 41\,\% on
+MIPLIB, measured with one seed. Second, inside SCIP most of this comes from the initial choice: the right static
+setting is worth 12\,\% (45 instances) and 20\,\% (the 20 with the most headroom), while the six switching schedules
+we tried add about 2\,\% at 120\,s and nothing detectable at 300\,s. Third, on held-out ML4CO instances one fixed
+setting improves on SCIP's defaults by 33\,\%, and by 41\,\% when applied at the solver's first callback instead of
+before presolve, which on load balancing avoids one start-up heuristic; an untrained local language-model agent makes the same first move in most runs, but the fixed
+setting applied at that callback beats it on 22 of 30 instances. Running cuOpt beside HiGHS or SCIP, or passing
+cuOpt's solutions into SCIP, gains 14--30\,\% with no model. The harness is released as a Python library with the
+experiment definitions, and the original run trajectories as a versioned archive.
+\end{abstract}
+
+\section{Introduction}
+Planners, schedulers and energy traders who use MIP solvers rarely wait for a proof of optimality. They need a good
+solution within a fixed time, and how soon a solver finds one depends strongly on its settings.
+Figure~\ref{fig:pi} shows an example. On the MIPLIB instance \texttt{h80x6320d}, SCIP with its default settings stays
+62\,\% away from the best known solution for the first minute and then finds the optimum at 61\,s. The same solver
+with cutting-plane separation switched off is within 8\,\% after two seconds but has not reached the optimum when the
+120\,s run ends. The primal integral $P(T)$~\citep{berthold2013primal} turns such a curve into one number, the
+average gap over the budget $T$, and so rewards finding good solutions early: here 0.318 for the default and 0.049
+without separation.
+
+\begin{figure}[t]\centering
+\includegraphics[width=0.9\linewidth]{fig_primal_integral.pdf}
+\caption{The primal integral on one run each of SCIP's default and of SCIP with separation off (MIPLIB
+\texttt{h80x6320d}, 120\,s, seed 0). The curve is the gap between the best solution found so far and the best known
+solution; it is 1 until the first solution. $P(120)$ is the shaded area divided by 120\,s: lower is better.}\label{fig:pi}
+\end{figure}
+
+Two developments make such differences worth exploiting. GPU solvers such as cuOpt~\citep{cuopt} now run beside CPU
+solvers on the same small machine, and agents --- from small learned models to language models --- can read a
+solver's state and change its settings while it runs. This paper measures how much there is to gain, whether the gain
+comes from the initial choice of settings or from changing them later, and which controllers recover it. All
+measurements use the conditions a user faces: one machine, a wall-clock budget that includes the controller's own
+decision time, and instances the controller has not seen.
+
+\paragraph{Headroom.} We call \emph{headroom} the gain available from choosing a configuration per instance instead of
+using one configuration for all. A small example: configuration A scores $P=0.2$ on instance 1 and 0.6 on instance 2;
+configuration B scores 0.5 and 0.1. The best single configuration is B (mean 0.30, against 0.40 for A). An
+\emph{oracle} that picks the better configuration for each instance scores 0.2 and 0.1 (mean 0.15). The headroom is
+the oracle's improvement over the best single configuration: $(0.30-0.15)/0.30 = 50\,\%$. It bounds what any method
+choosing among these configurations can gain; if one configuration were best everywhere, it would be zero. A solver's
+result also varies from run to run with its random seed, and an oracle chosen and scored on the same run counts that
+luck as headroom. Where a second seed exists (Sections~\ref{sec:switch} and~\ref{sec:agent}) the oracle therefore
+chooses on one seed and is scored on another. The cross-solver headroom of Section~\ref{sec:headroom} uses one seed;
+Section~\ref{sec:headroom} reports how much of it survives a second seed.
+
+\paragraph{Contributions.}
+\begin{enumerate}
+\item \textbf{How much there is to gain.} Choosing per instance among six configurations of HiGHS, SCIP and cuOpt
+  would lower the primal integral by 19\,\% over all attempted instances (25\,\% where some configuration finds a
+  solution) and 41\,\% on MIPLIB, compared with the best single configuration (one seed); on a five-seed subset about
+  80\,\% of the gain repeats (Section~\ref{sec:headroom}).
+\item \textbf{Choosing versus switching.} Inside SCIP we split the gain into the part from choosing the right
+  setting at the start and the part from changing settings during the solve (Figure~\ref{fig:decomp}). The initial
+  choice is worth 12\,\% at 120\,s (45 instances) and 20\,\% at 300\,s (the 20 with the most headroom); the six
+  switching schedules we tried add about 2\,\% and nothing detectable on the primal integral, and 1.5--1.6\,\% on
+  the primal-dual integral (upper 95\,\% bounds 3.8--4.3\,\%). We have not found this split measured for MIP before (Section~\ref{sec:switch}).
+\item \textbf{Agents measured on equal terms.} Every controller gets the same problem, solver and wall-clock budget,
+  and its thinking time counts against the budget: the defaults, the best fixed setting, an online bandit, Laya, and
+  local and hosted language models with and without Laya as a tool. A control that applies a fixed setting at the
+  same callback as the agents shows that the language-model agent's advantage over the fixed setting comes from
+  \emph{when} it acts: applied at that callback, the fixed setting beats the agent on 22 of 30 instances, and no
+  benefit was detected from the agent's later decisions (Section~\ref{sec:agent}).
+\item \textbf{Two solvers together.} Running cuOpt beside HiGHS improves on HiGHS alone by 30\,\%, and beside SCIP on
+  SCIP alone by 21\,\% (44 instances); passing cuOpt's
+  solutions into SCIP improves SCIP's own primal integral by 14\,\%. We report which solver interfaces allow this
+  safely (Section~\ref{sec:parallel}).
+\item \textbf{A reusable harness.} The Python library \texttt{optopt}: solver wrappers that record every solution
+  and bound over time, an agent interface that charges decisions to the wall clock, an exact-arithmetic solution
+  checker, the experiment definitions, the original run trajectories as a versioned archive, and
+  \texttt{optopt reproduce}, which re-derives every table from them. It
+  also records a pitfall for anyone measuring SCIP: when SCIP reports a new best solution, its primal bound still
+  holds the previous one (Appendix~\ref{app:metrics}).
+\end{enumerate}
+
+\paragraph{Related work.} Learning for MIP is an established field~\citep{bengio2021ml,scavuzzo2024ml}, with learned
+branching~\citep{khalil2016learning,gasse2019exact}, heuristics and diving~\citep{khalil2017heuristics,nair2020solving,
+chmiela2021learning}, large-neighbourhood search~\citep{song2020general,sonnerat2021learning,huang2023searching}, cut
+selection~\citep{tang2020rl,paulus2022learning,wang2023learning}, node selection~\citep{he2014learning,labassi2022nodes},
+restarts~\citep{anderson2019restarts} and configuration~\citep{hutter2010mipconfig,valentin2022instance,li2025benloc}.
+Per-instance algorithm selection and portfolios~\citep{rice1976algorithm,xu2008satzilla,xu2011hydramip,bischl2016aslib},
+including selection among MIP solvers~\citep{lindauer2019oasc,szeider2026zerofolio}, online bandits inside or on top
+of SCIP~\citep{hendel2019bandits,chmiela2023online,cai2025balans}, switching strategies during the
+solve~\citep{diliberto2016dash,hendel2017phases,berthold2018phases}, racing solver copies~\citep{mexi2026rexi,
+yilmaz2025parbalans} and language models that configure solvers~\citep{lawless2025llm,luo2026grimip,cai2025multitask,
+pellegrino2025transformer} all exist; we use these methods and claim no novelty for them. What we add is a measurement
+under a user's conditions: a CPU and GPU portfolio scored by the primal integral, the choosing-versus-switching split
+for MIP (made for black-box optimisation by \citet{vermetten2020dynamic}), and very different agents compared on the
+same budget with their thinking time charged. Appendix~\ref{app:related} details a structured search of about 180
+works, including relevant work we could not read.
+
+\section{Setup}\label{sec:setup}
+\paragraph{Machine and solvers.} One NVIDIA DGX Spark (GB10: 10 Cortex-X925 and 10 Cortex-A725 cores, Blackwell GPU,
+121\,GiB memory shared by CPU and GPU). HiGHS 1.15.1, SCIP 10.0 and cuOpt 26.08 from released wheels. Timed CPU runs
+use one thread. In the SCIP experiments of Sections~\ref{sec:switch}--\ref{sec:parallel} each run is pinned to one
+Cortex-X925 core with a hard memory cap; the cross-solver grid of Sections~\ref{sec:headroom} and~\ref{sec:predict} was
+not pinned, so its runs moved between fast and slow cores (Appendix~\ref{app:resources}). Budgets are equal for the
+solver; they do not equalise total compute: a local language-model server and cuOpt's host threads are extra.
+\paragraph{Instances.} 80 MIPLIB 2017 benchmark instances~\citep{gleixner2021miplib}, at most one per MIPLIB group;
+the ML4CO item-placement and load-balancing families~\citep{gasse2022ml4co}, trained on their official training
+instances and tested on instances from their official validation split; and the 56 PGLib-UC unit-commitment
+cases~\citep{pglibuc}, built with the benchmark's own formulation~\citep{knueven2020uc}. On 23 of the 24 FERC cases no
+configuration finds a solution within 60\,s (Appendix~\ref{app:data}).
+\paragraph{Metric.} The normalised primal integral $P(T)\in[0,1]$~\citep{berthold2013primal} (Figure~\ref{fig:pi}):
+the relative gap between the best solution found so far and the best known value, averaged over the wall-clock budget
+$T$, with the gap set to 1 until the first solution. The budget starts once the model has been read (median 1.8\,s,
+at most 5.8\,s), except in the live two-solver runs of Section~\ref{sec:parallel}, where it starts when both processes
+are launched and so includes reading the model. The primal-dual integral (PDI) uses the solver's own bound in place of the best known value, so it
+also rewards progress on the bound. The final solution of every SCIP run, and of the HiGHS and cuOpt runs in the
+two-solver experiments, is checked independently against the model; earlier solutions that enter $P(T)$ are not
+checked (Appendix~\ref{app:metrics}).
+\paragraph{Protocol.} Where two seeds exist, oracles choose on one seed and are scored on another; the cross-solver
+grid has one seed (Section~\ref{sec:headroom}). Learned selectors are evaluated by grouped
+cross-validation: ML4CO by its official split, PGLib-UC by power system; a second scheme leaves a whole family out.
+Paired tests are over instances, with the seeds of an instance averaged. The machine was shared with other work, and
+results shift between sessions: the same two arms on the same 60 runs scored 0.7--2.7\,\% worse on the second day than
+on the first. We therefore compare arms within one session and treat differences below about 3\,\% between sessions
+as noise. Within a session, arms ran in a fixed order per instance, not randomised, so slow drift within a session is
+not excluded. Only the 10\,\% headroom threshold of Section~\ref{sec:headroom} was set in advance. We name choosing
+versus switching (Section~\ref{sec:switch}) and the timing-matched control (Section~\ref{sec:agent}) as the principal
+comparisons after the fact, to guide reading; like all others they are exploratory, not pre-registered.
+
+\section{How much is there to gain?}\label{sec:headroom}
+Six configurations --- default and primal-focused variants of HiGHS, SCIP and cuOpt (Table~\ref{tab:portfolio}) ---
+were run on all 336 instances. Choosing per instance would lower the primal integral by 19\,\% over all of them and
+by 41\,\% on MIPLIB (Table~\ref{tab:headroom}), above the 10\,\% threshold we set before any run. On 23 unit-commitment
+cases, all from the FERC system, no configuration finds a solution within 60\,s, so every configuration scores $P=1$
+there; on the 313 instances where at least one configuration finds a solution the headroom is 25\,\%. The selectors of
+Section~\ref{sec:predict} are trained and evaluated on those 313, which include one FERC case. This oracle is chosen
+and scored on the same seed. On a 12-instance MIPLIB subset run with five seeds and the four CPU configurations, a
+held-out oracle realises 26.3\,\% of an apparent 31.8\,\%, that is 83\,\% (Table~\ref{tab:variance}); cuOpt was not
+re-run with extra seeds. These runs were not pinned to cores, so a run's effective budget varied by up to a factor of
+two, which inflates single-seed headroom. cuOpt's solutions are feasible at its own tolerance of $10^{-4}$; two of 140
+checked exceed $10^{-6}$ (Appendix~\ref{app:metrics}). No configuration wins everywhere: HiGHS with more
+heuristics, or SCIP's default, is the best fixed choice where the CPU solvers finish, while cuOpt wins at short
+budgets and on the MIPLIB instances that neither CPU solver finishes in 300\,s (Appendix~\ref{app:trackA}).
+\input{generated/main_headroom.tex}
+
+\section{Predicting the right configuration}\label{sec:predict}
+The most direct way to recover the headroom is to predict the right configuration from the instance before solving
+it. We trained three selectors on 62 features of the instance's constraint matrix: LightGBM, a small neural network
+(MLP) and Laya~\citep{laya2026}, a 421M-parameter decision model (a ModernBERT-large
+encoder~\citep{warner2025modernbert} with a classification head) that reads the features as text. Laya was used both
+untrained and fully fine-tuned, with training targets that give each configuration a weight falling with its cost,
+$P(a)\propto\exp(-\beta\,\mathrm{cost}_a)$. Table~\ref{tab:selection} reports the share of the headroom each selector
+recovers: 0 means no better than the best single configuration, 1 means as good as the oracle.
+
+At 10\,s, fine-tuned Laya recovers 31\,\% of the headroom (95\,\% interval 14--48\,\%, the only interval that excludes
+zero) and LightGBM 24\,\%. Compared directly on the same test instances, no superiority was established: the difference is
+$+0.07$ of the headroom (interval $-0.13$ to $+0.34$, paired Wilcoxon $p=0.67$) at 10\,s and $+0.06$ ($p=0.09$) at
+30\,s. On a family left out of training the difference is clear: at 30\,s Laya stays level with the best fixed
+configuration while LightGBM and the MLP fall about 0.4 below it, and Laya beats LightGBM by 0.37 of the headroom
+(interval 0.16 to 0.68, $p<10^{-4}$). These intervals hold the fitted models fixed; they do not cover retraining or
+other folds. The pooled result comes mostly from MIPLIB. Averaged per family instead, every selector falls below each
+family's best fixed configuration at 10\,s, mainly because of unit commitment, where the headroom is small and a wrong
+choice costs more than a right one gains; at 30\,s only Laya stays above it (Appendix~\ref{app:trackA}). Laya answers
+in 30--56\,ms (median, two measurements) and, called every few seconds, does not measurably slow cuOpt on the shared GPU
+(Appendix~\ref{app:contention}). Computing the features takes 0.3\,s (median; at most 5.2\,s); this is not charged to
+the budget and would matter at 10\,s, so the 10\,s results assume the features are already computed. With these
+features and models, prediction before the solve recovers part of the headroom and leaves the rest.
+\input{generated/main_selection.tex}
+
+\section{Choosing versus switching}\label{sec:switch}
+A controller could also change settings during the solve. Inside SCIP we compared six static settings (default,
+separation off, pseudo-cost branching, inference branching, heuristics off, aggressive heuristics) with six schedules
+that switch between them or restart the search, either at 25\,\% of the budget or after 20\,\% of the budget without
+progress. All twelve ran on 45 MIPLIB instances that SCIP does not solve quickly, with two seeds (Table~\ref{tab:b2}).
+Each choice is made on one seed and scored on the other, in both directions, averaged. Let $B$ be the mean cost of the
+single static setting that is best on average, $S$ the mean cost when each instance gets its own best static setting,
+$A$ the same with all twelve arms (schedules included) available, and $R$ the mean cost when each run gets the arm
+that won that very run ($R$ is hindsight, not chosen on the other seed). We report
+\begin{itemize}
+\item \emph{choosing}: $(B-S)/B$, the gain from the best static setting per instance;
+\item \emph{switching}: $(S-A)/B$, what the schedules add on top of that choice;
+\item \emph{gap to the per-run hindsight oracle}: $(A-R)/B$, what knowing each run's winner in advance would add.
+  It includes seed-to-seed noise, the limits of choosing on one seed, and anything the tested choices do not use.
+\end{itemize}
+
+Figure~\ref{fig:decomp} shows the result. At 120\,s, choosing is worth 11.8\,\% on $P$ and 6.5\,\% on PDI, and the
+six schedules add 2.1\,\% and 1.6\,\% (upper 95\,\% bounds 7.3\,\% and 3.8\,\%). At 300\,s, on the 20 instances with the
+most headroom, choosing is worth 20.4\,\% on $P$ and 11.3\,\% on PDI, while the schedules add $-0.2\,\%$ on $P$ and
+1.5\,\% on PDI (interval $-0.2$ to 4.3\,\%). With these settings, schedules, instances and budgets, a controller gains
+by choosing well at the start; the six schedules add little that transfers to a new seed. Other schedules, other actions or budgets beyond 300\,s may
+still gain from switching: DASH~\citep{diliberto2016dash} gains by switching the branching rule at individual nodes, scored by time to
+optimality, and Balans~\citep{cai2025balans} by switching large-neighbourhood operators.
+
+\begin{figure}[t]\centering
+\includegraphics[width=0.9\linewidth]{fig_decomposition.pdf}
+\caption{Where the gain inside SCIP comes from: choosing the right static setting per instance (blue) versus
+switching settings during the solve on top of that choice (orange), both relative to the best single SCIP setting and
+measured on a held-out seed. 120\,s: 45 MIPLIB instances; 300\,s: the 20 with the most headroom.}\label{fig:decomp}
+\end{figure}
+
+The gap to the per-run hindsight oracle is large. With five seeds, the setting that wins on one seed is also the
+winner averaged over seeds in only 71\,\% of runs for $P$ (69\,\% for PDI). The tested predictors do not capture this
+part; running several copies at once does (Section~\ref{sec:parallel}).
+\input{generated/table_b2.tex}
+
+\section{Agents in the loop}\label{sec:agent}
+The end-to-end experiment gives an agent a problem, SCIP, a 120\,s wall-clock budget and one Cortex-X925 core with
+8--9\,GiB of memory. SCIP starts with its default settings and calls the agent at solver events (a new best solution
+or a solved node): first at the first such event after the start, then at the first event after each decision
+interval. At each call the agent may keep the current setting, change it, or restart the search. SCIP's time limit is
+wall-clock time, so the agent's thinking time is taken from the solver's budget (Appendix~\ref{app:agents}). Instance
+features are computed before the start and not charged (median 0.3\,s, at most 5.2\,s).
+
+On held-out ML4CO test instances, every agent whose first move is sensible recovers much of the headroom
+(Table~\ref{tab:agent}). An online bandit with no training (UCB1 over the six settings) improves on the defaults by
+21--27\,\%, and on item placement by about 30\,\%, better in 28 of 30 runs. The best fixed setting learned from 60
+training instances (aggressive heuristics, one setting for both families) gives $+29\,\%$; LightGBM predicting a setting per
+instance $+23\,\%$; a bandit that starts from that prediction $+29\,\%$; and Laya, fine-tuned for the same first
+choice, $+28\,\%$: it learns to pick aggressive heuristics, the same choice as the best fixed setting.
+\input{generated/main_agent.tex}
+
+\paragraph{Language-model agents.} We gave the same task to two language models: Ornith-1.5-35B-A3B run locally
+(NVFP4 on vLLM, thinking off), called every 20\,s, and OpenAI GPT-6 Luna through a ChatGPT Plus subscription
+(reasoning effort low), called every 30\,s. Each call shows the model the same 62 features that Laya and LightGBM see,
+SCIP's current state (elapsed time, gap, recent solutions, node rate, current setting, the model's own earlier
+decisions) and the six settings with a one-line description each, and asks for one action.
+
+\paragraph{When the agent acts.} A fixed setting is applied before SCIP starts, so it also governs presolve. An agent
+can act only when SCIP first calls it: presolve takes about 0.25\,s on these instances, and the first call comes at a
+median 0.35\,s (at most 1.1\,s), while SCIP is solving the root node. Part of an agent's advantage could therefore come
+from \emph{when} it acts rather than \emph{what} it chooses. Table~\ref{tab:timing} separates the two. In one session,
+on 30 held-out ML4CO instances with two seeds, it runs the defaults, aggressive heuristics set before presolve (the
+best fixed setting on the training instances, one setting for both families),
+the same setting applied by a fixed agent at the first call, the local language-model agent, and that agent's first
+decision alone. Against the defaults these arms gain 33.3\,\%, 40.6\,\%, 34.3\,\% and 31.8\,\%.
+\begin{itemize}
+\item \emph{Timing.} Applying aggressive heuristics at the first call instead of before presolve is better on 24 of 30
+  instances ($p=0.005$). The median per-instance gain is 12.7\,\% and the mean gain 10.9\,\%; a few instances lose
+  heavily, so the 95\,\% bootstrap interval of the mean ($-3.9$ to $+22.3\,\%$) includes zero. The consistent part is on
+  load balancing: better on 15 of 15 instances ($p<10^{-4}$), although $P$ only moves from 0.037 to 0.032; there the
+  setting applied before presolve scores the same as the defaults. On item placement, 9 instances are better and 6
+  worse ($p=0.25$).
+\item \emph{Language-model agent versus the callback-fixed control.} Against the fixed setting applied at the same
+  callback, the agent is worse on 22 of 30 instances ($p=0.004$): 10.6\,\% in the mean (interval $-18.9$ to $-4.0\,\%$) and 3.4\,\% at the median,
+  mostly on item placement (worse on 12 of 15 instances, $p=0.03$). Its
+  first move is aggressive heuristics in 49 of 60 runs and ``keep the defaults'' in the rest. This is an end-to-end
+  comparison: it includes the agent's inference time (1.3\,\% of the budget) and its later actions, not only the
+  quality of its choices.
+\item \emph{Steering.} No benefit was detected from its later decisions: $+3.6\,\%$ over its first decision alone,
+  with an interval ($-10.2$ to $+15.7\,\%$, $p=0.67$) that allows a sizeable gain or loss.
+\item Against the fixed setting applied before presolve, the agent is not significantly different ($+1.5\,\%$,
+  $p=0.31$).
+\end{itemize}
+On these two families the language model makes a good first choice without training. It matches the fixed setting
+applied before presolve, and the same fixed setting applied at the agent's own first callback beats it.
+\input{generated/table_timing.tex}
+
+\paragraph{Why the timing matters.} A follow-up session on the same 30 instances (one seed; Table~\ref{tab:timingmech}
+in Appendix~\ref{app:agents}) applied aggressive heuristics before presolve, at the first call, and at the first call
+after 10\,s, and recorded SCIP's statistics. On load balancing SCIP stays at the root node for the whole budget in
+every arm, spends about 96 of the 120\,s in primal heuristics (almost all in RENS) and finds the same solutions in
+every arm. The arms differ only at the start. Set before presolve, the setting also runs SCIP's zero-objective
+heuristic at the start of the solve (0.59\,s on average), which delays the first solution from 0.73\,s to 1.25\,s.
+Until the first solution the gap counts as 1, so this delay alone costs about $0.5/120\approx0.004$ in $P$, the whole
+difference between the arms (0.035 against 0.031). Applied at the first call the setting again wins on 15 of 15
+instances, and applied after 10\,s on 14 of 15. On item placement, where the first solution comes within 0.02\,s, the
+arms do not differ significantly (11 better, 4 worse, $p=0.36$). The timing effect is therefore specific: one early
+heuristic that the setting adds only when it is set before the solve, on instances whose first solution takes about a
+second. It does not show that acting after presolve is better in general.
+
+\paragraph{Other agents (first session).} Table~\ref{tab:llm} comes from an earlier session on the same 30 instances
+and adds arms that Table~\ref{tab:timing} lacks. Laya as the agent, fine-tuned for the first choice, improves on the
+defaults by 37.0\,\% and uses 0.1\,\% of the budget. Adding Laya's probabilities to the local model's prompt did not
+improve it ($+34.6\,\%$). GPT-6 Luna improved on the defaults by 25.3\,\% (one seed); its decisions took a median
+3.3\,s each, 10\,\% of the budget. In that session the local model scored $+37.5\,\%$ and the fixed setting before
+presolve $+31.7\,\%$; Table~\ref{tab:timing} replicates both at $+34.3\,\%$ and $+33.3\,\%$, so arms are compared only
+within one table. On the primal-dual integral all agents in Table~\ref{tab:llm} are within 3\,\% of each other, and
+their differences come from the 15 item-placement instances: on load balancing every arm of that table scores
+0.035--0.038.
+\input{generated/table_llm.tex}
+
+\section{Two solvers at once}\label{sec:parallel}
+Run-to-run variation can be used without any prediction by running solvers side by side and keeping the better
+solution at each moment~\citep{gomes2001portfolios,mexi2026rexi}. On a machine with a GPU the natural pair is a CPU
+solver and a GPU solver. Estimated from separately recorded runs, HiGHS on one thread plus cuOpt would capture 80\,\%
+of the headroom between solvers on the instances where some configuration finds a solution (Table~\ref{tab:parallel}).
+Run live on the 80 MIPLIB instances at 60\,s, launched together, with both arms of each comparison interleaved in one
+session in a fixed order per instance, and the clock started at launch:
+\begin{itemize}
+\item HiGHS on one core with cuOpt on the GPU improves on HiGHS alone by 30.4\,\% (95\,\% interval 17.7 to 44.2\,\%;
+  better on 61 instances, worse on 13, $p<10^{-8}$);
+\item SCIP with cuOpt improves on SCIP alone by 21.5\,\% (interval 9.3 to 36.9\,\%; better on 28, worse on 13,
+  $p<10^{-4}$) on the first 44
+  instances in job-file order; this run stopped at the end of its scheduled window.
+\end{itemize}
+Scores use each solver's best solution; cuOpt's are feasible at its own tolerance of $10^{-4}$, and two of the 140
+checked exceed $10^{-6}$ (Appendix~\ref{app:metrics}).
+Within SCIP, two copies with different seeds improve $P$ by 7\,\% and PDI by 5.5\,\%. Each of these uses more compute
+than a single run: cuOpt adds the GPU and five host cores.
+
+The two solvers can also exchange solutions. When cuOpt's solutions are passed to SCIP through SCIP's heuristic
+interface, SCIP's own primal integral improves by 14\,\% ($p<10^{-3}$; better on 47 instances, worse on 24). This
+matters when one solver's result is needed together with its bound. The pair's best-of value does not improve beyond
+the plain race, because cuOpt already held those solutions. Passing SCIP's solutions to cuOpt as well costs 15\,\%:
+cuOpt switches off its presolve once it accepts outside solutions. Appendix~\ref{app:nofruit} describes the interfaces,
+including one that crashes SCIP.
+\input{generated/main_parallel.tex}
+
+\section{Discussion}
+\paragraph{What this means in practice.} For a user with a time budget, within the families, hardware and budgets
+(30--300\,s) we tested:
+\begin{enumerate}
+\item Run a GPU solver beside the CPU solver: $+30\,\%$ over HiGHS alone and $+21\,\%$ over SCIP alone (44 instances), with no model.
+\item Choose the setting once, at the start. On these ML4CO families one fixed setting chosen on training instances,
+  and a fine-tuned Laya, improve on SCIP's defaults by about a third; an untrained local language model finds the same
+  first move but does not beat the fixed setting applied at the same callback. Where the first solution takes about a
+  second, check whether a setting adds work before it: on load balancing, aggressive heuristics set before the solve
+  delayed the first solution by half a second.
+\item If one solver's result is needed, pass the other solver's solutions in through the supported heuristic
+  interface ($+14\,\%$).
+\end{enumerate}
+For learned controllers such as Laya, the useful task is therefore to diagnose the instance early, measured against
+the best fixed setting and an online bandit, rather than to steer the solver continuously.
+
+\paragraph{Future research.} (i) A new test cohort from families where no single setting is best on the training
+data, with the protocol and one primary comparison fixed in advance and the timing-matched controls as baselines.
+(ii) A short diagnostic run, charged to the budget, before a single choice, with a rule to keep the default when the
+predicted gain is small; and richer state (root LP statistics, early solutions) for learned selectors. (iii) Budgets
+longer than 300\,s, with a small set of schedules fixed in advance. (iv) Language-model agents with an explicit
+thinking-time budget that decide \emph{when} to act, not only what to do. (v) Which solvers to run or pair under a
+compute budget, with CPU, GPU, memory and energy counted, and exchange in both directions with HiGHS as the CPU
+partner. (vi) Using the GPU \emph{inside} a MIP solver: GPU LP solvers of the PDLP type for relaxations in a CPU
+branch-and-bound, and GPU heuristic populations. These are solver-engineering projects, and several GPU jobs at once
+need scheduling: two slowed each other in our measurements (Appendix~\ref{app:contention}).
+
+\paragraph{Limitations.} All timings come from one DGX Spark. Whether the conclusions transfer to other hardware is
+untested: relative results can change with the balance of CPU and GPU and with memory contention. SCIP is the only solver studied in depth, the action sets are small and hand-picked, most results
+use two seeds, the language-model agents saw two instance families, and budgets are at most 300\,s. Tests are paired
+over instances (seeds averaged). Apart from the 10\,\% headroom threshold set in advance, the comparisons are
+exploratory rather than pre-registered, including the principal ones named in Section~\ref{sec:setup}. An interval that includes zero
+is not evidence that two arms are equal, so we report its bounds. Only final solutions are checked independently. Instance features are computed before the clock starts (Appendix~\ref{app:limitations}).
+
+\section{Conclusion}
+In HiGHS, SCIP and cuOpt, choosing settings per instance could lower the primal integral by 19\,\% over all attempted
+instances and 25\,\% where some configuration finds a solution (one seed; about 80\,\% of it repeats on a five-seed
+subset), and inside SCIP most of it comes from the initial choice rather than from the switching schedules we tried.
+Running cuOpt beside HiGHS recovers 30\,\% and beside SCIP 21\,\% (44 instances) with no model. One fixed setting chosen on training instances
+improves on SCIP's defaults by a third on the ML4CO families; an untrained local language model finds the same first
+move, but the fixed setting applied at the same callback beats it on 22 of 30 instances. Two questions remain open:
+whether an agent can beat the right fixed choice on families where that choice is not obvious, and whether switching
+helps at budgets beyond 300\,s. The library, the experiment definitions, the archived trajectories and
+\texttt{optopt reproduce} are released so that both can be tested against the same baselines.
+
+\bibliographystyle{plainnat}
+\bibliography{refs}
+
+\appendix
+\input{generated/appendix.tex}
+
+\end{document}

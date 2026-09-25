@@ -1,0 +1,13 @@
+\begin{table}[t]\centering\small
+\setlength{\tabcolsep}{4pt}\begin{tabular}{lrrrrrr}
+\toprule
+ & & \multicolumn{2}{c}{agents} & \multicolumn{2}{c}{fixed from $t=0$} & 2 copies \\ instances $\times$ seeds & default & bandit & rules & aggr.\ heur. & sep.\ off & (2 cores) \\
+\midrule
+ML4CO, set 1 ($20\times2$) & 0.156 & 0.122 & 0.160 & -- & -- & 0.118 \\
+MIPLIB ($15\times2$) & 0.390 & 0.383 & 0.401 & -- & -- & 0.374 \\
+ML4CO set 2, item placement ($15\times2$) & 0.356 & 0.250 & -- & 0.245 & 0.304 & -- \\
+ML4CO set 2, load balancing ($15\times2$) & 0.036 & 0.038 & -- & 0.035 & 0.041 & -- \\
+\bottomrule
+\end{tabular}
+\caption{Agent in the loop: primal integral $P(120)$ (lower is better) of agents that start from SCIP's defaults in a fixed slice (one Cortex-X925 core, 9\,GiB, 120\,s wall clock including every agent decision). ML4CO instances are held out, from the validation split. Set 1: bandit deciding every 10\,s; set 2: every 5\,s. Significance tests in Appendix~\ref{app:agents}.}\label{tab:agent}
+\end{table}

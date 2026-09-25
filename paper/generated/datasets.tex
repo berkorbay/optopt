@@ -1,0 +1,18 @@
+\begin{itemize}
+\item \textbf{MIPLIB 2017}~\citep{gleixner2021miplib}: 80 of the 240 benchmark-set instances, chosen
+deterministically for diversity --- at most one instance per MIPLIB group, at most 2.5M non-zeros, not
+infeasible, stratified by MIPLIB status and size tercile. Budget $T=60$\,s. Reference: published optimum or best
+known value. The set is 96\,\% ``easy'' by MIPLIB's definition (solved within an hour by some solver), which is
+not the same as easy within 60\,s: only 56 of 80 reach a 1\,\% gap within 60\,s under any strategy.
+\item \textbf{ML4CO item placement} and \textbf{load balancing}~\citep{gasse2022ml4co}: two homogeneous
+generated families from the NeurIPS 2021 competition. Training instances 0--74 of each family's official training
+split (cuOpt) / 0--99 (CPU strategies), and the first 25 instances of the official validation split as test
+instances. Budget $T=30$\,s. Reference: best value found by any of our runs.
+\item \textbf{PGLib-UC}~\citep{pglibuc}: all 56 unit-commitment cases (three base systems: CAISO, FERC, RTS-GMLC),
+built with the benchmark's own reference Pyomo model~\citep{knueven2020uc} (about 250k rows and 250k columns,
+40\,\% binary). Budget $T=60$\,s. Split by base system.
+\end{itemize}
+The budgets are shorter than the spec's 300\,s screening: the machine has one GPU, cuOpt is the throughput
+bottleneck, and one night was available. The 10\,s and 30\,s views are cut from the same trajectories. On MIPLIB,
+HiGHS and SCIP defaults were additionally run for 300\,s to place instances into the spec's
+SHORT/MEDIUM/HARD bands (Appendix).

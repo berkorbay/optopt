@@ -1,0 +1,30 @@
+\begin{table}[t]\centering\small
+\resizebox{\linewidth}{!}{\begin{tabular}{llrrrr}
+\toprule
+$T$ & policy & MIPLIB 2017 & ML4CO item placement & ML4CO load balancing & PGLib-UC \\
+\midrule
+10 & Best fixed strategy & -0.03 & +0.00 & -1.77 & -4.90 \\
+10 & Hand rules & +0.08 & -0.48 & -1.90 & -5.88 \\
+10 & LightGBM & +0.23 & -0.08 & +0.12 & -5.88 \\
+10 & MLP & -0.04 & +0.00 & +0.08 & -5.88 \\
+10 & Laya zero-shot & +0.08 & -5.26 & -2.18 & -5.47 \\
+10 & MIP-Laya (fine-tuned) & +0.30 & +0.00 & +0.07 & -4.84 \\
+10 & \emph{oracle headroom} & 32\% & 17\% & 25\% & 1\% \\
+\midrule
+30 & Best fixed strategy & +0.00 & +0.00 & -1.49 & +0.00 \\
+30 & Hand rules & +0.10 & -3.21 & -1.57 & +0.09 \\
+30 & LightGBM & +0.05 & -0.80 & -0.23 & +0.00 \\
+30 & MLP & +0.18 & +0.00 & +0.00 & -1.81 \\
+30 & Laya zero-shot & -0.06 & -9.31 & -0.66 & -1.81 \\
+30 & MIP-Laya (fine-tuned) & +0.07 & +0.00 & +0.15 & +0.00 \\
+30 & \emph{oracle headroom} & 40\% & 14\% & 23\% & 6\% \\
+\midrule
+60 & Best fixed strategy & -0.01 & -- & -- & -1.16 \\
+60 & Hand rules & +0.02 & -- & -- & +0.53 \\
+60 & LightGBM & -0.26 & -- & -- & -0.66 \\
+60 & MLP & +0.08 & -- & -- & -0.12 \\
+60 & \emph{oracle headroom} & 41\% & -- & -- & 11\% \\
+\bottomrule
+\end{tabular}}
+\caption{Closed gap per family, pooled policy (one model for all families). Headroom = oracle improvement over the family's hindsight SBS. Where the headroom is small (PGLib-UC at 10\,s: 1\%) closed-gap values are ratios of tiny differences and very large in magnitude; read them with the headroom row.}\label{tab:sel-family}
+\end{table}

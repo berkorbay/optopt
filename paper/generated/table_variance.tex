@@ -1,0 +1,13 @@
+\begin{table}[t]\centering\small
+\begin{tabular}{lrrr}
+\toprule
+strategy & mean s.d. of $P(60)$ & median s.d. & max range \\
+\midrule
+H0 & 0.025 & 0.011 & 0.207 \\
+H1 & 0.019 & 0.011 & 0.152 \\
+S0 & 0.020 & 0.004 & 0.266 \\
+S1 & 0.032 & 0.005 & 0.629 \\
+\bottomrule
+\end{tabular}
+\caption{Run-to-run variability across seeds on the 12-instance MIPLIB variance subset (HiGHS and SCIP strategies, seeds 0--4; cuOpt extra seeds were cut for time). Among these four strategies the per-seed winner equals the seed-averaged winner on 65\% of (instance, seed) pairs. A single-seed oracle appears 31.8\% better than the SBS on its own seed and realises 26.3\% on held-out seeds (true seed-mean oracle: 29.6\%).}\label{tab:variance}
+\end{table}

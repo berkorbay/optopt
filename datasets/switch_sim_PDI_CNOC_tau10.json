@@ -1,0 +1,54 @@
+{
+ "args": {
+  "base": "C:NOC",
+  "tau": 10.0,
+  "T": 120,
+  "metric": "PDI"
+ },
+ "n_runs": 48,
+ "n_instances": 24,
+ "results": {
+  "continue": {
+   "cost": 0.43850117519665766,
+   "closed_gap": 0.0,
+   "vs_continue_pct": 0.0,
+   "actions": {
+    "continue": 48
+   }
+  },
+  "restart-best": {
+   "cost": 0.4517821243640856,
+   "closed_gap": -0.21665749118845576,
+   "vs_continue_pct": -3.0287146121037756,
+   "actions": {
+    "C:INF": 10,
+    "C:PSC": 38
+   }
+  },
+  "lightgbm": {
+   "cost": 0.4452700545197847,
+   "closed_gap": -0.1104234640023195,
+   "vs_continue_pct": -1.5436399503584783,
+   "actions": {
+    "C:HEU": 4,
+    "C:HOFF": 10,
+    "C:INF": 6,
+    "C:PSC": 7,
+    "continue": 21
+   }
+  },
+  "oracle": {
+   "cost": 0.37720189080738287,
+   "closed_gap": 1.0,
+   "vs_continue_pct": 13.97927482447076,
+   "actions": {
+    "C:D": 4,
+    "C:HEU": 2,
+    "C:HOFF": 6,
+    "C:INF": 3,
+    "C:PSC": 6,
+    "continue": 27
+   }
+  }
+ }
+}

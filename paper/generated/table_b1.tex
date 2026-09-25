@@ -1,0 +1,14 @@
+\begin{table}[t]\centering\small
+\begin{tabular}{lrrrrrr}
+\toprule
+& \multicolumn{3}{c}{$P(T)$} & \multicolumn{3}{c}{PDI$(T)$} \\
+arm & 30\,s & 60\,s & 120\,s & 30\,s & 60\,s & 120\,s \\
+\midrule
+SCIP default & 0.286 & 0.193 & 0.126 & 0.466 & 0.343 & 0.249 \\
+separation off & 0.229 & 0.160 & 0.119 & 0.428 & 0.336 & 0.269 \\
+off $\to$ default at 25\,\% & 0.231 & 0.160 & 0.118 & 0.430 & 0.337 & 0.268 \\
+off $\to$ default at 50\,\% & 0.230 & 0.161 & 0.119 & 0.429 & 0.336 & 0.269 \\
+\bottomrule
+\end{tabular}
+\caption{Track B, B1: SCIP~10 at 120\,s on the 30 B0 instances where these arms differed most, one run per Cortex-X925 core, 8\,GiB per run, no other load; 30/60\,s views cut from the same runs. Paired Wilcoxon tests in the text.}\label{tab:b1}
+\end{table}

@@ -1,0 +1,32 @@
+{
+ "started": "2026-09-24T22:08:06+0200",
+ "jobs": "jobs/timing_mech.jsonl",
+ "only": "cpu",
+ "cpu_lanes": 3,
+ "gpu_lanes": 0,
+ "pinned_cores": [
+  5,
+  6,
+  7
+ ],
+ "pinned_core_models": [
+  "Cortex-X925"
+ ],
+ "mem_cap_gb_per_run": 4.0,
+ "scip_mem_limit_mb": 3072,
+ "min_avail_gate_gb": 20.0,
+ "mem_available_gb_at_start": 29.7,
+ "threads_per_run": {
+  "highs": 1,
+  "scip": 1,
+  "cuopt_cpu": 3
+ },
+ "serving_units": {
+  "llama-qwen38.service": "active",
+  "ornith-vllm.service": "active",
+  "ollama.service": "active",
+  "ornith-vllm": "active",
+  "llama-qwen38": "active"
+ },
+ "gpu_processes": "VLLM::EngineCore, 48700 MiB\nllama-server, 32048 MiB"
+}

@@ -1,0 +1,17 @@
+\begin{table}[h]\centering\small
+\begin{tabular}{lrrr}
+\toprule
+family (system) & attempted & some strategy finds a solution & scored \\
+\midrule
+MIPLIB 2017 & 80 & 75 & 80 \\
+ML4CO item placement & 100 & 100 & 100 \\
+ML4CO load balancing & 100 & 100 & 100 \\
+PGLib-UC, CA & 20 & 20 & 20 \\
+PGLib-UC, FERC & 24 & 1 & 1 \\
+PGLib-UC, RTS-GMLC & 12 & 12 & 12 \\
+\midrule
+all & 336 & 308 & 313 \\
+\bottomrule
+\end{tabular}
+\caption{Instances in the cross-solver grid, run with all six strategies (one seed, 30\\,s view). An instance is scored on the conditional cohort when it has a reference value, which requires some strategy to find a solution; in the full cohort the unsolved instances score $P=1$ for every strategy. MIPLIB instances always have a published reference, so its unsolved instances are scored in both.}\label{tab:flow}
+\end{table}

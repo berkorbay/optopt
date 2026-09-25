@@ -1,0 +1,488 @@
+{
+ "P@30|ALL": {
+  "n": 70,
+  "means": {
+   "A:default": 0.3022,
+   "A:bandit": 0.3016,
+   "A:rules": 0.2991,
+   "2x default (2 cores)": 0.2789
+  },
+  "A:bandit": {
+   "vs_default_pct": 0.18676221387620104,
+   "p": 0.47794743855272326,
+   "wins": 16,
+   "losses": 14
+  },
+  "A:rules": {
+   "vs_default_pct": 1.0253440506190608,
+   "p": 0.7188875621362669,
+   "wins": 16,
+   "losses": 14
+  },
+  "2x default (2 cores)": {
+   "vs_default_pct": 7.7040174098027805,
+   "p": 1.7343976283205776e-06,
+   "wins": 30,
+   "losses": 0
+  }
+ },
+ "P@30|ML4CO": {
+  "n": 40,
+  "means": {
+   "A:default": 0.2123,
+   "A:bandit": 0.2116,
+   "A:rules": 0.2078,
+   "2x default (2 cores)": 0.1785
+  },
+  "A:bandit": {
+   "vs_default_pct": 0.33632669983705665,
+   "p": 0.4304332733154297,
+   "wins": 10,
+   "losses": 10
+  },
+  "A:rules": {
+   "vs_default_pct": 2.125844012267931,
+   "p": 0.8408222198486328,
+   "wins": 11,
+   "losses": 9
+  },
+  "2x default (2 cores)": {
+   "vs_default_pct": 15.92949132712779,
+   "p": 1.9073486328125e-06,
+   "wins": 20,
+   "losses": 0
+  }
+ },
+ "P@30|MIPLIB": {
+  "n": 30,
+  "means": {
+   "A:default": 0.422,
+   "A:bandit": 0.4216,
+   "A:rules": 0.4208,
+   "2x default (2 cores)": 0.4128
+  },
+  "A:bandit": {
+   "vs_default_pct": 0.08642491825859909,
+   "p": 0.7212766990291557,
+   "wins": 6,
+   "losses": 4
+  },
+  "A:rules": {
+   "vs_default_pct": 0.2870592280574599,
+   "p": 0.7988593499960496,
+   "wins": 5,
+   "losses": 5
+  },
+  "2x default (2 cores)": {
+   "vs_default_pct": 2.1858504282802405,
+   "p": 0.005062032126267864,
+   "wins": 10,
+   "losses": 0
+  }
+ },
+ "PDI@30|ALL": {
+  "n": 70,
+  "means": {
+   "A:default": 0.5775,
+   "A:bandit": 0.5779,
+   "A:rules": 0.5763,
+   "2x default (2 cores)": 0.5633
+  },
+  "A:bandit": {
+   "vs_default_pct": -0.07746825235069336,
+   "p": 0.9053327102078165,
+   "wins": 15,
+   "losses": 14
+  },
+  "A:rules": {
+   "vs_default_pct": 0.19978726855611026,
+   "p": 0.6575663850187541,
+   "wins": 17,
+   "losses": 12
+  },
+  "2x default (2 cores)": {
+   "vs_default_pct": 2.4644559654306897,
+   "p": 2.5630832507250074e-06,
+   "wins": 29,
+   "losses": 0
+  }
+ },
+ "PDI@30|ML4CO": {
+  "n": 40,
+  "means": {
+   "A:default": 0.6182,
+   "A:bandit": 0.6192,
+   "A:rules": 0.6165,
+   "2x default (2 cores)": 0.6001
+  },
+  "A:bandit": {
+   "vs_default_pct": -0.15775379579641877,
+   "p": 0.9854354858398438,
+   "wins": 10,
+   "losses": 10
+  },
+  "A:rules": {
+   "vs_default_pct": 0.2862472409152248,
+   "p": 0.7011814117431641,
+   "wins": 11,
+   "losses": 9
+  },
+  "2x default (2 cores)": {
+   "vs_default_pct": 2.9311794352618152,
+   "p": 1.9073486328125e-06,
+   "wins": 20,
+   "losses": 0
+  }
+ },
+ "PDI@30|MIPLIB": {
+  "n": 30,
+  "means": {
+   "A:default": 0.5231,
+   "A:bandit": 0.5229,
+   "A:rules": 0.5228,
+   "2x default (2 cores)": 0.5141
+  },
+  "A:bandit": {
+   "vs_default_pct": 0.04904000430605317,
+   "p": 0.9527650219907529,
+   "wins": 5,
+   "losses": 4
+  },
+  "A:rules": {
+   "vs_default_pct": 0.06354978538909895,
+   "p": 0.7670968684102772,
+   "wins": 6,
+   "losses": 3
+  },
+  "2x default (2 cores)": {
+   "vs_default_pct": 1.7290262731719757,
+   "p": 0.007685794055213263,
+   "wins": 9,
+   "losses": 0
+  }
+ },
+ "P@60|ALL": {
+  "n": 70,
+  "means": {
+   "A:default": 0.277,
+   "A:bandit": 0.279,
+   "A:rules": 0.2779,
+   "2x default (2 cores)": 0.2539
+  },
+  "A:bandit": {
+   "vs_default_pct": -0.7305105387003399,
+   "p": 0.44470918538611104,
+   "wins": 14,
+   "losses": 17
+  },
+  "A:rules": {
+   "vs_default_pct": -0.3215923733276579,
+   "p": 0.5566018657073668,
+   "wins": 14,
+   "losses": 17
+  },
+  "2x default (2 cores)": {
+   "vs_default_pct": 8.350678503855159,
+   "p": 1.1741945398998534e-06,
+   "wins": 31,
+   "losses": 0
+  }
+ },
+ "P@60|ML4CO": {
+  "n": 40,
+  "means": {
+   "A:default": 0.1808,
+   "A:bandit": 0.181,
+   "A:rules": 0.1792,
+   "2x default (2 cores)": 0.1475
+  },
+  "A:bandit": {
+   "vs_default_pct": -0.06962259885436198,
+   "p": 0.956329345703125,
+   "wins": 9,
+   "losses": 11
+  },
+  "A:rules": {
+   "vs_default_pct": 0.9296533670376972,
+   "p": 0.8408222198486328,
+   "wins": 11,
+   "losses": 9
+  },
+  "2x default (2 cores)": {
+   "vs_default_pct": 18.418244582802366,
+   "p": 1.9073486328125e-06,
+   "wins": 20,
+   "losses": 0
+  }
+ },
+ "P@60|MIPLIB": {
+  "n": 30,
+  "means": {
+   "A:default": 0.4052,
+   "A:bandit": 0.4097,
+   "A:rules": 0.4095,
+   "2x default (2 cores)": 0.3956
+  },
+  "A:bandit": {
+   "vs_default_pct": -1.1237986070133545,
+   "p": 0.2860033840207056,
+   "wins": 5,
+   "losses": 6
+  },
+  "A:rules": {
+   "vs_default_pct": -1.066196701147222,
+   "p": 0.1548598252820037,
+   "wins": 3,
+   "losses": 8
+  },
+  "2x default (2 cores)": {
+   "vs_default_pct": 2.359566581424096,
+   "p": 0.003345618115850882,
+   "wins": 11,
+   "losses": 0
+  }
+ },
+ "PDI@60|ALL": {
+  "n": 70,
+  "means": {
+   "A:default": 0.5277,
+   "A:bandit": 0.5285,
+   "A:rules": 0.5283,
+   "2x default (2 cores)": 0.5146
+  },
+  "A:bandit": {
+   "vs_default_pct": -0.1525637464475109,
+   "p": 0.317589436651994,
+   "wins": 13,
+   "losses": 18
+  },
+  "A:rules": {
+   "vs_default_pct": -0.10641376494280946,
+   "p": 0.6241950204767168,
+   "wins": 14,
+   "losses": 17
+  },
+  "2x default (2 cores)": {
+   "vs_default_pct": 2.4948419141382723,
+   "p": 1.1741945398998534e-06,
+   "wins": 31,
+   "losses": 0
+  }
+ },
+ "PDI@60|ML4CO": {
+  "n": 40,
+  "means": {
+   "A:default": 0.5492,
+   "A:bandit": 0.5495,
+   "A:rules": 0.5485,
+   "2x default (2 cores)": 0.5317
+  },
+  "A:bandit": {
+   "vs_default_pct": -0.043099714265890224,
+   "p": 0.7011814117431641,
+   "wins": 8,
+   "losses": 12
+  },
+  "A:rules": {
+   "vs_default_pct": 0.12820728238742138,
+   "p": 0.6742229461669922,
+   "wins": 11,
+   "losses": 9
+  },
+  "2x default (2 cores)": {
+   "vs_default_pct": 3.195536471212263,
+   "p": 1.9073486328125e-06,
+   "wins": 20,
+   "losses": 0
+  }
+ },
+ "PDI@60|MIPLIB": {
+  "n": 30,
+  "means": {
+   "A:default": 0.4991,
+   "A:bandit": 0.5006,
+   "A:rules": 0.5013,
+   "2x default (2 cores)": 0.4917
+  },
+  "A:bandit": {
+   "vs_default_pct": -0.31319309714776716,
+   "p": 0.32806478170083675,
+   "wins": 5,
+   "losses": 6
+  },
+  "A:rules": {
+   "vs_default_pct": -0.4507006118841706,
+   "p": 0.10951093748864077,
+   "wins": 3,
+   "losses": 8
+  },
+  "2x default (2 cores)": {
+   "vs_default_pct": 1.4666310077892117,
+   "p": 0.003345618115850882,
+   "wins": 11,
+   "losses": 0
+  }
+ },
+ "P@120|ALL": {
+  "n": 70,
+  "means": {
+   "A:default": 0.256,
+   "A:bandit": 0.234,
+   "A:rules": 0.2629,
+   "2x default (2 cores)": 0.2277
+  },
+  "A:bandit": {
+   "vs_default_pct": 8.58592998888945,
+   "p": 0.01593612940057758,
+   "wins": 18,
+   "losses": 13
+  },
+  "A:rules": {
+   "vs_default_pct": -2.691353529777443,
+   "p": 0.9219460106409413,
+   "wins": 15,
+   "losses": 16
+  },
+  "2x default (2 cores)": {
+   "vs_default_pct": 11.075520152868664,
+   "p": 1.1741945398998534e-06,
+   "wins": 31,
+   "losses": 0
+  }
+ },
+ "P@120|ML4CO": {
+  "n": 40,
+  "means": {
+   "A:default": 0.1558,
+   "A:bandit": 0.1225,
+   "A:rules": 0.1596,
+   "2x default (2 cores)": 0.1177
+  },
+  "A:bandit": {
+   "vs_default_pct": 21.352650898005045,
+   "p": 0.026641845703125,
+   "wins": 12,
+   "losses": 8
+  },
+  "A:rules": {
+   "vs_default_pct": -2.4556080597307233,
+   "p": 0.6476554870605469,
+   "wins": 12,
+   "losses": 8
+  },
+  "2x default (2 cores)": {
+   "vs_default_pct": 24.449614414908748,
+   "p": 1.9073486328125e-06,
+   "wins": 20,
+   "losses": 0
+  }
+ },
+ "P@120|MIPLIB": {
+  "n": 30,
+  "means": {
+   "A:default": 0.3897,
+   "A:bandit": 0.3827,
+   "A:rules": 0.4007,
+   "2x default (2 cores)": 0.3743
+  },
+  "A:bandit": {
+   "vs_default_pct": 1.7818133906173166,
+   "p": 0.3739447986092539,
+   "wins": 6,
+   "losses": 5
+  },
+  "A:rules": {
+   "vs_default_pct": -2.816995789613109,
+   "p": 0.3739447986092539,
+   "wins": 3,
+   "losses": 8
+  },
+  "2x default (2 cores)": {
+   "vs_default_pct": 3.947699516464778,
+   "p": 0.003345618115850882,
+   "wins": 11,
+   "losses": 0
+  }
+ },
+ "PDI@120|ALL": {
+  "n": 70,
+  "means": {
+   "A:default": 0.4978,
+   "A:bandit": 0.4942,
+   "A:rules": 0.4995,
+   "2x default (2 cores)": 0.4841
+  },
+  "A:bandit": {
+   "vs_default_pct": 0.7397941593617661,
+   "p": 0.2476009312007299,
+   "wins": 15,
+   "losses": 16
+  },
+  "A:rules": {
+   "vs_default_pct": -0.3418286083813705,
+   "p": 0.8754242567176749,
+   "wins": 16,
+   "losses": 15
+  },
+  "2x default (2 cores)": {
+   "vs_default_pct": 2.766361416583862,
+   "p": 1.1741945398998534e-06,
+   "wins": 31,
+   "losses": 0
+  }
+ },
+ "PDI@120|ML4CO": {
+  "n": 40,
+  "means": {
+   "A:default": 0.513,
+   "A:bandit": 0.5082,
+   "A:rules": 0.5127,
+   "2x default (2 cores)": 0.4953
+  },
+  "A:bandit": {
+   "vs_default_pct": 0.9328962207782895,
+   "p": 0.14290618896484375,
+   "wins": 12,
+   "losses": 8
+  },
+  "A:rules": {
+   "vs_default_pct": 0.07360479765998655,
+   "p": 0.6742229461669922,
+   "wins": 12,
+   "losses": 8
+  },
+  "2x default (2 cores)": {
+   "vs_default_pct": 3.4518190785230494,
+   "p": 1.9073486328125e-06,
+   "wins": 20,
+   "losses": 0
+  }
+ },
+ "PDI@120|MIPLIB": {
+  "n": 30,
+  "means": {
+   "A:default": 0.4776,
+   "A:bandit": 0.4754,
+   "A:rules": 0.4821,
+   "2x default (2 cores)": 0.4691
+  },
+  "A:bandit": {
+   "vs_default_pct": 0.46322297994933914,
+   "p": 0.6566419342620566,
+   "wins": 3,
+   "losses": 8
+  },
+  "A:rules": {
+   "vs_default_pct": -0.9368347219016215,
+   "p": 0.2860033840207056,
+   "wins": 4,
+   "losses": 7
+  },
+  "2x default (2 cores)": {
+   "vs_default_pct": 1.7846120110665114,
+   "p": 0.003345618115850882,
+   "wins": 11,
+   "losses": 0
+  }
+ }
+}

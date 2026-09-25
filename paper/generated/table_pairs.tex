@@ -1,0 +1,14 @@
+\begin{table}[t]\centering\small
+\resizebox{\linewidth}{!}{\begin{tabular}{lrlrrlrlr}
+\toprule
+family & $n$ & SBS & $P$ & oracle & best CPU$\|$GPU pair & $P$ & best switch & $P$ \\
+\midrule
+MIPLIB 2017 & 80 & H1 & 0.337 & 0.199 & H1$\|$C0 & 0.220 & C0$\to$H1@25\% & 0.290 \\
+ML4CO item placement & 100 & H1 & 0.207 & 0.174 & H1$\|$C0 & 0.197 & H1$\to$C0@50\% & 0.231 \\
+ML4CO load balancing & 100 & S0 & 0.067 & 0.057 & S0$\|$C0 & 0.059 & C0$\to$H1@25\% & 0.086 \\
+PGLib-UC & 33 & C0 & 0.640 & 0.572 & H1$\|$C0 & 0.568 & H1$\to$C0@25\% & 0.682 \\
+All & 313 & H1 & 0.254 & 0.185 & H1$\|$C0 & 0.199 & H1$\to$C0@50\% & 0.256 \\
+\bottomrule
+\end{tabular}}
+\caption{Offline portfolios from the recorded trajectories (seed 0, full budget). CPU$\|$GPU: one CPU strategy and one cuOpt strategy run at the same time, best incumbent of the two. Switch A$\to$B@$x$: A for $x$ of the budget, then B from scratch (no solution transfer). The pair uses one CPU thread plus the GPU, so it is not a free lunch; it is the concurrency the DGX Spark offers.}\label{tab:pairs}
+\end{table}

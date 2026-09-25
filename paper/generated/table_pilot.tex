@@ -1,0 +1,15 @@
+\begin{table}[t]\centering\small
+\begin{tabular}{llrrrr}
+\toprule
+metric & instances & default & bandit agent & rules agent & 2$\times$ default (2 cores) \\
+\midrule
+$P$ & ML4CO (n=40) & 0.156 & 0.122 (+21\%*) & 0.160 (-2\%) & 0.118 (+24\%*) \\
+$P$ & MIPLIB (n=30) & 0.390 & 0.383 (+2\%) & 0.401 (-3\%) & 0.374 (+4\%*) \\
+$P$ & ALL (n=70) & 0.256 & 0.234 (+9\%*) & 0.263 (-3\%) & 0.228 (+11\%*) \\
+PDI & ML4CO (n=40) & 0.513 & 0.508 (+1\%) & 0.513 (+0\%) & 0.495 (+3\%*) \\
+PDI & MIPLIB (n=30) & 0.478 & 0.475 (+0\%) & 0.482 (-1\%) & 0.469 (+2\%*) \\
+PDI & ALL (n=70) & 0.498 & 0.494 (+1\%) & 0.499 (-0\%) & 0.484 (+3\%*) \\
+\bottomrule
+\end{tabular}
+\caption{Main-experiment pilot: agents start from SCIP's defaults in a fixed slice (one Cortex-X925 core, 9\,GiB, 120\,s wall clock including every agent decision). Mean over (instance, seed); percentages vs default, * paired Wilcoxon $p<0.05$. The last column uses twice the compute and is a reference, not a competitor.}\label{tab:pilot}
+\end{table}

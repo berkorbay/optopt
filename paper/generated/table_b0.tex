@@ -1,0 +1,14 @@
+\begin{table}[t]\centering\small
+\begin{tabular}{lrrrr}
+\toprule
+policy & $P(30)$ & vs best static & PDI$(30)$ & vs best static \\
+\midrule
+SCIP default & 0.386 & -9.4\% & 0.539 & -4.7\% \\
+best static setting & 0.353 & +0.0\% & 0.515 & +0.0\% \\
+best single schedule & 0.359 & -1.8\% & 0.515 & +0.0\% \\
+per-instance best static (oracle) & 0.341 & +3.2\% & 0.488 & +5.1\% \\
+per-instance best incl. schedules (oracle) & 0.341 & +3.2\% & 0.485 & +5.8\% \\
+\bottomrule
+\end{tabular}
+\caption{Track B go/no-go (B0): SCIP 10 with five static settings and seven fixed mid-solve schedules on 45 non-trivial MIPLIB instances, 30\,s, two seeds. Every choice is made on one seed and scored on the other. PDI: primal-dual integral. Positive = better than the best static setting.}\label{tab:b0}
+\end{table}
